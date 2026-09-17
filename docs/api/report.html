@@ -1,0 +1,1410 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Report | HubSpot Analytics API</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">HubSpot Analytics API<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/hubspot-analytics-sdk">voxgig-sdk/hubspot-analytics-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">HubSpot Analytics API</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/clone.html">Clone</a>
+<a href="../api/dashboard.html">Dashboard</a>
+<a aria-current="page" href="../api/report.html">Report</a><div class="nav-sections"><a class="nav-section" href="#post-analyticsreporting2027-03-betareportsreportidexport">POST /analytics/reporting/2027-03-beta/reports/{reportId}/export</a>
+<a class="nav-section" href="#post-analyticsreporting2027-03-betareportsbatcharchive">POST /analytics/reporting/2027-03-beta/reports/batch/archive</a>
+<a class="nav-section" href="#get-analyticsreporting2027-03-betareports">GET /analytics/reporting/2027-03-beta/reports</a>
+<a class="nav-section" href="#get-analyticsreporting2027-03-betareportsreportid">GET /analytics/reporting/2027-03-beta/reports/{reportId}</a>
+<a class="nav-section" href="#patch-analyticsreporting2027-03-betareportsreportid">PATCH /analytics/reporting/2027-03-beta/reports/{reportId}</a></div>
+<a href="../api/reporting_batch_response_public_dashboard.html">ReportingBatchResponsePublicDashboard</a>
+<a href="../api/reporting_batch_response_public_report.html">ReportingBatchResponsePublicReport</a>
+<a href="../api/reporting_collection_response_with_total_public_dashboard.html">ReportingCollectionResponseWithTotalPublicDashboard</a>
+<a href="../api/widget.html">Widget</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/js.html">JavaScript</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/debug.html">Request/response capture ring buffer for debugging</a>
+<a href="../features/idempotency.html">Idempotency keys for safe retries of mutating operations</a>
+<a href="../features/metrics.html">Statistics capture: per-operation counters and latency</a>
+<a href="../features/paging.html">Pagination signals for list operations</a>
+<a href="../features/ratelimit.html">Client-side rate limiting via a token bucket</a>
+<a href="../features/retry.html">Automatic retry of transient failures with exponential backoff</a>
+<a href="../features/test.html">In-memory mock transport for testing without a live server</a>
+<a href="../features/timeout.html">Per-request timeout with transport abort</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="report">Report</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-analyticsreporting2027-03-betareportsreportidexport"><code>/analytics/reporting/2027-03-beta/reports/{reportId}/export</code></a></td>
+<td><code>create</code></td>
+<td>No content</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-analyticsreporting2027-03-betareportsbatcharchive"><code>/analytics/reporting/2027-03-beta/reports/batch/archive</code></a></td>
+<td><code>create</code></td>
+<td>No content</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-analyticsreporting2027-03-betareports"><code>/analytics/reporting/2027-03-beta/reports</code></a></td>
+<td><code>list</code></td>
+<td>successful operation</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-analyticsreporting2027-03-betareportsreportid"><code>/analytics/reporting/2027-03-beta/reports/{reportId}</code></a></td>
+<td><code>load</code></td>
+<td>successful operation</td>
+</tr>
+<tr>
+<td><code>PATCH</code></td>
+<td><a href="#patch-analyticsreporting2027-03-betareportsreportid"><code>/analytics/reporting/2027-03-beta/reports/{reportId}</code></a></td>
+<td><code>update</code></td>
+<td>successful operation</td>
+</tr>
+</tbody>
+</table>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>archived</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the report is archived.</td>
+</tr>
+<tr>
+<td><code>archivedAt</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>If the report is archived, the date and time when the report was archived, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>businessUnitId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID of the business unit that the report is associated with.</td>
+</tr>
+<tr>
+<td><code>createdAt</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The date and time when the report was created, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>createdByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who created the report.</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A description of the report.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID of the report.</td>
+</tr>
+<tr>
+<td><code>inputs</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Array of report or dashboard IDs.</td>
+</tr>
+<tr>
+<td><code>lastViewedAt</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The date and time when the report was last viewed, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>lastViewedByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who last viewed the report.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the report.</td>
+</tr>
+<tr>
+<td><code>ownerUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who owns the report.</td>
+</tr>
+<tr>
+<td><code>permissions</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>tags</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>Array of objects representing the tags that the report is tagged with.</td>
+</tr>
+<tr>
+<td><code>updatedAt</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The date and time when the report was last updated, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>updatedByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who last updated the report.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-analyticsreporting2027-03-betareportsreportidexport" class="operation" data-method="post"><code>POST</code> /analytics/reporting/2027-03-beta/reports/{reportId}/export</h3>
+<p>Operation ID: <code>post-/analytics/reporting/2027-03-beta/reports/{reportId}/export</code>.</p>
+<p>Authentication: oauth2 (<code>oauth2</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>reportId</code> | <code>path</code> | <code>integer (int64)</code> | Yes | The ID of the report to export. |</p>
+<h4 id="request-body">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>exportType</code></td>
+<td><code>enum: CSV, SCREENSHOT, XLS, XLSX</code></td>
+<td>Yes</td>
+<td>The type of export to perform. Valid values are: - <code>SCREENSHOT</code>: Screenshot of the report. - <code>CSV</code>: ZIP with one or more CSV files. - <code>XLS</code>: ZIP with one or more XLS files. - `XLSX: ZIP with one or more XLSX files.</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The message to include with the export. Optional, empty by default.</td>
+</tr>
+<tr>
+<td><code>recipientUserIds</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>Array of user IDs to send the export to. If absent or empty, the requesting user is used as the sole recipient; otherwise, this exact set of users is used.</td>
+</tr>
+<tr>
+<td><code>subject</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The subject line to use for the export. If absent, the name of the requested report will be used. Max length of 100 characters.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses">Responses</h4>
+<h5 id="204-no-content" class="status" data-status="2xx">204: No content</h5>
+<h5 id="default">default</h5>
+<p><code>*/*</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>category</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The error category, represented as a string.</td>
+</tr>
+<tr>
+<td><code>context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>An object providing context about the error condition, with additional properties as arrays of strings.</td>
+</tr>
+<tr>
+<td><code>correlationId</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>A unique identifier for the request, used for tracking and support purposes. It is a string formatted as a UUID.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>An array containing further information about the error, with each item being an ErrorDetail object.</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The status code associated with the error detail.</td>
+</tr>
+<tr>
+<td><code>errors[].context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition, represented as an object with additional properties that are arrays of strings.</td>
+</tr>
+<tr>
+<td><code>errors[].in</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of the field or parameter in which the error was found.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate.</td>
+</tr>
+<tr>
+<td><code>errors[].subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error.</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs containing documentation about the error or recommended remediation steps. It is an object with string properties.</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate. It is a string.</td>
+</tr>
+<tr>
+<td><code>subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category providing more detailed information about the error. It is a string.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-analyticsreporting2027-03-betareportsbatcharchive" class="operation" data-method="post"><code>POST</code> /analytics/reporting/2027-03-beta/reports/batch/archive</h3>
+<p>Operation ID: <code>post-/analytics/reporting/2027-03-beta/reports/batch/archive</code>.</p>
+<p>Authentication: oauth2 (<code>oauth2</code>).</p>
+<h4 id="request-body-1">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>inputs</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td>Array of report or dashboard IDs.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-1">Responses</h4>
+<h5 id="204-no-content-1" class="status" data-status="2xx">204: No content</h5>
+<h5 id="default-1">default</h5>
+<p><code>*/*</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>category</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The error category, represented as a string.</td>
+</tr>
+<tr>
+<td><code>context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>An object providing context about the error condition, with additional properties as arrays of strings.</td>
+</tr>
+<tr>
+<td><code>correlationId</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>A unique identifier for the request, used for tracking and support purposes. It is a string formatted as a UUID.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>An array containing further information about the error, with each item being an ErrorDetail object.</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The status code associated with the error detail.</td>
+</tr>
+<tr>
+<td><code>errors[].context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition, represented as an object with additional properties that are arrays of strings.</td>
+</tr>
+<tr>
+<td><code>errors[].in</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of the field or parameter in which the error was found.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate.</td>
+</tr>
+<tr>
+<td><code>errors[].subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error.</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs containing documentation about the error or recommended remediation steps. It is an object with string properties.</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate. It is a string.</td>
+</tr>
+<tr>
+<td><code>subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category providing more detailed information about the error. It is a string.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="list">list</h2>
+<h3 id="get-analyticsreporting2027-03-betareports" class="operation" data-method="get"><code>GET</code> /analytics/reporting/2027-03-beta/reports</h3>
+<p>Operation ID: <code>get-/analytics/reporting/2027-03-beta/reports</code>.</p>
+<p>Authentication: oauth2 (<code>oauth2</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>after</code> | <code>query</code> | <code>string</code> | No | A cursor token for pagination. Use the value from the previous response's paging.next.after field. |
+| <code>archived</code> | <code>query</code> | <code>boolean</code> | No | Whether to retrieve archived reports only. Default false. |
+| <code>businessUnitIds</code> | <code>query</code> | <code>array of string</code> | No | Filter to reports that are a part of the specified business units. |
+| <code>createdAfter</code> | <code>query</code> | <code>string (date-time)</code> | No | Filter to reports created after a specific date and time. |
+| <code>createdBefore</code> | <code>query</code> | <code>string (date-time)</code> | No | Filter to reports created before a specific date and time. |
+| <code>dashboardId</code> | <code>query</code> | <code>string</code> | No | Filter to reports on the specified dashboard. |
+| <code>ids</code> | <code>query</code> | <code>array of string</code> | No | Filter to reports with the specified IDs. |
+| <code>limit</code> | <code>query</code> | <code>integer (int32)</code> | No | The maximum number of results to display per page. Default 25, max 100. |
+| <code>onDashboard</code> | <code>query</code> | <code>boolean</code> | No | Filter to reports that are on, or not on, any dashboard. Unset by default. |
+| <code>onlyFavorites</code> | <code>query</code> | <code>boolean</code> | No | Filter to only reports that are favorited by the requesting user. Default false. |
+| <code>ownerUserIds</code> | <code>query</code> | <code>array of string</code> | No | Filter to reports owned by the specified users. |
+| <code>properties</code> | <code>query</code> | <code>array of string</code> | No | Additionally properties to include in the response. Refer to the response details for available fields. |
+| <code>q</code> | <code>query</code> | <code>string</code> | No | Filter to reports whose name or description contains the search string. |
+| <code>sort</code> | <code>query</code> | <code>array of string</code> | No | Sort field and direction. Supported fields are <code>name</code>, <code>updatedAt</code>, and <code>lastViewedAt</code>. Defaults to <code>-updatedAt</code> |
+| <code>tagIds</code> | <code>query</code> | <code>array of string</code> | No | Filter to reports tagged with the specified tags. |
+| <code>updatedAfter</code> | <code>query</code> | <code>string (date-time)</code> | No | Filter to reports updated after a specific date and time. |
+| <code>updatedBefore</code> | <code>query</code> | <code>string (date-time)</code> | No | Filter to reports updated before a specific date and time. |</p>
+<h4 id="responses-2">Responses</h4>
+<h5 id="200-successful-operation" class="status" data-status="2xx">200: successful operation</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>paging</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Represents the pagination information for navigating through a list of results in the API. It provides details on how to access the previous or next set of results.</td>
+</tr>
+<tr>
+<td><code>paging.next</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Specifies the paging information needed to retrieve the next set of results in a paginated API response</td>
+</tr>
+<tr>
+<td><code>paging.next.after</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A string token representing the cursor for the next page of results.</td>
+</tr>
+<tr>
+<td><code>paging.next.link</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A string URL that links to the next page of results.</td>
+</tr>
+<tr>
+<td><code>paging.prev</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>specifies the paging information needed to retrieve the previous set of results in a paginated API response</td>
+</tr>
+<tr>
+<td><code>paging.prev.before</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A string token representing the cursor for the previous page of results.</td>
+</tr>
+<tr>
+<td><code>paging.prev.link</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A string URL that links to the previous page of results.</td>
+</tr>
+<tr>
+<td><code>results</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>An array of report objects.</td>
+</tr>
+<tr>
+<td><code>results[].archived</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the report is archived.</td>
+</tr>
+<tr>
+<td><code>results[].archivedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>If the report is archived, the date and time when the report was archived, in ISO 8601 format. Absent if the report is not archived.</td>
+</tr>
+<tr>
+<td><code>results[].businessUnitId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID of the business unit that the report is associated with.</td>
+</tr>
+<tr>
+<td><code>results[].createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the report was created, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>results[].createdByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who created the report. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A description of the report. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID of the report.</td>
+</tr>
+<tr>
+<td><code>results[].lastViewedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the report was last viewed, in ISO 8601 format. Absent if it has not been viewed yet.</td>
+</tr>
+<tr>
+<td><code>results[].lastViewedByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who last viewed the report. Absent if it has not been viewed yet.</td>
+</tr>
+<tr>
+<td><code>results[].name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the report.</td>
+</tr>
+<tr>
+<td><code>results[].ownerUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who owns the report. Absent if the report is currently unowned.</td>
+</tr>
+<tr>
+<td><code>results[].permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results[].permissions.permissionType</code></td>
+<td><code>enum: EVERYONE_EDIT, EVERYONE_VIEW, PRIVATE, SPECIFIC</code></td>
+<td>Yes</td>
+<td>The type of permission to apply to the report. Valid values are: - PRIVATE: The report is only accessible to its owner and administrators. - EVERYONE_VIEW: The report is viewable by everyone. - EVERYONE_EDIT: The report is viewable and editable by everyone. - SPECIFIC: In addition to the owner, specific users and/or teams are granted VIEW or EDIT permissions. The <code>specificPermissions</code> field must also be present.</td>
+</tr>
+<tr>
+<td><code>results[].permissions.specificPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results[].permissions.specificPermissions.grants</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>An array of grants detailing the users and/or teams to grant the specific permission to. At least one grantee must be specified.</td>
+</tr>
+<tr>
+<td><code>results[].permissions.specificPermissions.grants[].grantType</code></td>
+<td><code>enum: TEAM, USER</code></td>
+<td>Yes</td>
+<td>The type of entity to grant permissions to, either <code>USER</code> or <code>TEAM</code>.</td>
+</tr>
+<tr>
+<td><code>results[].permissions.specificPermissions.grants[].granteeId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID of the user or team to grant permissions to.</td>
+</tr>
+<tr>
+<td><code>results[].permissions.specificPermissions.permissionType</code></td>
+<td><code>enum: EDIT, VIEW</code></td>
+<td>Yes</td>
+<td>The type of permission granted, either <code>VIEW</code> or <code>EDIT</code>.</td>
+</tr>
+<tr>
+<td><code>results[].tags</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>Array of objects representing the tags that the report is tagged with. Only returned when requested by including the <code>tags</code> field in the <code>properties</code> query parameter.</td>
+</tr>
+<tr>
+<td><code>results[].tags[].createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the tag was created, in ISO 8601 format. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].tags[].createdByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who created the tag. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].tags[].id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID for the tag.</td>
+</tr>
+<tr>
+<td><code>results[].tags[].name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the tag.</td>
+</tr>
+<tr>
+<td><code>results[].tags[].updatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the tag was last updated, in ISO 8601 format. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].tags[].updatedByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who last updated the tag. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].updatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the report was last updated, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>results[].updatedByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who last updated the report. May be absent.</td>
+</tr>
+<tr>
+<td><code>total</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td>The total number of reports available.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="default-2">default</h5>
+<p><code>*/*</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>category</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The error category, represented as a string.</td>
+</tr>
+<tr>
+<td><code>context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>An object providing context about the error condition, with additional properties as arrays of strings.</td>
+</tr>
+<tr>
+<td><code>correlationId</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>A unique identifier for the request, used for tracking and support purposes. It is a string formatted as a UUID.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>An array containing further information about the error, with each item being an ErrorDetail object.</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The status code associated with the error detail.</td>
+</tr>
+<tr>
+<td><code>errors[].context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition, represented as an object with additional properties that are arrays of strings.</td>
+</tr>
+<tr>
+<td><code>errors[].in</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of the field or parameter in which the error was found.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate.</td>
+</tr>
+<tr>
+<td><code>errors[].subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error.</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs containing documentation about the error or recommended remediation steps. It is an object with string properties.</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate. It is a string.</td>
+</tr>
+<tr>
+<td><code>subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category providing more detailed information about the error. It is a string.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="load">load</h2>
+<h3 id="get-analyticsreporting2027-03-betareportsreportid" class="operation" data-method="get"><code>GET</code> /analytics/reporting/2027-03-beta/reports/{reportId}</h3>
+<p>Operation ID: <code>get-/analytics/reporting/2027-03-beta/reports/{reportId}</code>.</p>
+<p>Authentication: oauth2 (<code>oauth2</code>).</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>reportId</code> | <code>path</code> | <code>integer (int64)</code> | Yes | The ID of the report to retrieve. |
+| <code>archived</code> | <code>query</code> | <code>boolean</code> | No | Whether to retrieve an archived dashboard instead of an active one. Default false. |
+| <code>properties</code> | <code>query</code> | <code>array of string</code> | No | Additionally properties to include in the response. Refer to the response details for available fields. |</p>
+<h4 id="responses-3">Responses</h4>
+<h5 id="200-successful-operation-1" class="status" data-status="2xx">200: successful operation</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>archived</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the report is archived.</td>
+</tr>
+<tr>
+<td><code>archivedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>If the report is archived, the date and time when the report was archived, in ISO 8601 format. Absent if the report is not archived.</td>
+</tr>
+<tr>
+<td><code>businessUnitId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID of the business unit that the report is associated with.</td>
+</tr>
+<tr>
+<td><code>createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the report was created, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>createdByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who created the report. May be absent.</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A description of the report. May be absent.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID of the report.</td>
+</tr>
+<tr>
+<td><code>lastViewedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the report was last viewed, in ISO 8601 format. Absent if it has not been viewed yet.</td>
+</tr>
+<tr>
+<td><code>lastViewedByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who last viewed the report. Absent if it has not been viewed yet.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the report.</td>
+</tr>
+<tr>
+<td><code>ownerUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who owns the report. Absent if the report is currently unowned.</td>
+</tr>
+<tr>
+<td><code>permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.permissionType</code></td>
+<td><code>enum: EVERYONE_EDIT, EVERYONE_VIEW, PRIVATE, SPECIFIC</code></td>
+<td>Yes</td>
+<td>The type of permission to apply to the report. Valid values are: - PRIVATE: The report is only accessible to its owner and administrators. - EVERYONE_VIEW: The report is viewable by everyone. - EVERYONE_EDIT: The report is viewable and editable by everyone. - SPECIFIC: In addition to the owner, specific users and/or teams are granted VIEW or EDIT permissions. The <code>specificPermissions</code> field must also be present.</td>
+</tr>
+<tr>
+<td><code>permissions.specificPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.specificPermissions.grants</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>An array of grants detailing the users and/or teams to grant the specific permission to. At least one grantee must be specified.</td>
+</tr>
+<tr>
+<td><code>permissions.specificPermissions.grants[].grantType</code></td>
+<td><code>enum: TEAM, USER</code></td>
+<td>Yes</td>
+<td>The type of entity to grant permissions to, either <code>USER</code> or <code>TEAM</code>.</td>
+</tr>
+<tr>
+<td><code>permissions.specificPermissions.grants[].granteeId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID of the user or team to grant permissions to.</td>
+</tr>
+<tr>
+<td><code>permissions.specificPermissions.permissionType</code></td>
+<td><code>enum: EDIT, VIEW</code></td>
+<td>Yes</td>
+<td>The type of permission granted, either <code>VIEW</code> or <code>EDIT</code>.</td>
+</tr>
+<tr>
+<td><code>tags</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>Array of objects representing the tags that the report is tagged with. Only returned when requested by including the <code>tags</code> field in the <code>properties</code> query parameter.</td>
+</tr>
+<tr>
+<td><code>tags[].createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the tag was created, in ISO 8601 format. May be absent.</td>
+</tr>
+<tr>
+<td><code>tags[].createdByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who created the tag. May be absent.</td>
+</tr>
+<tr>
+<td><code>tags[].id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID for the tag.</td>
+</tr>
+<tr>
+<td><code>tags[].name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the tag.</td>
+</tr>
+<tr>
+<td><code>tags[].updatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the tag was last updated, in ISO 8601 format. May be absent.</td>
+</tr>
+<tr>
+<td><code>tags[].updatedByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who last updated the tag. May be absent.</td>
+</tr>
+<tr>
+<td><code>updatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the report was last updated, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>updatedByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who last updated the report. May be absent.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="default-3">default</h5>
+<p><code>*/*</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>category</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The error category, represented as a string.</td>
+</tr>
+<tr>
+<td><code>context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>An object providing context about the error condition, with additional properties as arrays of strings.</td>
+</tr>
+<tr>
+<td><code>correlationId</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>A unique identifier for the request, used for tracking and support purposes. It is a string formatted as a UUID.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>An array containing further information about the error, with each item being an ErrorDetail object.</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The status code associated with the error detail.</td>
+</tr>
+<tr>
+<td><code>errors[].context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition, represented as an object with additional properties that are arrays of strings.</td>
+</tr>
+<tr>
+<td><code>errors[].in</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of the field or parameter in which the error was found.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate.</td>
+</tr>
+<tr>
+<td><code>errors[].subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error.</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs containing documentation about the error or recommended remediation steps. It is an object with string properties.</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate. It is a string.</td>
+</tr>
+<tr>
+<td><code>subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category providing more detailed information about the error. It is a string.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="update">update</h2>
+<h3 id="patch-analyticsreporting2027-03-betareportsreportid" class="operation" data-method="patch"><code>PATCH</code> /analytics/reporting/2027-03-beta/reports/{reportId}</h3>
+<p>Operation ID: <code>patch-/analytics/reporting/2027-03-beta/reports/{reportId}_/analytics/reporting/2027-03-beta/reports/{reportId}</code>.</p>
+<p>Authentication: oauth2 (<code>oauth2</code>).</p>
+<h4 id="parameters-3">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>reportId</code> | <code>path</code> | <code>integer (int64)</code> | Yes | The ID of the report to update. |</p>
+<h4 id="request-body-2">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>archived</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether to archive (<code>true</code>) or restore (<code>false</code>) the report. Cannot be combined with any other fields.</td>
+</tr>
+<tr>
+<td><code>businessUnitId</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>The new business unit ID to use for the report. Set to <code>null</code> to reset to the account's default business unit. Omit to leave unchanged.</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>The new description to use for the report. Set to <code>null</code> to clear the description. Omit to leave unchanged.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The new name to use for the report. Omit to leave unchanged.</td>
+</tr>
+<tr>
+<td><code>ownerUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user to change the report's owner to. Omit to leave unchanged.</td>
+</tr>
+<tr>
+<td><code>permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.permissionType</code></td>
+<td><code>enum: EVERYONE_EDIT, EVERYONE_VIEW, PRIVATE, SPECIFIC</code></td>
+<td>Yes</td>
+<td>The type of permission to apply to the report. Valid values are: - PRIVATE: The report is only accessible to its owner and administrators. - EVERYONE_VIEW: The report is viewable by everyone. - EVERYONE_EDIT: The report is viewable and editable by everyone. - SPECIFIC: In addition to the owner, specific users and/or teams are granted VIEW or EDIT permissions. The <code>specificPermissions</code> field must also be present.</td>
+</tr>
+<tr>
+<td><code>permissions.specificPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.specificPermissions.grants</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>An array of grants detailing the users and/or teams to grant the specific permission to. At least one grantee must be specified.</td>
+</tr>
+<tr>
+<td><code>permissions.specificPermissions.grants[].grantType</code></td>
+<td><code>enum: TEAM, USER</code></td>
+<td>Yes</td>
+<td>The type of entity to grant permissions to, either <code>USER</code> or <code>TEAM</code>.</td>
+</tr>
+<tr>
+<td><code>permissions.specificPermissions.grants[].granteeId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID of the user or team to grant permissions to.</td>
+</tr>
+<tr>
+<td><code>permissions.specificPermissions.permissionType</code></td>
+<td><code>enum: EDIT, VIEW</code></td>
+<td>Yes</td>
+<td>The type of permission granted, either <code>VIEW</code> or <code>EDIT</code>.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-4">Responses</h4>
+<h5 id="200-successful-operation-2" class="status" data-status="2xx">200: successful operation</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>archived</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the report is archived.</td>
+</tr>
+<tr>
+<td><code>archivedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>If the report is archived, the date and time when the report was archived, in ISO 8601 format. Absent if the report is not archived.</td>
+</tr>
+<tr>
+<td><code>businessUnitId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID of the business unit that the report is associated with.</td>
+</tr>
+<tr>
+<td><code>createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the report was created, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>createdByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who created the report. May be absent.</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A description of the report. May be absent.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID of the report.</td>
+</tr>
+<tr>
+<td><code>lastViewedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the report was last viewed, in ISO 8601 format. Absent if it has not been viewed yet.</td>
+</tr>
+<tr>
+<td><code>lastViewedByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who last viewed the report. Absent if it has not been viewed yet.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the report.</td>
+</tr>
+<tr>
+<td><code>ownerUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who owns the report. Absent if the report is currently unowned.</td>
+</tr>
+<tr>
+<td><code>permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.permissionType</code></td>
+<td><code>enum: EVERYONE_EDIT, EVERYONE_VIEW, PRIVATE, SPECIFIC</code></td>
+<td>Yes</td>
+<td>The type of permission to apply to the report. Valid values are: - PRIVATE: The report is only accessible to its owner and administrators. - EVERYONE_VIEW: The report is viewable by everyone. - EVERYONE_EDIT: The report is viewable and editable by everyone. - SPECIFIC: In addition to the owner, specific users and/or teams are granted VIEW or EDIT permissions. The <code>specificPermissions</code> field must also be present.</td>
+</tr>
+<tr>
+<td><code>permissions.specificPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.specificPermissions.grants</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>An array of grants detailing the users and/or teams to grant the specific permission to. At least one grantee must be specified.</td>
+</tr>
+<tr>
+<td><code>permissions.specificPermissions.grants[].grantType</code></td>
+<td><code>enum: TEAM, USER</code></td>
+<td>Yes</td>
+<td>The type of entity to grant permissions to, either <code>USER</code> or <code>TEAM</code>.</td>
+</tr>
+<tr>
+<td><code>permissions.specificPermissions.grants[].granteeId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID of the user or team to grant permissions to.</td>
+</tr>
+<tr>
+<td><code>permissions.specificPermissions.permissionType</code></td>
+<td><code>enum: EDIT, VIEW</code></td>
+<td>Yes</td>
+<td>The type of permission granted, either <code>VIEW</code> or <code>EDIT</code>.</td>
+</tr>
+<tr>
+<td><code>tags</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>Array of objects representing the tags that the report is tagged with. Only returned when requested by including the <code>tags</code> field in the <code>properties</code> query parameter.</td>
+</tr>
+<tr>
+<td><code>tags[].createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the tag was created, in ISO 8601 format. May be absent.</td>
+</tr>
+<tr>
+<td><code>tags[].createdByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who created the tag. May be absent.</td>
+</tr>
+<tr>
+<td><code>tags[].id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID for the tag.</td>
+</tr>
+<tr>
+<td><code>tags[].name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the tag.</td>
+</tr>
+<tr>
+<td><code>tags[].updatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the tag was last updated, in ISO 8601 format. May be absent.</td>
+</tr>
+<tr>
+<td><code>tags[].updatedByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who last updated the tag. May be absent.</td>
+</tr>
+<tr>
+<td><code>updatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the report was last updated, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>updatedByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who last updated the report. May be absent.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="default-4">default</h5>
+<p><code>*/*</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>category</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The error category, represented as a string.</td>
+</tr>
+<tr>
+<td><code>context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>An object providing context about the error condition, with additional properties as arrays of strings.</td>
+</tr>
+<tr>
+<td><code>correlationId</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>A unique identifier for the request, used for tracking and support purposes. It is a string formatted as a UUID.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>An array containing further information about the error, with each item being an ErrorDetail object.</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The status code associated with the error detail.</td>
+</tr>
+<tr>
+<td><code>errors[].context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition, represented as an object with additional properties that are arrays of strings.</td>
+</tr>
+<tr>
+<td><code>errors[].in</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of the field or parameter in which the error was found.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate.</td>
+</tr>
+<tr>
+<td><code>errors[].subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error.</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs containing documentation about the error or recommended remediation steps. It is an object with string properties.</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate. It is a string.</td>
+</tr>
+<tr>
+<td><code>subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category providing more detailed information about the error. It is a string.</td>
+</tr>
+</tbody>
+</table>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

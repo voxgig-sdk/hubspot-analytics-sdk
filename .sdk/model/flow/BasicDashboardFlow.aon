@@ -1,0 +1,59 @@
+# BasicDashboardFlow
+
+main: kit: flow: BasicDashboardFlow:
+{
+  entity: "dashboard",
+  kind: "basic",
+  name: "BasicDashboardFlow",
+  step: [
+    {
+      input: {
+        ref: "dashboard_ref01"
+      }
+
+      op: "create"
+    }
+
+    {
+      input: {
+        ref: "dashboard_ref01",
+        srcdatavar: "dashboard_ref01_data",
+        suffix: "_up0",
+        textfield: "archivedAt"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-dashboard_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "dashboard_ref01",
+        srcdatavar: "dashboard_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "dashboard01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-dashboard_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicDashboardFlow"
+}

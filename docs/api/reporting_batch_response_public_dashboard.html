@@ -1,0 +1,2077 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>ReportingBatchResponsePublicDashboard | HubSpot Analytics API</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">HubSpot Analytics API<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/hubspot-analytics-sdk">voxgig-sdk/hubspot-analytics-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">HubSpot Analytics API</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/clone.html">Clone</a>
+<a href="../api/dashboard.html">Dashboard</a>
+<a href="../api/report.html">Report</a>
+<a aria-current="page" href="../api/reporting_batch_response_public_dashboard.html">ReportingBatchResponsePublicDashboard</a><div class="nav-sections"><a class="nav-section" href="#post-analyticsreporting2027-03-betadashboardsbatchrestore">POST /analytics/reporting/2027-03-beta/dashboards/batch/restore</a>
+<a class="nav-section" href="#post-analyticsreporting2027-03-betadashboardsownersbatchupdate">POST /analytics/reporting/2027-03-beta/dashboards/owners/batch/update</a>
+<a class="nav-section" href="#post-analyticsreporting2027-03-betadashboardspermissionsbatchupdate">POST /analytics/reporting/2027-03-beta/dashboards/permissions/batch/update</a></div>
+<a href="../api/reporting_batch_response_public_report.html">ReportingBatchResponsePublicReport</a>
+<a href="../api/reporting_collection_response_with_total_public_dashboard.html">ReportingCollectionResponseWithTotalPublicDashboard</a>
+<a href="../api/widget.html">Widget</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/js.html">JavaScript</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/debug.html">Request/response capture ring buffer for debugging</a>
+<a href="../features/idempotency.html">Idempotency keys for safe retries of mutating operations</a>
+<a href="../features/metrics.html">Statistics capture: per-operation counters and latency</a>
+<a href="../features/paging.html">Pagination signals for list operations</a>
+<a href="../features/ratelimit.html">Client-side rate limiting via a token bucket</a>
+<a href="../features/retry.html">Automatic retry of transient failures with exponential backoff</a>
+<a href="../features/test.html">In-memory mock transport for testing without a live server</a>
+<a href="../features/timeout.html">Per-request timeout with transport abort</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="reportingbatchresponsepublicdashboard">ReportingBatchResponsePublicDashboard</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-analyticsreporting2027-03-betadashboardsbatchrestore"><code>/analytics/reporting/2027-03-beta/dashboards/batch/restore</code></a></td>
+<td><code>create</code></td>
+<td>successful operation</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-analyticsreporting2027-03-betadashboardsownersbatchupdate"><code>/analytics/reporting/2027-03-beta/dashboards/owners/batch/update</code></a></td>
+<td><code>create</code></td>
+<td>successful operation</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-analyticsreporting2027-03-betadashboardspermissionsbatchupdate"><code>/analytics/reporting/2027-03-beta/dashboards/permissions/batch/update</code></a></td>
+<td><code>create</code></td>
+<td>successful operation</td>
+</tr>
+</tbody>
+</table>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>completedAt</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The date and time when the batch operation was completed, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>inputs</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Array of report or dashboard IDs.</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs, providing additional information related to the batch operation.</td>
+</tr>
+<tr>
+<td><code>ownerId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID of the user to change the owner to.</td>
+</tr>
+<tr>
+<td><code>permissions</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>requestedAt</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The date and time when the batch operation was requested, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>results</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>An array of dashboard objects representing the successful results of the batch operation.</td>
+</tr>
+<tr>
+<td><code>startedAt</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The date and time when the batch operation started, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The current status of the batch operation.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-analyticsreporting2027-03-betadashboardsbatchrestore" class="operation" data-method="post"><code>POST</code> /analytics/reporting/2027-03-beta/dashboards/batch/restore</h3>
+<p>Operation ID: <code>post-/analytics/reporting/2027-03-beta/dashboards/batch/restore_/analytics/reporting/2027-03-beta/dashboards/batch/restore</code>.</p>
+<p>Authentication: oauth2 (<code>oauth2</code>).</p>
+<h4 id="request-body">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>inputs</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td>Array of report or dashboard IDs.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses">Responses</h4>
+<h5 id="200-successful-operation" class="status" data-status="2xx">200: successful operation</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>completedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the batch operation was completed, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs, providing additional information related to the batch operation.</td>
+</tr>
+<tr>
+<td><code>requestedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the batch operation was requested, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>results</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>An array of dashboard objects representing the successful results of the batch operation.</td>
+</tr>
+<tr>
+<td><code>results[].archived</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the dashboard is archived.</td>
+</tr>
+<tr>
+<td><code>results[].archivedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>If the dashboard is archived, the date and time when the dashboard was archived, in ISO 8601 format. Absent if the dashboard is not archived.</td>
+</tr>
+<tr>
+<td><code>results[].businessUnitId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID of the business unit that the dashboard is associated with.</td>
+</tr>
+<tr>
+<td><code>results[].createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the dashboard was created, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>results[].createdByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who created the dashboard. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A description of the dashboard. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID of the dashboard.</td>
+</tr>
+<tr>
+<td><code>results[].lastViewedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the dashboard was last viewed, in ISO 8601 format. Absent if it has not been viewed yet.</td>
+</tr>
+<tr>
+<td><code>results[].lastViewedByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who last viewed the dashboard. Absent if it has not been viewed yet.</td>
+</tr>
+<tr>
+<td><code>results[].name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the dashboard.</td>
+</tr>
+<tr>
+<td><code>results[].ownerUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who owns the dashboard. Absent if the dashboard is currently unowned.</td>
+</tr>
+<tr>
+<td><code>results[].permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results[].permissions.permissionType</code></td>
+<td><code>enum: EVERYONE_EDIT, EVERYONE_VIEW, PRIVATE, SPECIFIC</code></td>
+<td>Yes</td>
+<td>The type of permission to apply to the report. Valid values are: - PRIVATE: The report is only accessible to its owner and administrators. - EVERYONE_VIEW: The report is viewable by everyone. - EVERYONE_EDIT: The report is viewable and editable by everyone. - SPECIFIC: In addition to the owner, specific users and/or teams are granted VIEW or EDIT permissions. The <code>specificPermissions</code> field must also be present.</td>
+</tr>
+<tr>
+<td><code>results[].permissions.specificPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>Array of specific permission grants. Must be present when <code>permissionType</code> is set to <code>SPECIFIC</code>, ignored otherwise. Dashboards can have one or two specific permission configurations: one for VIEW grants and/or one for EDIT grants. Specific users and/or teams receive either VIEW or EDIT permissions based on which configuration they appear in. A given user or team cannot appear in both VIEW and EDIT configurations.</td>
+</tr>
+<tr>
+<td><code>results[].permissions.specificPermissions[].grants</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>An array of grants detailing the users and/or teams to grant the specific permission to. At least one grantee must be specified.</td>
+</tr>
+<tr>
+<td><code>results[].permissions.specificPermissions[].grants[].grantType</code></td>
+<td><code>enum: TEAM, USER</code></td>
+<td>Yes</td>
+<td>The type of entity to grant permissions to, either <code>USER</code> or <code>TEAM</code>.</td>
+</tr>
+<tr>
+<td><code>results[].permissions.specificPermissions[].grants[].granteeId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID of the user or team to grant permissions to.</td>
+</tr>
+<tr>
+<td><code>results[].permissions.specificPermissions[].permissionType</code></td>
+<td><code>enum: EDIT, VIEW</code></td>
+<td>Yes</td>
+<td>The type of permission granted, either <code>VIEW</code> or <code>EDIT</code>.</td>
+</tr>
+<tr>
+<td><code>results[].tags</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>Array of objects representing the tags that the dashboard is tagged with. Only returned when requested by including the <code>tags</code> field in the <code>properties</code> query parameter.</td>
+</tr>
+<tr>
+<td><code>results[].tags[].createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the tag was created, in ISO 8601 format. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].tags[].createdByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who created the tag. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].tags[].id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID for the tag.</td>
+</tr>
+<tr>
+<td><code>results[].tags[].name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the tag.</td>
+</tr>
+<tr>
+<td><code>results[].tags[].updatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the tag was last updated, in ISO 8601 format. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].tags[].updatedByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who last updated the tag. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].updatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the dashboard was last updated, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>results[].updatedByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who last updated the dashboard. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].widgets</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>An array of objects representing the widgets on the dashboard. Only returned when requested by including the <code>widgets</code> field in the <code>properties</code> query parameter.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.archived</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the report is archived.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.archivedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>If the report is archived, the date and time when the report was archived, in ISO 8601 format. Absent if the report is not archived.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.businessUnitId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID of the business unit that the report is associated with.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the report was created, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.createdByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who created the report. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A description of the report. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID of the report.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.lastViewedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the report was last viewed, in ISO 8601 format. Absent if it has not been viewed yet.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.lastViewedByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who last viewed the report. Absent if it has not been viewed yet.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the report.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.ownerUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who owns the report. Absent if the report is currently unowned.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.permissions.permissionType</code></td>
+<td><code>enum: EVERYONE_EDIT, EVERYONE_VIEW, PRIVATE, SPECIFIC</code></td>
+<td>Yes</td>
+<td>The type of permission to apply to the report. Valid values are: - PRIVATE: The report is only accessible to its owner and administrators. - EVERYONE_VIEW: The report is viewable by everyone. - EVERYONE_EDIT: The report is viewable and editable by everyone. - SPECIFIC: In addition to the owner, specific users and/or teams are granted VIEW or EDIT permissions. The <code>specificPermissions</code> field must also be present.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.permissions.specificPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.tags</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>Array of objects representing the tags that the report is tagged with. Only returned when requested by including the <code>tags</code> field in the <code>properties</code> query parameter.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.tags[].createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the tag was created, in ISO 8601 format. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.tags[].createdByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who created the tag. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.tags[].id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID for the tag.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.tags[].name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the tag.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.tags[].updatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the tag was last updated, in ISO 8601 format. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.tags[].updatedByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who last updated the tag. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.updatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the report was last updated, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.updatedByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who last updated the report. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].reportId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID of the report the widget contains.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].widgetLayout</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results[].widgets[].widgetLayout.height</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td>The height of the widget in the dashboard grid.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].widgetLayout.width</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td>The width of the widget in the dashboard grid.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].widgetLayout.x</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td>The 0-based absolute horizontal position of the widget in the dashboard grid.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].widgetLayout.y</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td>The 0-based absolute vertical position of the widget in the dashboard grid.</td>
+</tr>
+<tr>
+<td><code>startedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the batch operation started, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: CANCELED, COMPLETE, PENDING, PROCESSING</code></td>
+<td>Yes</td>
+<td>The current status of the batch operation. Valid values include 'PENDING', 'PROCESSING', 'CANCELED', and 'COMPLETE'.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="207-multiple-statuses" class="status" data-status="2xx">207: multiple statuses</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>completedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the batch operation was completed, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>An array of error objects detailing any errors that occurred during the batch operation.</td>
+</tr>
+<tr>
+<td><code>errors[].category</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A string categorizing the type of error.</td>
+</tr>
+<tr>
+<td><code>errors[].context</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>An object containing additional context about the error, with keys as context names and values as arrays of strings.</td>
+</tr>
+<tr>
+<td><code>errors[].errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>An array of ErrorDetail objects providing further information about the error.</td>
+</tr>
+<tr>
+<td><code>errors[].errors[].code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The status code associated with the error detail.</td>
+</tr>
+<tr>
+<td><code>errors[].errors[].context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition, represented as an object with additional properties that are arrays of strings.</td>
+</tr>
+<tr>
+<td><code>errors[].errors[].in</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of the field or parameter in which the error was found.</td>
+</tr>
+<tr>
+<td><code>errors[].errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate.</td>
+</tr>
+<tr>
+<td><code>errors[].errors[].subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error.</td>
+</tr>
+<tr>
+<td><code>errors[].id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A string representing a unique identifier for the error.</td>
+</tr>
+<tr>
+<td><code>errors[].links</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>An object mapping link names to their associated URIs, which may contain documentation or remediation steps related to the error.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A string containing a human-readable message describing the error.</td>
+</tr>
+<tr>
+<td><code>errors[].status</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A string indicating the status of the error.</td>
+</tr>
+<tr>
+<td><code>errors[].subCategory</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>An object providing more specific categorization of the error.</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs, providing additional information related to the batch operation.</td>
+</tr>
+<tr>
+<td><code>numErrors</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of errors encountered during the batch operation.</td>
+</tr>
+<tr>
+<td><code>requestedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the batch operation was requested, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>results</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>An array of dashboard objects representing the successful results of the batch operation.</td>
+</tr>
+<tr>
+<td><code>results[].$ref</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>startedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the batch operation started, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: CANCELED, COMPLETE, PENDING, PROCESSING</code></td>
+<td>Yes</td>
+<td>The current status of the batch operation. Valid values include 'PENDING', 'PROCESSING', 'CANCELED', and 'COMPLETE'.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="default">default</h5>
+<p><code>*/*</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>category</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The error category, represented as a string.</td>
+</tr>
+<tr>
+<td><code>context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>An object providing context about the error condition, with additional properties as arrays of strings.</td>
+</tr>
+<tr>
+<td><code>correlationId</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>A unique identifier for the request, used for tracking and support purposes. It is a string formatted as a UUID.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>An array containing further information about the error, with each item being an ErrorDetail object.</td>
+</tr>
+<tr>
+<td><code>errors[].$ref</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs containing documentation about the error or recommended remediation steps. It is an object with string properties.</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate. It is a string.</td>
+</tr>
+<tr>
+<td><code>subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category providing more detailed information about the error. It is a string.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-analyticsreporting2027-03-betadashboardsownersbatchupdate" class="operation" data-method="post"><code>POST</code> /analytics/reporting/2027-03-beta/dashboards/owners/batch/update</h3>
+<p>Operation ID: <code>post-/analytics/reporting/2027-03-beta/dashboards/owners/batch/update_/analytics/reporting/2027-03-beta/dashboards/owners/batch/update</code>.</p>
+<p>Authentication: oauth2 (<code>oauth2</code>).</p>
+<h4 id="request-body-1">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>inputs</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td>Array of report or dashboard IDs.</td>
+</tr>
+<tr>
+<td><code>ownerId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID of the user to change the owner to.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-successful-operation-1" class="status" data-status="2xx">200: successful operation</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>completedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the batch operation was completed, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs, providing additional information related to the batch operation.</td>
+</tr>
+<tr>
+<td><code>requestedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the batch operation was requested, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>results</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>An array of dashboard objects representing the successful results of the batch operation.</td>
+</tr>
+<tr>
+<td><code>results[].archived</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the dashboard is archived.</td>
+</tr>
+<tr>
+<td><code>results[].archivedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>If the dashboard is archived, the date and time when the dashboard was archived, in ISO 8601 format. Absent if the dashboard is not archived.</td>
+</tr>
+<tr>
+<td><code>results[].businessUnitId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID of the business unit that the dashboard is associated with.</td>
+</tr>
+<tr>
+<td><code>results[].createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the dashboard was created, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>results[].createdByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who created the dashboard. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A description of the dashboard. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID of the dashboard.</td>
+</tr>
+<tr>
+<td><code>results[].lastViewedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the dashboard was last viewed, in ISO 8601 format. Absent if it has not been viewed yet.</td>
+</tr>
+<tr>
+<td><code>results[].lastViewedByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who last viewed the dashboard. Absent if it has not been viewed yet.</td>
+</tr>
+<tr>
+<td><code>results[].name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the dashboard.</td>
+</tr>
+<tr>
+<td><code>results[].ownerUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who owns the dashboard. Absent if the dashboard is currently unowned.</td>
+</tr>
+<tr>
+<td><code>results[].permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results[].permissions.permissionType</code></td>
+<td><code>enum: EVERYONE_EDIT, EVERYONE_VIEW, PRIVATE, SPECIFIC</code></td>
+<td>Yes</td>
+<td>The type of permission to apply to the report. Valid values are: - PRIVATE: The report is only accessible to its owner and administrators. - EVERYONE_VIEW: The report is viewable by everyone. - EVERYONE_EDIT: The report is viewable and editable by everyone. - SPECIFIC: In addition to the owner, specific users and/or teams are granted VIEW or EDIT permissions. The <code>specificPermissions</code> field must also be present.</td>
+</tr>
+<tr>
+<td><code>results[].permissions.specificPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>Array of specific permission grants. Must be present when <code>permissionType</code> is set to <code>SPECIFIC</code>, ignored otherwise. Dashboards can have one or two specific permission configurations: one for VIEW grants and/or one for EDIT grants. Specific users and/or teams receive either VIEW or EDIT permissions based on which configuration they appear in. A given user or team cannot appear in both VIEW and EDIT configurations.</td>
+</tr>
+<tr>
+<td><code>results[].permissions.specificPermissions[].grants</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>An array of grants detailing the users and/or teams to grant the specific permission to. At least one grantee must be specified.</td>
+</tr>
+<tr>
+<td><code>results[].permissions.specificPermissions[].grants[].grantType</code></td>
+<td><code>enum: TEAM, USER</code></td>
+<td>Yes</td>
+<td>The type of entity to grant permissions to, either <code>USER</code> or <code>TEAM</code>.</td>
+</tr>
+<tr>
+<td><code>results[].permissions.specificPermissions[].grants[].granteeId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID of the user or team to grant permissions to.</td>
+</tr>
+<tr>
+<td><code>results[].permissions.specificPermissions[].permissionType</code></td>
+<td><code>enum: EDIT, VIEW</code></td>
+<td>Yes</td>
+<td>The type of permission granted, either <code>VIEW</code> or <code>EDIT</code>.</td>
+</tr>
+<tr>
+<td><code>results[].tags</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>Array of objects representing the tags that the dashboard is tagged with. Only returned when requested by including the <code>tags</code> field in the <code>properties</code> query parameter.</td>
+</tr>
+<tr>
+<td><code>results[].tags[].createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the tag was created, in ISO 8601 format. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].tags[].createdByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who created the tag. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].tags[].id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID for the tag.</td>
+</tr>
+<tr>
+<td><code>results[].tags[].name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the tag.</td>
+</tr>
+<tr>
+<td><code>results[].tags[].updatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the tag was last updated, in ISO 8601 format. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].tags[].updatedByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who last updated the tag. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].updatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the dashboard was last updated, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>results[].updatedByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who last updated the dashboard. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].widgets</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>An array of objects representing the widgets on the dashboard. Only returned when requested by including the <code>widgets</code> field in the <code>properties</code> query parameter.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.archived</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the report is archived.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.archivedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>If the report is archived, the date and time when the report was archived, in ISO 8601 format. Absent if the report is not archived.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.businessUnitId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID of the business unit that the report is associated with.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the report was created, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.createdByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who created the report. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A description of the report. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID of the report.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.lastViewedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the report was last viewed, in ISO 8601 format. Absent if it has not been viewed yet.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.lastViewedByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who last viewed the report. Absent if it has not been viewed yet.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the report.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.ownerUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who owns the report. Absent if the report is currently unowned.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.permissions.permissionType</code></td>
+<td><code>enum: EVERYONE_EDIT, EVERYONE_VIEW, PRIVATE, SPECIFIC</code></td>
+<td>Yes</td>
+<td>The type of permission to apply to the report. Valid values are: - PRIVATE: The report is only accessible to its owner and administrators. - EVERYONE_VIEW: The report is viewable by everyone. - EVERYONE_EDIT: The report is viewable and editable by everyone. - SPECIFIC: In addition to the owner, specific users and/or teams are granted VIEW or EDIT permissions. The <code>specificPermissions</code> field must also be present.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.permissions.specificPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.tags</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>Array of objects representing the tags that the report is tagged with. Only returned when requested by including the <code>tags</code> field in the <code>properties</code> query parameter.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.tags[].createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the tag was created, in ISO 8601 format. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.tags[].createdByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who created the tag. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.tags[].id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID for the tag.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.tags[].name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the tag.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.tags[].updatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the tag was last updated, in ISO 8601 format. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.tags[].updatedByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who last updated the tag. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.updatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the report was last updated, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.updatedByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who last updated the report. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].reportId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID of the report the widget contains.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].widgetLayout</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results[].widgets[].widgetLayout.height</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td>The height of the widget in the dashboard grid.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].widgetLayout.width</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td>The width of the widget in the dashboard grid.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].widgetLayout.x</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td>The 0-based absolute horizontal position of the widget in the dashboard grid.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].widgetLayout.y</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td>The 0-based absolute vertical position of the widget in the dashboard grid.</td>
+</tr>
+<tr>
+<td><code>startedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the batch operation started, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: CANCELED, COMPLETE, PENDING, PROCESSING</code></td>
+<td>Yes</td>
+<td>The current status of the batch operation. Valid values include 'PENDING', 'PROCESSING', 'CANCELED', and 'COMPLETE'.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="207-multiple-statuses-1" class="status" data-status="2xx">207: multiple statuses</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>completedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the batch operation was completed, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>An array of error objects detailing any errors that occurred during the batch operation.</td>
+</tr>
+<tr>
+<td><code>errors[].category</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A string categorizing the type of error.</td>
+</tr>
+<tr>
+<td><code>errors[].context</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>An object containing additional context about the error, with keys as context names and values as arrays of strings.</td>
+</tr>
+<tr>
+<td><code>errors[].errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>An array of ErrorDetail objects providing further information about the error.</td>
+</tr>
+<tr>
+<td><code>errors[].errors[].code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The status code associated with the error detail.</td>
+</tr>
+<tr>
+<td><code>errors[].errors[].context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition, represented as an object with additional properties that are arrays of strings.</td>
+</tr>
+<tr>
+<td><code>errors[].errors[].in</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of the field or parameter in which the error was found.</td>
+</tr>
+<tr>
+<td><code>errors[].errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate.</td>
+</tr>
+<tr>
+<td><code>errors[].errors[].subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error.</td>
+</tr>
+<tr>
+<td><code>errors[].id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A string representing a unique identifier for the error.</td>
+</tr>
+<tr>
+<td><code>errors[].links</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>An object mapping link names to their associated URIs, which may contain documentation or remediation steps related to the error.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A string containing a human-readable message describing the error.</td>
+</tr>
+<tr>
+<td><code>errors[].status</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A string indicating the status of the error.</td>
+</tr>
+<tr>
+<td><code>errors[].subCategory</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>An object providing more specific categorization of the error.</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs, providing additional information related to the batch operation.</td>
+</tr>
+<tr>
+<td><code>numErrors</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of errors encountered during the batch operation.</td>
+</tr>
+<tr>
+<td><code>requestedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the batch operation was requested, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>results</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>An array of dashboard objects representing the successful results of the batch operation.</td>
+</tr>
+<tr>
+<td><code>results[].$ref</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>startedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the batch operation started, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: CANCELED, COMPLETE, PENDING, PROCESSING</code></td>
+<td>Yes</td>
+<td>The current status of the batch operation. Valid values include 'PENDING', 'PROCESSING', 'CANCELED', and 'COMPLETE'.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="default-1">default</h5>
+<p><code>*/*</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>category</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The error category, represented as a string.</td>
+</tr>
+<tr>
+<td><code>context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>An object providing context about the error condition, with additional properties as arrays of strings.</td>
+</tr>
+<tr>
+<td><code>correlationId</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>A unique identifier for the request, used for tracking and support purposes. It is a string formatted as a UUID.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>An array containing further information about the error, with each item being an ErrorDetail object.</td>
+</tr>
+<tr>
+<td><code>errors[].$ref</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs containing documentation about the error or recommended remediation steps. It is an object with string properties.</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate. It is a string.</td>
+</tr>
+<tr>
+<td><code>subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category providing more detailed information about the error. It is a string.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-analyticsreporting2027-03-betadashboardspermissionsbatchupdate" class="operation" data-method="post"><code>POST</code> /analytics/reporting/2027-03-beta/dashboards/permissions/batch/update</h3>
+<p>Operation ID: <code>post-/analytics/reporting/2027-03-beta/dashboards/permissions/batch/update_/analytics/reporting/2027-03-beta/dashboards/permissions/batch/update</code>.</p>
+<p>Authentication: oauth2 (<code>oauth2</code>).</p>
+<h4 id="request-body-2">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>inputs</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td>Array of dashboard IDs.</td>
+</tr>
+<tr>
+<td><code>permissions</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permissions.permissionType</code></td>
+<td><code>enum: EVERYONE_EDIT, EVERYONE_VIEW, PRIVATE, SPECIFIC</code></td>
+<td>Yes</td>
+<td>The type of permission to apply to the report. Valid values are: - PRIVATE: The report is only accessible to its owner and administrators. - EVERYONE_VIEW: The report is viewable by everyone. - EVERYONE_EDIT: The report is viewable and editable by everyone. - SPECIFIC: In addition to the owner, specific users and/or teams are granted VIEW or EDIT permissions. The <code>specificPermissions</code> field must also be present.</td>
+</tr>
+<tr>
+<td><code>permissions.specificPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>Array of specific permission grants. Must be present when <code>permissionType</code> is set to <code>SPECIFIC</code>, ignored otherwise. Dashboards can have one or two specific permission configurations: one for VIEW grants and/or one for EDIT grants. Specific users and/or teams receive either VIEW or EDIT permissions based on which configuration they appear in. A given user or team cannot appear in both VIEW and EDIT configurations.</td>
+</tr>
+<tr>
+<td><code>permissions.specificPermissions[].grants</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>An array of grants detailing the users and/or teams to grant the specific permission to. At least one grantee must be specified.</td>
+</tr>
+<tr>
+<td><code>permissions.specificPermissions[].grants[].grantType</code></td>
+<td><code>enum: TEAM, USER</code></td>
+<td>Yes</td>
+<td>The type of entity to grant permissions to, either <code>USER</code> or <code>TEAM</code>.</td>
+</tr>
+<tr>
+<td><code>permissions.specificPermissions[].grants[].granteeId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID of the user or team to grant permissions to.</td>
+</tr>
+<tr>
+<td><code>permissions.specificPermissions[].permissionType</code></td>
+<td><code>enum: EDIT, VIEW</code></td>
+<td>Yes</td>
+<td>The type of permission granted, either <code>VIEW</code> or <code>EDIT</code>.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-2">Responses</h4>
+<h5 id="200-successful-operation-2" class="status" data-status="2xx">200: successful operation</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>completedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the batch operation was completed, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs, providing additional information related to the batch operation.</td>
+</tr>
+<tr>
+<td><code>requestedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the batch operation was requested, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>results</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>An array of dashboard objects representing the successful results of the batch operation.</td>
+</tr>
+<tr>
+<td><code>results[].archived</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the dashboard is archived.</td>
+</tr>
+<tr>
+<td><code>results[].archivedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>If the dashboard is archived, the date and time when the dashboard was archived, in ISO 8601 format. Absent if the dashboard is not archived.</td>
+</tr>
+<tr>
+<td><code>results[].businessUnitId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID of the business unit that the dashboard is associated with.</td>
+</tr>
+<tr>
+<td><code>results[].createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the dashboard was created, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>results[].createdByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who created the dashboard. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A description of the dashboard. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID of the dashboard.</td>
+</tr>
+<tr>
+<td><code>results[].lastViewedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the dashboard was last viewed, in ISO 8601 format. Absent if it has not been viewed yet.</td>
+</tr>
+<tr>
+<td><code>results[].lastViewedByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who last viewed the dashboard. Absent if it has not been viewed yet.</td>
+</tr>
+<tr>
+<td><code>results[].name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the dashboard.</td>
+</tr>
+<tr>
+<td><code>results[].ownerUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who owns the dashboard. Absent if the dashboard is currently unowned.</td>
+</tr>
+<tr>
+<td><code>results[].permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results[].permissions.permissionType</code></td>
+<td><code>enum: EVERYONE_EDIT, EVERYONE_VIEW, PRIVATE, SPECIFIC</code></td>
+<td>Yes</td>
+<td>The type of permission to apply to the report. Valid values are: - PRIVATE: The report is only accessible to its owner and administrators. - EVERYONE_VIEW: The report is viewable by everyone. - EVERYONE_EDIT: The report is viewable and editable by everyone. - SPECIFIC: In addition to the owner, specific users and/or teams are granted VIEW or EDIT permissions. The <code>specificPermissions</code> field must also be present.</td>
+</tr>
+<tr>
+<td><code>results[].permissions.specificPermissions</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>Array of specific permission grants. Must be present when <code>permissionType</code> is set to <code>SPECIFIC</code>, ignored otherwise. Dashboards can have one or two specific permission configurations: one for VIEW grants and/or one for EDIT grants. Specific users and/or teams receive either VIEW or EDIT permissions based on which configuration they appear in. A given user or team cannot appear in both VIEW and EDIT configurations.</td>
+</tr>
+<tr>
+<td><code>results[].permissions.specificPermissions[].grants</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>An array of grants detailing the users and/or teams to grant the specific permission to. At least one grantee must be specified.</td>
+</tr>
+<tr>
+<td><code>results[].permissions.specificPermissions[].grants[].grantType</code></td>
+<td><code>enum: TEAM, USER</code></td>
+<td>Yes</td>
+<td>The type of entity to grant permissions to, either <code>USER</code> or <code>TEAM</code>.</td>
+</tr>
+<tr>
+<td><code>results[].permissions.specificPermissions[].grants[].granteeId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID of the user or team to grant permissions to.</td>
+</tr>
+<tr>
+<td><code>results[].permissions.specificPermissions[].permissionType</code></td>
+<td><code>enum: EDIT, VIEW</code></td>
+<td>Yes</td>
+<td>The type of permission granted, either <code>VIEW</code> or <code>EDIT</code>.</td>
+</tr>
+<tr>
+<td><code>results[].tags</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>Array of objects representing the tags that the dashboard is tagged with. Only returned when requested by including the <code>tags</code> field in the <code>properties</code> query parameter.</td>
+</tr>
+<tr>
+<td><code>results[].tags[].createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the tag was created, in ISO 8601 format. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].tags[].createdByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who created the tag. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].tags[].id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID for the tag.</td>
+</tr>
+<tr>
+<td><code>results[].tags[].name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the tag.</td>
+</tr>
+<tr>
+<td><code>results[].tags[].updatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the tag was last updated, in ISO 8601 format. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].tags[].updatedByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who last updated the tag. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].updatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the dashboard was last updated, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>results[].updatedByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who last updated the dashboard. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].widgets</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>An array of objects representing the widgets on the dashboard. Only returned when requested by including the <code>widgets</code> field in the <code>properties</code> query parameter.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.archived</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the report is archived.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.archivedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>If the report is archived, the date and time when the report was archived, in ISO 8601 format. Absent if the report is not archived.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.businessUnitId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID of the business unit that the report is associated with.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the report was created, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.createdByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who created the report. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A description of the report. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID of the report.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.lastViewedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the report was last viewed, in ISO 8601 format. Absent if it has not been viewed yet.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.lastViewedByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who last viewed the report. Absent if it has not been viewed yet.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the report.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.ownerUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who owns the report. Absent if the report is currently unowned.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.permissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.permissions.permissionType</code></td>
+<td><code>enum: EVERYONE_EDIT, EVERYONE_VIEW, PRIVATE, SPECIFIC</code></td>
+<td>Yes</td>
+<td>The type of permission to apply to the report. Valid values are: - PRIVATE: The report is only accessible to its owner and administrators. - EVERYONE_VIEW: The report is viewable by everyone. - EVERYONE_EDIT: The report is viewable and editable by everyone. - SPECIFIC: In addition to the owner, specific users and/or teams are granted VIEW or EDIT permissions. The <code>specificPermissions</code> field must also be present.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.permissions.specificPermissions</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.tags</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>Array of objects representing the tags that the report is tagged with. Only returned when requested by including the <code>tags</code> field in the <code>properties</code> query parameter.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.tags[].createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the tag was created, in ISO 8601 format. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.tags[].createdByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who created the tag. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.tags[].id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID for the tag.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.tags[].name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The name of the tag.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.tags[].updatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the tag was last updated, in ISO 8601 format. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.tags[].updatedByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who last updated the tag. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.updatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the report was last updated, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].report.updatedByUserId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The ID of the user who last updated the report. May be absent.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].reportId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The ID of the report the widget contains.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].widgetLayout</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results[].widgets[].widgetLayout.height</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td>The height of the widget in the dashboard grid.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].widgetLayout.width</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td>The width of the widget in the dashboard grid.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].widgetLayout.x</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td>The 0-based absolute horizontal position of the widget in the dashboard grid.</td>
+</tr>
+<tr>
+<td><code>results[].widgets[].widgetLayout.y</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td>The 0-based absolute vertical position of the widget in the dashboard grid.</td>
+</tr>
+<tr>
+<td><code>startedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the batch operation started, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: CANCELED, COMPLETE, PENDING, PROCESSING</code></td>
+<td>Yes</td>
+<td>The current status of the batch operation. Valid values include 'PENDING', 'PROCESSING', 'CANCELED', and 'COMPLETE'.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="207-multiple-statuses-2" class="status" data-status="2xx">207: multiple statuses</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>completedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the batch operation was completed, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>An array of error objects detailing any errors that occurred during the batch operation.</td>
+</tr>
+<tr>
+<td><code>errors[].category</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A string categorizing the type of error.</td>
+</tr>
+<tr>
+<td><code>errors[].context</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>An object containing additional context about the error, with keys as context names and values as arrays of strings.</td>
+</tr>
+<tr>
+<td><code>errors[].errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>An array of ErrorDetail objects providing further information about the error.</td>
+</tr>
+<tr>
+<td><code>errors[].errors[].code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The status code associated with the error detail.</td>
+</tr>
+<tr>
+<td><code>errors[].errors[].context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Context about the error condition, represented as an object with additional properties that are arrays of strings.</td>
+</tr>
+<tr>
+<td><code>errors[].errors[].in</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of the field or parameter in which the error was found.</td>
+</tr>
+<tr>
+<td><code>errors[].errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate.</td>
+</tr>
+<tr>
+<td><code>errors[].errors[].subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category that contains more specific detail about the error.</td>
+</tr>
+<tr>
+<td><code>errors[].id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A string representing a unique identifier for the error.</td>
+</tr>
+<tr>
+<td><code>errors[].links</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>An object mapping link names to their associated URIs, which may contain documentation or remediation steps related to the error.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A string containing a human-readable message describing the error.</td>
+</tr>
+<tr>
+<td><code>errors[].status</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A string indicating the status of the error.</td>
+</tr>
+<tr>
+<td><code>errors[].subCategory</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>An object providing more specific categorization of the error.</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs, providing additional information related to the batch operation.</td>
+</tr>
+<tr>
+<td><code>numErrors</code></td>
+<td><code>integer (int32)</code></td>
+<td>No</td>
+<td>The number of errors encountered during the batch operation.</td>
+</tr>
+<tr>
+<td><code>requestedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>The date and time when the batch operation was requested, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>results</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>An array of dashboard objects representing the successful results of the batch operation.</td>
+</tr>
+<tr>
+<td><code>results[].$ref</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>startedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>The date and time when the batch operation started, in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: CANCELED, COMPLETE, PENDING, PROCESSING</code></td>
+<td>Yes</td>
+<td>The current status of the batch operation. Valid values include 'PENDING', 'PROCESSING', 'CANCELED', and 'COMPLETE'.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="default-2">default</h5>
+<p><code>*/*</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>category</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The error category, represented as a string.</td>
+</tr>
+<tr>
+<td><code>context</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>An object providing context about the error condition, with additional properties as arrays of strings.</td>
+</tr>
+<tr>
+<td><code>correlationId</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>A unique identifier for the request, used for tracking and support purposes. It is a string formatted as a UUID.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>An array containing further information about the error, with each item being an ErrorDetail object.</td>
+</tr>
+<tr>
+<td><code>errors[].$ref</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A map of link names to associated URIs containing documentation about the error or recommended remediation steps. It is an object with string properties.</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A human readable message describing the error along with remediation steps where appropriate. It is a string.</td>
+</tr>
+<tr>
+<td><code>subCategory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A specific category providing more detailed information about the error. It is a string.</td>
+</tr>
+</tbody>
+</table>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

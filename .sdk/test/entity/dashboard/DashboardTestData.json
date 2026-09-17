@@ -1,0 +1,2714 @@
+{
+  "existing": {
+    "dashboard": {
+      "DASHBOARD00": {
+        "archived": true,
+        "archivedAt": "sb5",
+        "businessUnitId": "sb6",
+        "createdAt": "sb7",
+        "createdByUserId": "sb8",
+        "description": "sb9",
+        "id": "DASHBOARD00",
+        "inputs": [],
+        "lastViewedAt": "sbc",
+        "lastViewedByUserId": "sbd",
+        "name": "sbe",
+        "ownerUserId": "sbf",
+        "permissions": {},
+        "reportIdsToAdd": [],
+        "tags": [],
+        "updatedAt": "sc3",
+        "updatedByUserId": "sc4",
+        "widgets": []
+      },
+      "DASHBOARD01": {
+        "archived": true,
+        "archivedAt": "s169",
+        "businessUnitId": "s16a",
+        "createdAt": "s16b",
+        "createdByUserId": "s16c",
+        "description": "s16d",
+        "id": "DASHBOARD01",
+        "inputs": [],
+        "lastViewedAt": "s170",
+        "lastViewedByUserId": "s171",
+        "name": "s172",
+        "ownerUserId": "s173",
+        "permissions": {},
+        "reportIdsToAdd": [],
+        "tags": [],
+        "updatedAt": "s177",
+        "updatedByUserId": "s178",
+        "widgets": []
+      },
+      "DASHBOARD02": {
+        "archived": true,
+        "archivedAt": "s21d",
+        "businessUnitId": "s21e",
+        "createdAt": "s21f",
+        "createdByUserId": "s220",
+        "description": "s221",
+        "id": "DASHBOARD02",
+        "inputs": [],
+        "lastViewedAt": "s224",
+        "lastViewedByUserId": "s225",
+        "name": "s226",
+        "ownerUserId": "s227",
+        "permissions": {},
+        "reportIdsToAdd": [],
+        "tags": [],
+        "updatedAt": "s22b",
+        "updatedByUserId": "s22c",
+        "widgets": []
+      }
+    }
+  },
+  "new": {
+    "dashboard": {
+      "dashboard_ref01": {
+        "archived": true,
+        "archivedAt": "s2d1",
+        "businessUnitId": "s2d2",
+        "createdAt": "s2d3",
+        "createdByUserId": "s2d4",
+        "description": "s2d5",
+        "inputs": [],
+        "lastViewedAt": "s2d8",
+        "lastViewedByUserId": "s2d9",
+        "name": "s2da",
+        "ownerUserId": "s2db",
+        "permissions": {},
+        "reportIdsToAdd": [],
+        "tags": [],
+        "updatedAt": "s2df",
+        "updatedByUserId": "s2e0",
+        "widgets": []
+      }
+    }
+  },
+  "requests": {
+    "POST /analytics/reporting/2027-03-beta/dashboards/{dashboardId}/export": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "post-/analytics/reporting/2027-03-beta/dashboards/{dashboardId}/export",
+        "parameters": [
+          {
+            "description": "The ID of the dashboard to export.",
+            "explode": false,
+            "in": "path",
+            "name": "dashboardId",
+            "required": true,
+            "schema": {
+              "example": null,
+              "format": "int64",
+              "type": "integer"
+            },
+            "style": "simple"
+          }
+        ],
+        "protocol": "http",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": null,
+              "schema": {
+                "example": null,
+                "properties": {
+                  "exportType": {
+                    "description": "The type of export to perform. Valid values are:\n- `SCREENSHOT`: Individual report screenshots.\n- `PDF`: PDF with individual report screenshots.\n- `PPTX` PPTX with individual report screenshots.\n- `ZIP`: ZIP of individual report screenshots.\n- `CSV`: ZIP with one or more CSV files per report.\n- `XLS`: ZIP with one or more XLS files per report.\n- `XLSX: ZIP with one or more XLSX files per report.",
+                    "enum": [
+                      "CSV",
+                      "PDF",
+                      "PPTX",
+                      "SCREENSHOT",
+                      "XLS",
+                      "XLSX",
+                      "ZIP"
+                    ],
+                    "example": null,
+                    "type": "string"
+                  },
+                  "message": {
+                    "description": "The message to include with the export. Optional, empty by default.",
+                    "example": null,
+                    "type": "string"
+                  },
+                  "recipientUserIds": {
+                    "description": "Array of user IDs to send the export to. If absent or empty, the requesting user is used as the sole recipient; otherwise, this exact set of users is used.",
+                    "example": null,
+                    "items": {
+                      "example": null,
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "reportIds": {
+                    "description": "Array of IDs of reports to optionally narrow the export to. IDs of reports that are not on the dashboard are ignored. If absent or empty, all reports on the dashboard are included.",
+                    "example": null,
+                    "items": {
+                      "example": null,
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "subject": {
+                    "description": "The subject line to use for the export. If absent, the name of the requested report will be used. Max length of 100 characters.",
+                    "example": null,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "exportType"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "content": {},
+            "description": "No content"
+          },
+          "default": {
+            "content": {
+              "*/*": {
+                "example": null,
+                "schema": {
+                  "description": "Represents an error response returned by the API when an operation fails. This component is used in various endpoints to provide detailed information about the error encountered.",
+                  "example": {
+                    "category": "VALIDATION_ERROR",
+                    "correlationId": "aeb5f871-7f07-4993-9211-075dc63e7cbf",
+                    "links": {
+                      "knowledge-base": "https://www.hubspot.com/products/service/knowledge-base"
+                    },
+                    "message": "Invalid input (details will vary based on the error)"
+                  },
+                  "properties": {
+                    "category": {
+                      "description": "The error category, represented as a string.",
+                      "example": null,
+                      "type": "string"
+                    },
+                    "context": {
+                      "additionalProperties": {
+                        "example": null,
+                        "items": {
+                          "example": null,
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "description": "An object providing context about the error condition, with additional properties as arrays of strings.",
+                      "example": "{invalidPropertyName=[propertyValue], missingScopes=[scope1, scope2]}",
+                      "type": "object"
+                    },
+                    "correlationId": {
+                      "description": "A unique identifier for the request, used for tracking and support purposes. It is a string formatted as a UUID.",
+                      "example": "aeb5f871-7f07-4993-9211-075dc63e7cbf",
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "errors": {
+                      "description": "An array containing further information about the error, with each item being an ErrorDetail object.",
+                      "example": null,
+                      "items": {
+                        "description": "Represents detailed information about an error that occurred in the API. This component is used to provide additional context and specifics about errors, typically as part of an error response.",
+                        "example": null,
+                        "properties": {
+                          "code": {
+                            "description": "The status code associated with the error detail.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "context": {
+                            "additionalProperties": {
+                              "example": null,
+                              "items": {
+                                "example": null,
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
+                            "description": "Context about the error condition, represented as an object with additional properties that are arrays of strings.",
+                            "example": "{missingScopes=[scope1, scope2]}",
+                            "type": "object"
+                          },
+                          "in": {
+                            "description": "The name of the field or parameter in which the error was found.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "A human readable message describing the error along with remediation steps where appropriate.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "subCategory": {
+                            "description": "A specific category that contains more specific detail about the error.",
+                            "example": null,
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "message"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "links": {
+                      "additionalProperties": {
+                        "example": null,
+                        "type": "string"
+                      },
+                      "description": "A map of link names to associated URIs containing documentation about the error or recommended remediation steps. It is an object with string properties.",
+                      "example": null,
+                      "type": "object"
+                    },
+                    "message": {
+                      "description": "A human readable message describing the error along with remediation steps where appropriate. It is a string.",
+                      "example": "An error occurred",
+                      "type": "string"
+                    },
+                    "subCategory": {
+                      "description": "A specific category providing more detailed information about the error. It is a string.",
+                      "example": null,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "category",
+                    "correlationId",
+                    "message"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "reporting.full.read"
+            ]
+          },
+          {
+            "oauth2": [
+              "reporting.full.admin"
+            ]
+          },
+          {
+            "oauth2": [
+              "crm.hubsql.execute"
+            ]
+          }
+        ],
+        "securitySchemes": {
+          "developer_hapikey": {
+            "in": "query",
+            "name": "hapikey",
+            "type": "apiKey"
+          },
+          "oauth2": {
+            "flows": {
+              "authorizationCode": {
+                "authorizationUrl": "https://app.hubspot.com/oauth/authorize",
+                "scopes": {
+                  "crm.hubsql.execute": "",
+                  "reporting.full.admin": "",
+                  "reporting.full.edit": "",
+                  "reporting.full.read": "",
+                  "reporting.full.write": ""
+                },
+                "tokenUrl": "https://api.hubapi.com/oauth/v1/token"
+              }
+            },
+            "type": "oauth2"
+          },
+          "private_apps": {
+            "in": "header",
+            "name": "private-app",
+            "type": "apiKey"
+          },
+          "private_apps_legacy": {
+            "in": "header",
+            "name": "private-app-legacy",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "operation"
+      }
+    },
+    "POST /analytics/reporting/2027-03-beta/dashboards": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "post-/analytics/reporting/2027-03-beta/dashboards",
+        "parameters": [],
+        "protocol": "http",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": null,
+              "schema": {
+                "example": null,
+                "properties": {
+                  "businessUnitId": {
+                    "description": "The ID of the business unit to associate the new dashboard with. Optional, the account's default is used by default.",
+                    "example": null,
+                    "type": "string"
+                  },
+                  "description": {
+                    "description": "A description of the new dashboard. Optional.",
+                    "example": null,
+                    "type": "string"
+                  },
+                  "name": {
+                    "description": "The name of the new dashboard.",
+                    "example": null,
+                    "type": "string"
+                  },
+                  "permissions": {
+                    "example": null,
+                    "properties": {
+                      "permissionType": {
+                        "description": "The type of permission to apply to the report. Valid values are:\n- PRIVATE: The report is only accessible to its owner and administrators.\n- EVERYONE_VIEW: The report is viewable by everyone.\n- EVERYONE_EDIT: The report is viewable and editable by everyone.\n- SPECIFIC: In addition to the owner, specific users and/or teams are granted VIEW or EDIT permissions. The `specificPermissions` field must also be present.",
+                        "enum": [
+                          "EVERYONE_EDIT",
+                          "EVERYONE_VIEW",
+                          "PRIVATE",
+                          "SPECIFIC"
+                        ],
+                        "example": null,
+                        "type": "string"
+                      },
+                      "specificPermissions": {
+                        "description": "Array of specific permission grants. Must be present when `permissionType` is set to `SPECIFIC`, ignored otherwise.\n\nDashboards can have one or two specific permission configurations: one for VIEW grants and/or one for EDIT grants. Specific users and/or teams receive either VIEW or EDIT permissions based on which configuration they appear in. A given user or team cannot appear in both VIEW and EDIT configurations.",
+                        "example": null,
+                        "items": {
+                          "example": null,
+                          "properties": {
+                            "grants": {
+                              "description": "An array of grants detailing the users and/or teams to grant the specific permission to. At least one grantee must be specified.",
+                              "example": null,
+                              "items": {
+                                "example": null,
+                                "properties": {
+                                  "grantType": {
+                                    "description": "The type of entity to grant permissions to, either `USER` or `TEAM`.",
+                                    "enum": [
+                                      "TEAM",
+                                      "USER"
+                                    ],
+                                    "example": null,
+                                    "type": "string"
+                                  },
+                                  "granteeId": {
+                                    "description": "The ID of the user or team to grant permissions to.",
+                                    "example": null,
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "grantType",
+                                  "granteeId"
+                                ],
+                                "type": "object"
+                              },
+                              "type": "array"
+                            },
+                            "permissionType": {
+                              "description": "The type of permission granted, either `VIEW` or `EDIT`.",
+                              "enum": [
+                                "EDIT",
+                                "VIEW"
+                              ],
+                              "example": null,
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "permissionType"
+                          ],
+                          "type": "object"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "permissionType"
+                    ],
+                    "type": "object"
+                  },
+                  "reportIdsToAdd": {
+                    "description": "Array of IDs of reports that should be added to the dashboard after creation. Optional.",
+                    "example": null,
+                    "items": {
+                      "example": null,
+                      "type": "string"
+                    },
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "name",
+                  "permissions"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": null,
+                "schema": {
+                  "example": null,
+                  "properties": {
+                    "archived": {
+                      "description": "Whether the dashboard is archived.",
+                      "example": null,
+                      "type": "boolean"
+                    },
+                    "archivedAt": {
+                      "description": "If the dashboard is archived, the date and time when the dashboard was archived, in ISO 8601 format. Absent if the dashboard is not archived.",
+                      "example": null,
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "businessUnitId": {
+                      "description": "The ID of the business unit that the dashboard is associated with.",
+                      "example": null,
+                      "type": "string"
+                    },
+                    "createdAt": {
+                      "description": "The date and time when the dashboard was created, in ISO 8601 format.",
+                      "example": null,
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "createdByUserId": {
+                      "description": "The ID of the user who created the dashboard. May be absent.",
+                      "example": null,
+                      "type": "string"
+                    },
+                    "description": {
+                      "description": "A description of the dashboard. May be absent.",
+                      "example": null,
+                      "type": "string"
+                    },
+                    "id": {
+                      "description": "The ID of the dashboard.",
+                      "example": null,
+                      "type": "string"
+                    },
+                    "lastViewedAt": {
+                      "description": "The date and time when the dashboard was last viewed, in ISO 8601 format. Absent if it has not been viewed yet.",
+                      "example": null,
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "lastViewedByUserId": {
+                      "description": "The ID of the user who last viewed the dashboard. Absent if it has not been viewed yet.",
+                      "example": null,
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "The name of the dashboard.",
+                      "example": null,
+                      "type": "string"
+                    },
+                    "ownerUserId": {
+                      "description": "The ID of the user who owns the dashboard. Absent if the dashboard is currently unowned.",
+                      "example": null,
+                      "type": "string"
+                    },
+                    "permissions": {
+                      "example": null,
+                      "properties": {
+                        "permissionType": {
+                          "description": "The type of permission to apply to the report. Valid values are:\n- PRIVATE: The report is only accessible to its owner and administrators.\n- EVERYONE_VIEW: The report is viewable by everyone.\n- EVERYONE_EDIT: The report is viewable and editable by everyone.\n- SPECIFIC: In addition to the owner, specific users and/or teams are granted VIEW or EDIT permissions. The `specificPermissions` field must also be present.",
+                          "enum": [
+                            "EVERYONE_EDIT",
+                            "EVERYONE_VIEW",
+                            "PRIVATE",
+                            "SPECIFIC"
+                          ],
+                          "example": null,
+                          "type": "string"
+                        },
+                        "specificPermissions": {
+                          "description": "Array of specific permission grants. Must be present when `permissionType` is set to `SPECIFIC`, ignored otherwise.\n\nDashboards can have one or two specific permission configurations: one for VIEW grants and/or one for EDIT grants. Specific users and/or teams receive either VIEW or EDIT permissions based on which configuration they appear in. A given user or team cannot appear in both VIEW and EDIT configurations.",
+                          "example": null,
+                          "items": {
+                            "example": null,
+                            "properties": {
+                              "grants": {
+                                "description": "An array of grants detailing the users and/or teams to grant the specific permission to. At least one grantee must be specified.",
+                                "example": null,
+                                "items": {
+                                  "example": null,
+                                  "properties": {
+                                    "grantType": {
+                                      "description": "The type of entity to grant permissions to, either `USER` or `TEAM`.",
+                                      "enum": [
+                                        "TEAM",
+                                        "USER"
+                                      ],
+                                      "example": null,
+                                      "type": "string"
+                                    },
+                                    "granteeId": {
+                                      "description": "The ID of the user or team to grant permissions to.",
+                                      "example": null,
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "grantType",
+                                    "granteeId"
+                                  ],
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              },
+                              "permissionType": {
+                                "description": "The type of permission granted, either `VIEW` or `EDIT`.",
+                                "enum": [
+                                  "EDIT",
+                                  "VIEW"
+                                ],
+                                "example": null,
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "permissionType"
+                            ],
+                            "type": "object"
+                          },
+                          "type": "array"
+                        }
+                      },
+                      "required": [
+                        "permissionType"
+                      ],
+                      "type": "object"
+                    },
+                    "tags": {
+                      "description": "Array of objects representing the tags that the dashboard is tagged with.\n\nOnly returned when requested by including the `tags` field in the `properties` query parameter.",
+                      "example": null,
+                      "items": {
+                        "example": null,
+                        "properties": {
+                          "createdAt": {
+                            "description": "The date and time when the tag was created, in ISO 8601 format. May be absent.",
+                            "example": null,
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "createdByUserId": {
+                            "description": "The ID of the user who created the tag. May be absent.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "id": {
+                            "description": "The ID for the tag.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "The name of the tag.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "updatedAt": {
+                            "description": "The date and time when the tag was last updated, in ISO 8601 format. May be absent.",
+                            "example": null,
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "updatedByUserId": {
+                            "description": "The ID of the user who last updated the tag. May be absent.",
+                            "example": null,
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "name"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "updatedAt": {
+                      "description": "The date and time when the dashboard was last updated, in ISO 8601 format.",
+                      "example": null,
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "updatedByUserId": {
+                      "description": "The ID of the user who last updated the dashboard. May be absent.",
+                      "example": null,
+                      "type": "string"
+                    },
+                    "widgets": {
+                      "description": "An array of objects representing the widgets on the dashboard.\n\nOnly returned when requested by including the `widgets` field in the `properties` query parameter.",
+                      "example": null,
+                      "items": {
+                        "example": null,
+                        "properties": {
+                          "report": {
+                            "example": null,
+                            "properties": {
+                              "archived": {
+                                "description": "Whether the report is archived.",
+                                "example": null,
+                                "type": "boolean"
+                              },
+                              "archivedAt": {
+                                "description": "If the report is archived, the date and time when the report was archived, in ISO 8601 format. Absent if the report is not archived.",
+                                "example": null,
+                                "format": "date-time",
+                                "type": "string"
+                              },
+                              "businessUnitId": {
+                                "description": "The ID of the business unit that the report is associated with.",
+                                "example": null,
+                                "type": "string"
+                              },
+                              "createdAt": {
+                                "description": "The date and time when the report was created, in ISO 8601 format.",
+                                "example": null,
+                                "format": "date-time",
+                                "type": "string"
+                              },
+                              "createdByUserId": {
+                                "description": "The ID of the user who created the report. May be absent.",
+                                "example": null,
+                                "type": "string"
+                              },
+                              "description": {
+                                "description": "A description of the report. May be absent.",
+                                "example": null,
+                                "type": "string"
+                              },
+                              "id": {
+                                "description": "The ID of the report.",
+                                "example": null,
+                                "type": "string"
+                              },
+                              "lastViewedAt": {
+                                "description": "The date and time when the report was last viewed, in ISO 8601 format. Absent if it has not been viewed yet.",
+                                "example": null,
+                                "format": "date-time",
+                                "type": "string"
+                              },
+                              "lastViewedByUserId": {
+                                "description": "The ID of the user who last viewed the report. Absent if it has not been viewed yet.",
+                                "example": null,
+                                "type": "string"
+                              },
+                              "name": {
+                                "description": "The name of the report.",
+                                "example": null,
+                                "type": "string"
+                              },
+                              "ownerUserId": {
+                                "description": "The ID of the user who owns the report. Absent if the report is currently unowned.",
+                                "example": null,
+                                "type": "string"
+                              },
+                              "permissions": {
+                                "example": null,
+                                "properties": {
+                                  "permissionType": {
+                                    "description": "The type of permission to apply to the report. Valid values are:\n- PRIVATE: The report is only accessible to its owner and administrators.\n- EVERYONE_VIEW: The report is viewable by everyone.\n- EVERYONE_EDIT: The report is viewable and editable by everyone.\n- SPECIFIC: In addition to the owner, specific users and/or teams are granted VIEW or EDIT permissions. The `specificPermissions` field must also be present.",
+                                    "enum": [
+                                      "EVERYONE_EDIT",
+                                      "EVERYONE_VIEW",
+                                      "PRIVATE",
+                                      "SPECIFIC"
+                                    ],
+                                    "example": null,
+                                    "type": "string"
+                                  },
+                                  "specificPermissions": {
+                                    "example": null,
+                                    "properties": {
+                                      "grants": {
+                                        "description": "An array of grants detailing the users and/or teams to grant the specific permission to. At least one grantee must be specified.",
+                                        "example": null,
+                                        "items": {
+                                          "example": null,
+                                          "properties": {
+                                            "$ref": "#/responses/200/content/application~1json/schema/properties/permissions/properties/specificPermissions/items/properties/grants/items/properties"
+                                          },
+                                          "required": {
+                                            "$ref": "#/responses/200/content/application~1json/schema/properties/permissions/properties/specificPermissions/items/properties/grants/items/required"
+                                          },
+                                          "type": "object"
+                                        },
+                                        "type": "array"
+                                      },
+                                      "permissionType": {
+                                        "description": "The type of permission granted, either `VIEW` or `EDIT`.",
+                                        "enum": [
+                                          "EDIT",
+                                          "VIEW"
+                                        ],
+                                        "example": null,
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "permissionType"
+                                    ],
+                                    "type": "object"
+                                  }
+                                },
+                                "required": [
+                                  "permissionType"
+                                ],
+                                "type": "object"
+                              },
+                              "tags": {
+                                "description": "Array of objects representing the tags that the report is tagged with.\n\nOnly returned when requested by including the `tags` field in the `properties` query parameter.",
+                                "example": null,
+                                "items": {
+                                  "example": null,
+                                  "properties": {
+                                    "createdAt": {
+                                      "description": "The date and time when the tag was created, in ISO 8601 format. May be absent.",
+                                      "example": null,
+                                      "format": "date-time",
+                                      "type": "string"
+                                    },
+                                    "createdByUserId": {
+                                      "description": "The ID of the user who created the tag. May be absent.",
+                                      "example": null,
+                                      "type": "string"
+                                    },
+                                    "id": {
+                                      "description": "The ID for the tag.",
+                                      "example": null,
+                                      "type": "string"
+                                    },
+                                    "name": {
+                                      "description": "The name of the tag.",
+                                      "example": null,
+                                      "type": "string"
+                                    },
+                                    "updatedAt": {
+                                      "description": "The date and time when the tag was last updated, in ISO 8601 format. May be absent.",
+                                      "example": null,
+                                      "format": "date-time",
+                                      "type": "string"
+                                    },
+                                    "updatedByUserId": {
+                                      "description": "The ID of the user who last updated the tag. May be absent.",
+                                      "example": null,
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "id",
+                                    "name"
+                                  ],
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              },
+                              "updatedAt": {
+                                "description": "The date and time when the report was last updated, in ISO 8601 format.",
+                                "example": null,
+                                "format": "date-time",
+                                "type": "string"
+                              },
+                              "updatedByUserId": {
+                                "description": "The ID of the user who last updated the report. May be absent.",
+                                "example": null,
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "archived",
+                              "businessUnitId",
+                              "createdAt",
+                              "id",
+                              "name",
+                              "updatedAt"
+                            ],
+                            "type": "object"
+                          },
+                          "reportId": {
+                            "description": "The ID of the report the widget contains.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "widgetLayout": {
+                            "example": null,
+                            "properties": {
+                              "height": {
+                                "description": "The height of the widget in the dashboard grid.",
+                                "example": null,
+                                "format": "int32",
+                                "type": "integer"
+                              },
+                              "width": {
+                                "description": "The width of the widget in the dashboard grid.",
+                                "example": null,
+                                "format": "int32",
+                                "type": "integer"
+                              },
+                              "x": {
+                                "description": "The 0-based absolute horizontal position of the widget in the dashboard grid.",
+                                "example": null,
+                                "format": "int32",
+                                "type": "integer"
+                              },
+                              "y": {
+                                "description": "The 0-based absolute vertical position of the widget in the dashboard grid.",
+                                "example": null,
+                                "format": "int32",
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "height",
+                              "width",
+                              "x",
+                              "y"
+                            ],
+                            "type": "object"
+                          }
+                        },
+                        "required": [
+                          "reportId",
+                          "widgetLayout"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "archived",
+                    "businessUnitId",
+                    "createdAt",
+                    "id",
+                    "name",
+                    "updatedAt"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "successful operation"
+          },
+          "default": {
+            "content": {
+              "*/*": {
+                "example": null,
+                "schema": {
+                  "description": "Represents an error response returned by the API when an operation fails. This component is used in various endpoints to provide detailed information about the error encountered.",
+                  "example": {
+                    "category": "VALIDATION_ERROR",
+                    "correlationId": "aeb5f871-7f07-4993-9211-075dc63e7cbf",
+                    "links": {
+                      "knowledge-base": "https://www.hubspot.com/products/service/knowledge-base"
+                    },
+                    "message": "Invalid input (details will vary based on the error)"
+                  },
+                  "properties": {
+                    "category": {
+                      "description": "The error category, represented as a string.",
+                      "example": null,
+                      "type": "string"
+                    },
+                    "context": {
+                      "additionalProperties": {
+                        "example": null,
+                        "items": {
+                          "example": null,
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "description": "An object providing context about the error condition, with additional properties as arrays of strings.",
+                      "example": "{invalidPropertyName=[propertyValue], missingScopes=[scope1, scope2]}",
+                      "type": "object"
+                    },
+                    "correlationId": {
+                      "description": "A unique identifier for the request, used for tracking and support purposes. It is a string formatted as a UUID.",
+                      "example": "aeb5f871-7f07-4993-9211-075dc63e7cbf",
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "errors": {
+                      "description": "An array containing further information about the error, with each item being an ErrorDetail object.",
+                      "example": null,
+                      "items": {
+                        "description": "Represents detailed information about an error that occurred in the API. This component is used to provide additional context and specifics about errors, typically as part of an error response.",
+                        "example": null,
+                        "properties": {
+                          "code": {
+                            "description": "The status code associated with the error detail.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "context": {
+                            "additionalProperties": {
+                              "example": null,
+                              "items": {
+                                "example": null,
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
+                            "description": "Context about the error condition, represented as an object with additional properties that are arrays of strings.",
+                            "example": "{missingScopes=[scope1, scope2]}",
+                            "type": "object"
+                          },
+                          "in": {
+                            "description": "The name of the field or parameter in which the error was found.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "A human readable message describing the error along with remediation steps where appropriate.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "subCategory": {
+                            "description": "A specific category that contains more specific detail about the error.",
+                            "example": null,
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "message"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "links": {
+                      "additionalProperties": {
+                        "example": null,
+                        "type": "string"
+                      },
+                      "description": "A map of link names to associated URIs containing documentation about the error or recommended remediation steps. It is an object with string properties.",
+                      "example": null,
+                      "type": "object"
+                    },
+                    "message": {
+                      "description": "A human readable message describing the error along with remediation steps where appropriate. It is a string.",
+                      "example": "An error occurred",
+                      "type": "string"
+                    },
+                    "subCategory": {
+                      "description": "A specific category providing more detailed information about the error. It is a string.",
+                      "example": null,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "category",
+                    "correlationId",
+                    "message"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "reporting.full.write"
+            ]
+          },
+          {
+            "oauth2": [
+              "reporting.full.admin"
+            ]
+          }
+        ],
+        "securitySchemes": {
+          "developer_hapikey": {
+            "in": "query",
+            "name": "hapikey",
+            "type": "apiKey"
+          },
+          "oauth2": {
+            "flows": {
+              "authorizationCode": {
+                "authorizationUrl": "https://app.hubspot.com/oauth/authorize",
+                "scopes": {
+                  "crm.hubsql.execute": "",
+                  "reporting.full.admin": "",
+                  "reporting.full.edit": "",
+                  "reporting.full.read": "",
+                  "reporting.full.write": ""
+                },
+                "tokenUrl": "https://api.hubapi.com/oauth/v1/token"
+              }
+            },
+            "type": "oauth2"
+          },
+          "private_apps": {
+            "in": "header",
+            "name": "private-app",
+            "type": "apiKey"
+          },
+          "private_apps_legacy": {
+            "in": "header",
+            "name": "private-app-legacy",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "operation"
+      }
+    },
+    "POST /analytics/reporting/2027-03-beta/dashboards/batch/archive": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "post-/analytics/reporting/2027-03-beta/dashboards/batch/archive",
+        "parameters": [],
+        "protocol": "http",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": null,
+              "schema": {
+                "example": null,
+                "properties": {
+                  "inputs": {
+                    "description": "Array of report or dashboard IDs.",
+                    "example": null,
+                    "items": {
+                      "example": null,
+                      "type": "string"
+                    },
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "inputs"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "content": {},
+            "description": "No content"
+          },
+          "default": {
+            "content": {
+              "*/*": {
+                "example": null,
+                "schema": {
+                  "description": "Represents an error response returned by the API when an operation fails. This component is used in various endpoints to provide detailed information about the error encountered.",
+                  "example": {
+                    "category": "VALIDATION_ERROR",
+                    "correlationId": "aeb5f871-7f07-4993-9211-075dc63e7cbf",
+                    "links": {
+                      "knowledge-base": "https://www.hubspot.com/products/service/knowledge-base"
+                    },
+                    "message": "Invalid input (details will vary based on the error)"
+                  },
+                  "properties": {
+                    "category": {
+                      "description": "The error category, represented as a string.",
+                      "example": null,
+                      "type": "string"
+                    },
+                    "context": {
+                      "additionalProperties": {
+                        "example": null,
+                        "items": {
+                          "example": null,
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "description": "An object providing context about the error condition, with additional properties as arrays of strings.",
+                      "example": "{invalidPropertyName=[propertyValue], missingScopes=[scope1, scope2]}",
+                      "type": "object"
+                    },
+                    "correlationId": {
+                      "description": "A unique identifier for the request, used for tracking and support purposes. It is a string formatted as a UUID.",
+                      "example": "aeb5f871-7f07-4993-9211-075dc63e7cbf",
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "errors": {
+                      "description": "An array containing further information about the error, with each item being an ErrorDetail object.",
+                      "example": null,
+                      "items": {
+                        "description": "Represents detailed information about an error that occurred in the API. This component is used to provide additional context and specifics about errors, typically as part of an error response.",
+                        "example": null,
+                        "properties": {
+                          "code": {
+                            "description": "The status code associated with the error detail.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "context": {
+                            "additionalProperties": {
+                              "example": null,
+                              "items": {
+                                "example": null,
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
+                            "description": "Context about the error condition, represented as an object with additional properties that are arrays of strings.",
+                            "example": "{missingScopes=[scope1, scope2]}",
+                            "type": "object"
+                          },
+                          "in": {
+                            "description": "The name of the field or parameter in which the error was found.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "A human readable message describing the error along with remediation steps where appropriate.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "subCategory": {
+                            "description": "A specific category that contains more specific detail about the error.",
+                            "example": null,
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "message"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "links": {
+                      "additionalProperties": {
+                        "example": null,
+                        "type": "string"
+                      },
+                      "description": "A map of link names to associated URIs containing documentation about the error or recommended remediation steps. It is an object with string properties.",
+                      "example": null,
+                      "type": "object"
+                    },
+                    "message": {
+                      "description": "A human readable message describing the error along with remediation steps where appropriate. It is a string.",
+                      "example": "An error occurred",
+                      "type": "string"
+                    },
+                    "subCategory": {
+                      "description": "A specific category providing more detailed information about the error. It is a string.",
+                      "example": null,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "category",
+                    "correlationId",
+                    "message"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "reporting.full.write"
+            ]
+          },
+          {
+            "oauth2": [
+              "reporting.full.admin"
+            ]
+          }
+        ],
+        "securitySchemes": {
+          "developer_hapikey": {
+            "in": "query",
+            "name": "hapikey",
+            "type": "apiKey"
+          },
+          "oauth2": {
+            "flows": {
+              "authorizationCode": {
+                "authorizationUrl": "https://app.hubspot.com/oauth/authorize",
+                "scopes": {
+                  "crm.hubsql.execute": "",
+                  "reporting.full.admin": "",
+                  "reporting.full.edit": "",
+                  "reporting.full.read": "",
+                  "reporting.full.write": ""
+                },
+                "tokenUrl": "https://api.hubapi.com/oauth/v1/token"
+              }
+            },
+            "type": "oauth2"
+          },
+          "private_apps": {
+            "in": "header",
+            "name": "private-app",
+            "type": "apiKey"
+          },
+          "private_apps_legacy": {
+            "in": "header",
+            "name": "private-app-legacy",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "operation"
+      }
+    },
+    "GET /analytics/reporting/2027-03-beta/dashboards/{dashboardId}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "get-/analytics/reporting/2027-03-beta/dashboards/{dashboardId}",
+        "parameters": [
+          {
+            "description": "The ID of the dashboard to retrieve.",
+            "explode": false,
+            "in": "path",
+            "name": "dashboardId",
+            "required": true,
+            "schema": {
+              "example": null,
+              "format": "int64",
+              "type": "integer"
+            },
+            "style": "simple"
+          },
+          {
+            "description": "Whether to retrieve an archived dashboard instead of an active one. Default false.",
+            "explode": true,
+            "in": "query",
+            "name": "archived",
+            "required": false,
+            "schema": {
+              "default": false,
+              "example": null,
+              "type": "boolean"
+            },
+            "style": "form"
+          },
+          {
+            "description": "Additionally properties to include in the response. Refer to the response details for available fields.",
+            "explode": true,
+            "in": "query",
+            "name": "properties",
+            "required": false,
+            "schema": {
+              "example": null,
+              "items": {
+                "example": null,
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "style": "form"
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": null,
+                "schema": {
+                  "example": null,
+                  "properties": {
+                    "archived": {
+                      "description": "Whether the dashboard is archived.",
+                      "example": null,
+                      "type": "boolean"
+                    },
+                    "archivedAt": {
+                      "description": "If the dashboard is archived, the date and time when the dashboard was archived, in ISO 8601 format. Absent if the dashboard is not archived.",
+                      "example": null,
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "businessUnitId": {
+                      "description": "The ID of the business unit that the dashboard is associated with.",
+                      "example": null,
+                      "type": "string"
+                    },
+                    "createdAt": {
+                      "description": "The date and time when the dashboard was created, in ISO 8601 format.",
+                      "example": null,
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "createdByUserId": {
+                      "description": "The ID of the user who created the dashboard. May be absent.",
+                      "example": null,
+                      "type": "string"
+                    },
+                    "description": {
+                      "description": "A description of the dashboard. May be absent.",
+                      "example": null,
+                      "type": "string"
+                    },
+                    "id": {
+                      "description": "The ID of the dashboard.",
+                      "example": null,
+                      "type": "string"
+                    },
+                    "lastViewedAt": {
+                      "description": "The date and time when the dashboard was last viewed, in ISO 8601 format. Absent if it has not been viewed yet.",
+                      "example": null,
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "lastViewedByUserId": {
+                      "description": "The ID of the user who last viewed the dashboard. Absent if it has not been viewed yet.",
+                      "example": null,
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "The name of the dashboard.",
+                      "example": null,
+                      "type": "string"
+                    },
+                    "ownerUserId": {
+                      "description": "The ID of the user who owns the dashboard. Absent if the dashboard is currently unowned.",
+                      "example": null,
+                      "type": "string"
+                    },
+                    "permissions": {
+                      "example": null,
+                      "properties": {
+                        "permissionType": {
+                          "description": "The type of permission to apply to the report. Valid values are:\n- PRIVATE: The report is only accessible to its owner and administrators.\n- EVERYONE_VIEW: The report is viewable by everyone.\n- EVERYONE_EDIT: The report is viewable and editable by everyone.\n- SPECIFIC: In addition to the owner, specific users and/or teams are granted VIEW or EDIT permissions. The `specificPermissions` field must also be present.",
+                          "enum": [
+                            "EVERYONE_EDIT",
+                            "EVERYONE_VIEW",
+                            "PRIVATE",
+                            "SPECIFIC"
+                          ],
+                          "example": null,
+                          "type": "string"
+                        },
+                        "specificPermissions": {
+                          "description": "Array of specific permission grants. Must be present when `permissionType` is set to `SPECIFIC`, ignored otherwise.\n\nDashboards can have one or two specific permission configurations: one for VIEW grants and/or one for EDIT grants. Specific users and/or teams receive either VIEW or EDIT permissions based on which configuration they appear in. A given user or team cannot appear in both VIEW and EDIT configurations.",
+                          "example": null,
+                          "items": {
+                            "example": null,
+                            "properties": {
+                              "grants": {
+                                "description": "An array of grants detailing the users and/or teams to grant the specific permission to. At least one grantee must be specified.",
+                                "example": null,
+                                "items": {
+                                  "example": null,
+                                  "properties": {
+                                    "grantType": {
+                                      "description": "The type of entity to grant permissions to, either `USER` or `TEAM`.",
+                                      "enum": [
+                                        "TEAM",
+                                        "USER"
+                                      ],
+                                      "example": null,
+                                      "type": "string"
+                                    },
+                                    "granteeId": {
+                                      "description": "The ID of the user or team to grant permissions to.",
+                                      "example": null,
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "grantType",
+                                    "granteeId"
+                                  ],
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              },
+                              "permissionType": {
+                                "description": "The type of permission granted, either `VIEW` or `EDIT`.",
+                                "enum": [
+                                  "EDIT",
+                                  "VIEW"
+                                ],
+                                "example": null,
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "permissionType"
+                            ],
+                            "type": "object"
+                          },
+                          "type": "array"
+                        }
+                      },
+                      "required": [
+                        "permissionType"
+                      ],
+                      "type": "object"
+                    },
+                    "tags": {
+                      "description": "Array of objects representing the tags that the dashboard is tagged with.\n\nOnly returned when requested by including the `tags` field in the `properties` query parameter.",
+                      "example": null,
+                      "items": {
+                        "example": null,
+                        "properties": {
+                          "createdAt": {
+                            "description": "The date and time when the tag was created, in ISO 8601 format. May be absent.",
+                            "example": null,
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "createdByUserId": {
+                            "description": "The ID of the user who created the tag. May be absent.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "id": {
+                            "description": "The ID for the tag.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "The name of the tag.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "updatedAt": {
+                            "description": "The date and time when the tag was last updated, in ISO 8601 format. May be absent.",
+                            "example": null,
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "updatedByUserId": {
+                            "description": "The ID of the user who last updated the tag. May be absent.",
+                            "example": null,
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "name"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "updatedAt": {
+                      "description": "The date and time when the dashboard was last updated, in ISO 8601 format.",
+                      "example": null,
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "updatedByUserId": {
+                      "description": "The ID of the user who last updated the dashboard. May be absent.",
+                      "example": null,
+                      "type": "string"
+                    },
+                    "widgets": {
+                      "description": "An array of objects representing the widgets on the dashboard.\n\nOnly returned when requested by including the `widgets` field in the `properties` query parameter.",
+                      "example": null,
+                      "items": {
+                        "example": null,
+                        "properties": {
+                          "report": {
+                            "example": null,
+                            "properties": {
+                              "archived": {
+                                "description": "Whether the report is archived.",
+                                "example": null,
+                                "type": "boolean"
+                              },
+                              "archivedAt": {
+                                "description": "If the report is archived, the date and time when the report was archived, in ISO 8601 format. Absent if the report is not archived.",
+                                "example": null,
+                                "format": "date-time",
+                                "type": "string"
+                              },
+                              "businessUnitId": {
+                                "description": "The ID of the business unit that the report is associated with.",
+                                "example": null,
+                                "type": "string"
+                              },
+                              "createdAt": {
+                                "description": "The date and time when the report was created, in ISO 8601 format.",
+                                "example": null,
+                                "format": "date-time",
+                                "type": "string"
+                              },
+                              "createdByUserId": {
+                                "description": "The ID of the user who created the report. May be absent.",
+                                "example": null,
+                                "type": "string"
+                              },
+                              "description": {
+                                "description": "A description of the report. May be absent.",
+                                "example": null,
+                                "type": "string"
+                              },
+                              "id": {
+                                "description": "The ID of the report.",
+                                "example": null,
+                                "type": "string"
+                              },
+                              "lastViewedAt": {
+                                "description": "The date and time when the report was last viewed, in ISO 8601 format. Absent if it has not been viewed yet.",
+                                "example": null,
+                                "format": "date-time",
+                                "type": "string"
+                              },
+                              "lastViewedByUserId": {
+                                "description": "The ID of the user who last viewed the report. Absent if it has not been viewed yet.",
+                                "example": null,
+                                "type": "string"
+                              },
+                              "name": {
+                                "description": "The name of the report.",
+                                "example": null,
+                                "type": "string"
+                              },
+                              "ownerUserId": {
+                                "description": "The ID of the user who owns the report. Absent if the report is currently unowned.",
+                                "example": null,
+                                "type": "string"
+                              },
+                              "permissions": {
+                                "example": null,
+                                "properties": {
+                                  "permissionType": {
+                                    "description": "The type of permission to apply to the report. Valid values are:\n- PRIVATE: The report is only accessible to its owner and administrators.\n- EVERYONE_VIEW: The report is viewable by everyone.\n- EVERYONE_EDIT: The report is viewable and editable by everyone.\n- SPECIFIC: In addition to the owner, specific users and/or teams are granted VIEW or EDIT permissions. The `specificPermissions` field must also be present.",
+                                    "enum": [
+                                      "EVERYONE_EDIT",
+                                      "EVERYONE_VIEW",
+                                      "PRIVATE",
+                                      "SPECIFIC"
+                                    ],
+                                    "example": null,
+                                    "type": "string"
+                                  },
+                                  "specificPermissions": {
+                                    "example": null,
+                                    "properties": {
+                                      "grants": {
+                                        "description": "An array of grants detailing the users and/or teams to grant the specific permission to. At least one grantee must be specified.",
+                                        "example": null,
+                                        "items": {
+                                          "example": null,
+                                          "properties": {
+                                            "$ref": "#/responses/200/content/application~1json/schema/properties/permissions/properties/specificPermissions/items/properties/grants/items/properties"
+                                          },
+                                          "required": {
+                                            "$ref": "#/responses/200/content/application~1json/schema/properties/permissions/properties/specificPermissions/items/properties/grants/items/required"
+                                          },
+                                          "type": "object"
+                                        },
+                                        "type": "array"
+                                      },
+                                      "permissionType": {
+                                        "description": "The type of permission granted, either `VIEW` or `EDIT`.",
+                                        "enum": [
+                                          "EDIT",
+                                          "VIEW"
+                                        ],
+                                        "example": null,
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "permissionType"
+                                    ],
+                                    "type": "object"
+                                  }
+                                },
+                                "required": [
+                                  "permissionType"
+                                ],
+                                "type": "object"
+                              },
+                              "tags": {
+                                "description": "Array of objects representing the tags that the report is tagged with.\n\nOnly returned when requested by including the `tags` field in the `properties` query parameter.",
+                                "example": null,
+                                "items": {
+                                  "example": null,
+                                  "properties": {
+                                    "createdAt": {
+                                      "description": "The date and time when the tag was created, in ISO 8601 format. May be absent.",
+                                      "example": null,
+                                      "format": "date-time",
+                                      "type": "string"
+                                    },
+                                    "createdByUserId": {
+                                      "description": "The ID of the user who created the tag. May be absent.",
+                                      "example": null,
+                                      "type": "string"
+                                    },
+                                    "id": {
+                                      "description": "The ID for the tag.",
+                                      "example": null,
+                                      "type": "string"
+                                    },
+                                    "name": {
+                                      "description": "The name of the tag.",
+                                      "example": null,
+                                      "type": "string"
+                                    },
+                                    "updatedAt": {
+                                      "description": "The date and time when the tag was last updated, in ISO 8601 format. May be absent.",
+                                      "example": null,
+                                      "format": "date-time",
+                                      "type": "string"
+                                    },
+                                    "updatedByUserId": {
+                                      "description": "The ID of the user who last updated the tag. May be absent.",
+                                      "example": null,
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "id",
+                                    "name"
+                                  ],
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              },
+                              "updatedAt": {
+                                "description": "The date and time when the report was last updated, in ISO 8601 format.",
+                                "example": null,
+                                "format": "date-time",
+                                "type": "string"
+                              },
+                              "updatedByUserId": {
+                                "description": "The ID of the user who last updated the report. May be absent.",
+                                "example": null,
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "archived",
+                              "businessUnitId",
+                              "createdAt",
+                              "id",
+                              "name",
+                              "updatedAt"
+                            ],
+                            "type": "object"
+                          },
+                          "reportId": {
+                            "description": "The ID of the report the widget contains.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "widgetLayout": {
+                            "example": null,
+                            "properties": {
+                              "height": {
+                                "description": "The height of the widget in the dashboard grid.",
+                                "example": null,
+                                "format": "int32",
+                                "type": "integer"
+                              },
+                              "width": {
+                                "description": "The width of the widget in the dashboard grid.",
+                                "example": null,
+                                "format": "int32",
+                                "type": "integer"
+                              },
+                              "x": {
+                                "description": "The 0-based absolute horizontal position of the widget in the dashboard grid.",
+                                "example": null,
+                                "format": "int32",
+                                "type": "integer"
+                              },
+                              "y": {
+                                "description": "The 0-based absolute vertical position of the widget in the dashboard grid.",
+                                "example": null,
+                                "format": "int32",
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "height",
+                              "width",
+                              "x",
+                              "y"
+                            ],
+                            "type": "object"
+                          }
+                        },
+                        "required": [
+                          "reportId",
+                          "widgetLayout"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "archived",
+                    "businessUnitId",
+                    "createdAt",
+                    "id",
+                    "name",
+                    "updatedAt"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "successful operation"
+          },
+          "default": {
+            "content": {
+              "*/*": {
+                "example": null,
+                "schema": {
+                  "description": "Represents an error response returned by the API when an operation fails. This component is used in various endpoints to provide detailed information about the error encountered.",
+                  "example": {
+                    "category": "VALIDATION_ERROR",
+                    "correlationId": "aeb5f871-7f07-4993-9211-075dc63e7cbf",
+                    "links": {
+                      "knowledge-base": "https://www.hubspot.com/products/service/knowledge-base"
+                    },
+                    "message": "Invalid input (details will vary based on the error)"
+                  },
+                  "properties": {
+                    "category": {
+                      "description": "The error category, represented as a string.",
+                      "example": null,
+                      "type": "string"
+                    },
+                    "context": {
+                      "additionalProperties": {
+                        "example": null,
+                        "items": {
+                          "example": null,
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "description": "An object providing context about the error condition, with additional properties as arrays of strings.",
+                      "example": "{invalidPropertyName=[propertyValue], missingScopes=[scope1, scope2]}",
+                      "type": "object"
+                    },
+                    "correlationId": {
+                      "description": "A unique identifier for the request, used for tracking and support purposes. It is a string formatted as a UUID.",
+                      "example": "aeb5f871-7f07-4993-9211-075dc63e7cbf",
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "errors": {
+                      "description": "An array containing further information about the error, with each item being an ErrorDetail object.",
+                      "example": null,
+                      "items": {
+                        "description": "Represents detailed information about an error that occurred in the API. This component is used to provide additional context and specifics about errors, typically as part of an error response.",
+                        "example": null,
+                        "properties": {
+                          "code": {
+                            "description": "The status code associated with the error detail.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "context": {
+                            "additionalProperties": {
+                              "example": null,
+                              "items": {
+                                "example": null,
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
+                            "description": "Context about the error condition, represented as an object with additional properties that are arrays of strings.",
+                            "example": "{missingScopes=[scope1, scope2]}",
+                            "type": "object"
+                          },
+                          "in": {
+                            "description": "The name of the field or parameter in which the error was found.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "A human readable message describing the error along with remediation steps where appropriate.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "subCategory": {
+                            "description": "A specific category that contains more specific detail about the error.",
+                            "example": null,
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "message"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "links": {
+                      "additionalProperties": {
+                        "example": null,
+                        "type": "string"
+                      },
+                      "description": "A map of link names to associated URIs containing documentation about the error or recommended remediation steps. It is an object with string properties.",
+                      "example": null,
+                      "type": "object"
+                    },
+                    "message": {
+                      "description": "A human readable message describing the error along with remediation steps where appropriate. It is a string.",
+                      "example": "An error occurred",
+                      "type": "string"
+                    },
+                    "subCategory": {
+                      "description": "A specific category providing more detailed information about the error. It is a string.",
+                      "example": null,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "category",
+                    "correlationId",
+                    "message"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "reporting.full.read"
+            ]
+          },
+          {
+            "oauth2": [
+              "reporting.full.admin"
+            ]
+          },
+          {
+            "oauth2": [
+              "crm.hubsql.execute"
+            ]
+          }
+        ],
+        "securitySchemes": {
+          "developer_hapikey": {
+            "in": "query",
+            "name": "hapikey",
+            "type": "apiKey"
+          },
+          "oauth2": {
+            "flows": {
+              "authorizationCode": {
+                "authorizationUrl": "https://app.hubspot.com/oauth/authorize",
+                "scopes": {
+                  "crm.hubsql.execute": "",
+                  "reporting.full.admin": "",
+                  "reporting.full.edit": "",
+                  "reporting.full.read": "",
+                  "reporting.full.write": ""
+                },
+                "tokenUrl": "https://api.hubapi.com/oauth/v1/token"
+              }
+            },
+            "type": "oauth2"
+          },
+          "private_apps": {
+            "in": "header",
+            "name": "private-app",
+            "type": "apiKey"
+          },
+          "private_apps_legacy": {
+            "in": "header",
+            "name": "private-app-legacy",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "operation"
+      }
+    },
+    "PATCH /analytics/reporting/2027-03-beta/dashboards/{dashboardId}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "patch-/analytics/reporting/2027-03-beta/dashboards/{dashboardId}_/analytics/reporting/2027-03-beta/dashboards/{dashboardId}",
+        "parameters": [
+          {
+            "description": "The ID of the dashboard to update.",
+            "explode": false,
+            "in": "path",
+            "name": "dashboardId",
+            "required": true,
+            "schema": {
+              "example": null,
+              "format": "int64",
+              "type": "integer"
+            },
+            "style": "simple"
+          }
+        ],
+        "protocol": "http",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": null,
+              "schema": {
+                "example": null,
+                "properties": {
+                  "archived": {
+                    "description": "Whether to archive (`true`) or restore (`false`) the dashboard. Cannot be combined with any other fields.",
+                    "example": null,
+                    "type": "boolean"
+                  },
+                  "businessUnitId": {
+                    "description": "The new business unit ID to use for the dashboard. Set to `null` to reset to the account's default business unit. Omit to leave unchanged.",
+                    "example": null,
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "description": {
+                    "description": "The new description to use for the dashboard. Set to `null` to clear the description. Omit to leave unchanged.",
+                    "example": null,
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "name": {
+                    "description": "The new name to use for the dashboard. Omit to leave unchanged.",
+                    "example": null,
+                    "type": "string"
+                  },
+                  "ownerUserId": {
+                    "description": "The ID of the user to change the dashboard's owner to. Omit to leave unchanged.",
+                    "example": null,
+                    "type": "string"
+                  },
+                  "permissions": {
+                    "example": null,
+                    "properties": {
+                      "permissionType": {
+                        "description": "The type of permission to apply to the report. Valid values are:\n- PRIVATE: The report is only accessible to its owner and administrators.\n- EVERYONE_VIEW: The report is viewable by everyone.\n- EVERYONE_EDIT: The report is viewable and editable by everyone.\n- SPECIFIC: In addition to the owner, specific users and/or teams are granted VIEW or EDIT permissions. The `specificPermissions` field must also be present.",
+                        "enum": [
+                          "EVERYONE_EDIT",
+                          "EVERYONE_VIEW",
+                          "PRIVATE",
+                          "SPECIFIC"
+                        ],
+                        "example": null,
+                        "type": "string"
+                      },
+                      "specificPermissions": {
+                        "description": "Array of specific permission grants. Must be present when `permissionType` is set to `SPECIFIC`, ignored otherwise.\n\nDashboards can have one or two specific permission configurations: one for VIEW grants and/or one for EDIT grants. Specific users and/or teams receive either VIEW or EDIT permissions based on which configuration they appear in. A given user or team cannot appear in both VIEW and EDIT configurations.",
+                        "example": null,
+                        "items": {
+                          "example": null,
+                          "properties": {
+                            "grants": {
+                              "description": "An array of grants detailing the users and/or teams to grant the specific permission to. At least one grantee must be specified.",
+                              "example": null,
+                              "items": {
+                                "example": null,
+                                "properties": {
+                                  "grantType": {
+                                    "description": "The type of entity to grant permissions to, either `USER` or `TEAM`.",
+                                    "enum": [
+                                      "TEAM",
+                                      "USER"
+                                    ],
+                                    "example": null,
+                                    "type": "string"
+                                  },
+                                  "granteeId": {
+                                    "description": "The ID of the user or team to grant permissions to.",
+                                    "example": null,
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "grantType",
+                                  "granteeId"
+                                ],
+                                "type": "object"
+                              },
+                              "type": "array"
+                            },
+                            "permissionType": {
+                              "description": "The type of permission granted, either `VIEW` or `EDIT`.",
+                              "enum": [
+                                "EDIT",
+                                "VIEW"
+                              ],
+                              "example": null,
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "permissionType"
+                          ],
+                          "type": "object"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "permissionType"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": null,
+                "schema": {
+                  "example": null,
+                  "properties": {
+                    "archived": {
+                      "description": "Whether the dashboard is archived.",
+                      "example": null,
+                      "type": "boolean"
+                    },
+                    "archivedAt": {
+                      "description": "If the dashboard is archived, the date and time when the dashboard was archived, in ISO 8601 format. Absent if the dashboard is not archived.",
+                      "example": null,
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "businessUnitId": {
+                      "description": "The ID of the business unit that the dashboard is associated with.",
+                      "example": null,
+                      "type": "string"
+                    },
+                    "createdAt": {
+                      "description": "The date and time when the dashboard was created, in ISO 8601 format.",
+                      "example": null,
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "createdByUserId": {
+                      "description": "The ID of the user who created the dashboard. May be absent.",
+                      "example": null,
+                      "type": "string"
+                    },
+                    "description": {
+                      "description": "A description of the dashboard. May be absent.",
+                      "example": null,
+                      "type": "string"
+                    },
+                    "id": {
+                      "description": "The ID of the dashboard.",
+                      "example": null,
+                      "type": "string"
+                    },
+                    "lastViewedAt": {
+                      "description": "The date and time when the dashboard was last viewed, in ISO 8601 format. Absent if it has not been viewed yet.",
+                      "example": null,
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "lastViewedByUserId": {
+                      "description": "The ID of the user who last viewed the dashboard. Absent if it has not been viewed yet.",
+                      "example": null,
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "The name of the dashboard.",
+                      "example": null,
+                      "type": "string"
+                    },
+                    "ownerUserId": {
+                      "description": "The ID of the user who owns the dashboard. Absent if the dashboard is currently unowned.",
+                      "example": null,
+                      "type": "string"
+                    },
+                    "permissions": {
+                      "example": null,
+                      "properties": {
+                        "permissionType": {
+                          "description": "The type of permission to apply to the report. Valid values are:\n- PRIVATE: The report is only accessible to its owner and administrators.\n- EVERYONE_VIEW: The report is viewable by everyone.\n- EVERYONE_EDIT: The report is viewable and editable by everyone.\n- SPECIFIC: In addition to the owner, specific users and/or teams are granted VIEW or EDIT permissions. The `specificPermissions` field must also be present.",
+                          "enum": [
+                            "EVERYONE_EDIT",
+                            "EVERYONE_VIEW",
+                            "PRIVATE",
+                            "SPECIFIC"
+                          ],
+                          "example": null,
+                          "type": "string"
+                        },
+                        "specificPermissions": {
+                          "description": "Array of specific permission grants. Must be present when `permissionType` is set to `SPECIFIC`, ignored otherwise.\n\nDashboards can have one or two specific permission configurations: one for VIEW grants and/or one for EDIT grants. Specific users and/or teams receive either VIEW or EDIT permissions based on which configuration they appear in. A given user or team cannot appear in both VIEW and EDIT configurations.",
+                          "example": null,
+                          "items": {
+                            "example": null,
+                            "properties": {
+                              "grants": {
+                                "description": "An array of grants detailing the users and/or teams to grant the specific permission to. At least one grantee must be specified.",
+                                "example": null,
+                                "items": {
+                                  "example": null,
+                                  "properties": {
+                                    "grantType": {
+                                      "description": "The type of entity to grant permissions to, either `USER` or `TEAM`.",
+                                      "enum": [
+                                        "TEAM",
+                                        "USER"
+                                      ],
+                                      "example": null,
+                                      "type": "string"
+                                    },
+                                    "granteeId": {
+                                      "description": "The ID of the user or team to grant permissions to.",
+                                      "example": null,
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "grantType",
+                                    "granteeId"
+                                  ],
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              },
+                              "permissionType": {
+                                "description": "The type of permission granted, either `VIEW` or `EDIT`.",
+                                "enum": [
+                                  "EDIT",
+                                  "VIEW"
+                                ],
+                                "example": null,
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "permissionType"
+                            ],
+                            "type": "object"
+                          },
+                          "type": "array"
+                        }
+                      },
+                      "required": [
+                        "permissionType"
+                      ],
+                      "type": "object"
+                    },
+                    "tags": {
+                      "description": "Array of objects representing the tags that the dashboard is tagged with.\n\nOnly returned when requested by including the `tags` field in the `properties` query parameter.",
+                      "example": null,
+                      "items": {
+                        "example": null,
+                        "properties": {
+                          "createdAt": {
+                            "description": "The date and time when the tag was created, in ISO 8601 format. May be absent.",
+                            "example": null,
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "createdByUserId": {
+                            "description": "The ID of the user who created the tag. May be absent.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "id": {
+                            "description": "The ID for the tag.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "The name of the tag.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "updatedAt": {
+                            "description": "The date and time when the tag was last updated, in ISO 8601 format. May be absent.",
+                            "example": null,
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "updatedByUserId": {
+                            "description": "The ID of the user who last updated the tag. May be absent.",
+                            "example": null,
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "name"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "updatedAt": {
+                      "description": "The date and time when the dashboard was last updated, in ISO 8601 format.",
+                      "example": null,
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "updatedByUserId": {
+                      "description": "The ID of the user who last updated the dashboard. May be absent.",
+                      "example": null,
+                      "type": "string"
+                    },
+                    "widgets": {
+                      "description": "An array of objects representing the widgets on the dashboard.\n\nOnly returned when requested by including the `widgets` field in the `properties` query parameter.",
+                      "example": null,
+                      "items": {
+                        "example": null,
+                        "properties": {
+                          "report": {
+                            "example": null,
+                            "properties": {
+                              "archived": {
+                                "description": "Whether the report is archived.",
+                                "example": null,
+                                "type": "boolean"
+                              },
+                              "archivedAt": {
+                                "description": "If the report is archived, the date and time when the report was archived, in ISO 8601 format. Absent if the report is not archived.",
+                                "example": null,
+                                "format": "date-time",
+                                "type": "string"
+                              },
+                              "businessUnitId": {
+                                "description": "The ID of the business unit that the report is associated with.",
+                                "example": null,
+                                "type": "string"
+                              },
+                              "createdAt": {
+                                "description": "The date and time when the report was created, in ISO 8601 format.",
+                                "example": null,
+                                "format": "date-time",
+                                "type": "string"
+                              },
+                              "createdByUserId": {
+                                "description": "The ID of the user who created the report. May be absent.",
+                                "example": null,
+                                "type": "string"
+                              },
+                              "description": {
+                                "description": "A description of the report. May be absent.",
+                                "example": null,
+                                "type": "string"
+                              },
+                              "id": {
+                                "description": "The ID of the report.",
+                                "example": null,
+                                "type": "string"
+                              },
+                              "lastViewedAt": {
+                                "description": "The date and time when the report was last viewed, in ISO 8601 format. Absent if it has not been viewed yet.",
+                                "example": null,
+                                "format": "date-time",
+                                "type": "string"
+                              },
+                              "lastViewedByUserId": {
+                                "description": "The ID of the user who last viewed the report. Absent if it has not been viewed yet.",
+                                "example": null,
+                                "type": "string"
+                              },
+                              "name": {
+                                "description": "The name of the report.",
+                                "example": null,
+                                "type": "string"
+                              },
+                              "ownerUserId": {
+                                "description": "The ID of the user who owns the report. Absent if the report is currently unowned.",
+                                "example": null,
+                                "type": "string"
+                              },
+                              "permissions": {
+                                "example": null,
+                                "properties": {
+                                  "permissionType": {
+                                    "description": "The type of permission to apply to the report. Valid values are:\n- PRIVATE: The report is only accessible to its owner and administrators.\n- EVERYONE_VIEW: The report is viewable by everyone.\n- EVERYONE_EDIT: The report is viewable and editable by everyone.\n- SPECIFIC: In addition to the owner, specific users and/or teams are granted VIEW or EDIT permissions. The `specificPermissions` field must also be present.",
+                                    "enum": [
+                                      "EVERYONE_EDIT",
+                                      "EVERYONE_VIEW",
+                                      "PRIVATE",
+                                      "SPECIFIC"
+                                    ],
+                                    "example": null,
+                                    "type": "string"
+                                  },
+                                  "specificPermissions": {
+                                    "example": null,
+                                    "properties": {
+                                      "grants": {
+                                        "description": "An array of grants detailing the users and/or teams to grant the specific permission to. At least one grantee must be specified.",
+                                        "example": null,
+                                        "items": {
+                                          "example": null,
+                                          "properties": {
+                                            "$ref": "#/responses/200/content/application~1json/schema/properties/permissions/properties/specificPermissions/items/properties/grants/items/properties"
+                                          },
+                                          "required": {
+                                            "$ref": "#/responses/200/content/application~1json/schema/properties/permissions/properties/specificPermissions/items/properties/grants/items/required"
+                                          },
+                                          "type": "object"
+                                        },
+                                        "type": "array"
+                                      },
+                                      "permissionType": {
+                                        "description": "The type of permission granted, either `VIEW` or `EDIT`.",
+                                        "enum": [
+                                          "EDIT",
+                                          "VIEW"
+                                        ],
+                                        "example": null,
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "permissionType"
+                                    ],
+                                    "type": "object"
+                                  }
+                                },
+                                "required": [
+                                  "permissionType"
+                                ],
+                                "type": "object"
+                              },
+                              "tags": {
+                                "description": "Array of objects representing the tags that the report is tagged with.\n\nOnly returned when requested by including the `tags` field in the `properties` query parameter.",
+                                "example": null,
+                                "items": {
+                                  "example": null,
+                                  "properties": {
+                                    "createdAt": {
+                                      "description": "The date and time when the tag was created, in ISO 8601 format. May be absent.",
+                                      "example": null,
+                                      "format": "date-time",
+                                      "type": "string"
+                                    },
+                                    "createdByUserId": {
+                                      "description": "The ID of the user who created the tag. May be absent.",
+                                      "example": null,
+                                      "type": "string"
+                                    },
+                                    "id": {
+                                      "description": "The ID for the tag.",
+                                      "example": null,
+                                      "type": "string"
+                                    },
+                                    "name": {
+                                      "description": "The name of the tag.",
+                                      "example": null,
+                                      "type": "string"
+                                    },
+                                    "updatedAt": {
+                                      "description": "The date and time when the tag was last updated, in ISO 8601 format. May be absent.",
+                                      "example": null,
+                                      "format": "date-time",
+                                      "type": "string"
+                                    },
+                                    "updatedByUserId": {
+                                      "description": "The ID of the user who last updated the tag. May be absent.",
+                                      "example": null,
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "id",
+                                    "name"
+                                  ],
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              },
+                              "updatedAt": {
+                                "description": "The date and time when the report was last updated, in ISO 8601 format.",
+                                "example": null,
+                                "format": "date-time",
+                                "type": "string"
+                              },
+                              "updatedByUserId": {
+                                "description": "The ID of the user who last updated the report. May be absent.",
+                                "example": null,
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "archived",
+                              "businessUnitId",
+                              "createdAt",
+                              "id",
+                              "name",
+                              "updatedAt"
+                            ],
+                            "type": "object"
+                          },
+                          "reportId": {
+                            "description": "The ID of the report the widget contains.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "widgetLayout": {
+                            "example": null,
+                            "properties": {
+                              "height": {
+                                "description": "The height of the widget in the dashboard grid.",
+                                "example": null,
+                                "format": "int32",
+                                "type": "integer"
+                              },
+                              "width": {
+                                "description": "The width of the widget in the dashboard grid.",
+                                "example": null,
+                                "format": "int32",
+                                "type": "integer"
+                              },
+                              "x": {
+                                "description": "The 0-based absolute horizontal position of the widget in the dashboard grid.",
+                                "example": null,
+                                "format": "int32",
+                                "type": "integer"
+                              },
+                              "y": {
+                                "description": "The 0-based absolute vertical position of the widget in the dashboard grid.",
+                                "example": null,
+                                "format": "int32",
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "height",
+                              "width",
+                              "x",
+                              "y"
+                            ],
+                            "type": "object"
+                          }
+                        },
+                        "required": [
+                          "reportId",
+                          "widgetLayout"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "archived",
+                    "businessUnitId",
+                    "createdAt",
+                    "id",
+                    "name",
+                    "updatedAt"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "successful operation"
+          },
+          "default": {
+            "content": {
+              "*/*": {
+                "example": null,
+                "schema": {
+                  "description": "Represents an error response returned by the API when an operation fails. This component is used in various endpoints to provide detailed information about the error encountered.",
+                  "example": {
+                    "category": "VALIDATION_ERROR",
+                    "correlationId": "aeb5f871-7f07-4993-9211-075dc63e7cbf",
+                    "links": {
+                      "knowledge-base": "https://www.hubspot.com/products/service/knowledge-base"
+                    },
+                    "message": "Invalid input (details will vary based on the error)"
+                  },
+                  "properties": {
+                    "category": {
+                      "description": "The error category, represented as a string.",
+                      "example": null,
+                      "type": "string"
+                    },
+                    "context": {
+                      "additionalProperties": {
+                        "example": null,
+                        "items": {
+                          "example": null,
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "description": "An object providing context about the error condition, with additional properties as arrays of strings.",
+                      "example": "{invalidPropertyName=[propertyValue], missingScopes=[scope1, scope2]}",
+                      "type": "object"
+                    },
+                    "correlationId": {
+                      "description": "A unique identifier for the request, used for tracking and support purposes. It is a string formatted as a UUID.",
+                      "example": "aeb5f871-7f07-4993-9211-075dc63e7cbf",
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "errors": {
+                      "description": "An array containing further information about the error, with each item being an ErrorDetail object.",
+                      "example": null,
+                      "items": {
+                        "description": "Represents detailed information about an error that occurred in the API. This component is used to provide additional context and specifics about errors, typically as part of an error response.",
+                        "example": null,
+                        "properties": {
+                          "code": {
+                            "description": "The status code associated with the error detail.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "context": {
+                            "additionalProperties": {
+                              "example": null,
+                              "items": {
+                                "example": null,
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
+                            "description": "Context about the error condition, represented as an object with additional properties that are arrays of strings.",
+                            "example": "{missingScopes=[scope1, scope2]}",
+                            "type": "object"
+                          },
+                          "in": {
+                            "description": "The name of the field or parameter in which the error was found.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "A human readable message describing the error along with remediation steps where appropriate.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "subCategory": {
+                            "description": "A specific category that contains more specific detail about the error.",
+                            "example": null,
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "message"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "links": {
+                      "additionalProperties": {
+                        "example": null,
+                        "type": "string"
+                      },
+                      "description": "A map of link names to associated URIs containing documentation about the error or recommended remediation steps. It is an object with string properties.",
+                      "example": null,
+                      "type": "object"
+                    },
+                    "message": {
+                      "description": "A human readable message describing the error along with remediation steps where appropriate. It is a string.",
+                      "example": "An error occurred",
+                      "type": "string"
+                    },
+                    "subCategory": {
+                      "description": "A specific category providing more detailed information about the error. It is a string.",
+                      "example": null,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "category",
+                    "correlationId",
+                    "message"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "reporting.full.edit"
+            ]
+          },
+          {
+            "oauth2": [
+              "reporting.full.write"
+            ]
+          },
+          {
+            "oauth2": [
+              "reporting.full.admin"
+            ]
+          }
+        ],
+        "securitySchemes": {
+          "developer_hapikey": {
+            "in": "query",
+            "name": "hapikey",
+            "type": "apiKey"
+          },
+          "oauth2": {
+            "flows": {
+              "authorizationCode": {
+                "authorizationUrl": "https://app.hubspot.com/oauth/authorize",
+                "scopes": {
+                  "crm.hubsql.execute": "",
+                  "reporting.full.admin": "",
+                  "reporting.full.edit": "",
+                  "reporting.full.read": "",
+                  "reporting.full.write": ""
+                },
+                "tokenUrl": "https://api.hubapi.com/oauth/v1/token"
+              }
+            },
+            "type": "oauth2"
+          },
+          "private_apps": {
+            "in": "header",
+            "name": "private-app",
+            "type": "apiKey"
+          },
+          "private_apps_legacy": {
+            "in": "header",
+            "name": "private-app-legacy",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "operation"
+      }
+    }
+  }
+}

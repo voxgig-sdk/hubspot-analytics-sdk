@@ -1,0 +1,2002 @@
+{
+  "existing": {
+    "reporting_batch_response_public_report": {
+      "REPORTING_BATCH_RESPONSE_PUBLIC_REPORT00": {
+        "completedAt": "s5a",
+        "inputs": [],
+        "links": {},
+        "ownerId": "s5d",
+        "permissions": {},
+        "requestedAt": "s5f",
+        "results": [],
+        "startedAt": "s61",
+        "status": "s62",
+        "id": "REPORTING_BATCH_RESPONSE_PUBLIC_REPORT00"
+      },
+      "REPORTING_BATCH_RESPONSE_PUBLIC_REPORT01": {
+        "completedAt": "sb4",
+        "inputs": [],
+        "links": {},
+        "ownerId": "sb7",
+        "permissions": {},
+        "requestedAt": "sb9",
+        "results": [],
+        "startedAt": "sbb",
+        "status": "sbc",
+        "id": "REPORTING_BATCH_RESPONSE_PUBLIC_REPORT01"
+      },
+      "REPORTING_BATCH_RESPONSE_PUBLIC_REPORT02": {
+        "completedAt": "s10e",
+        "inputs": [],
+        "links": {},
+        "ownerId": "s111",
+        "permissions": {},
+        "requestedAt": "s113",
+        "results": [],
+        "startedAt": "s115",
+        "status": "s116",
+        "id": "REPORTING_BATCH_RESPONSE_PUBLIC_REPORT02"
+      }
+    }
+  },
+  "new": {
+    "reporting_batch_response_public_report": {
+      "reporting_batch_response_public_report_ref01": {
+        "completedAt": "s168",
+        "inputs": [],
+        "links": {},
+        "ownerId": "s16b",
+        "permissions": {},
+        "requestedAt": "s16d",
+        "results": [],
+        "startedAt": "s16f",
+        "status": "s170"
+      }
+    }
+  },
+  "requests": {
+    "POST /analytics/reporting/2027-03-beta/reports/batch/restore": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "post-/analytics/reporting/2027-03-beta/reports/batch/restore_/analytics/reporting/2027-03-beta/reports/batch/restore",
+        "parameters": [],
+        "protocol": "http",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": null,
+              "schema": {
+                "example": null,
+                "properties": {
+                  "inputs": {
+                    "description": "Array of report or dashboard IDs.",
+                    "example": null,
+                    "items": {
+                      "example": null,
+                      "type": "string"
+                    },
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "inputs"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": null,
+                "schema": {
+                  "example": null,
+                  "properties": {
+                    "completedAt": {
+                      "description": "The date and time when the batch operation was completed, in ISO 8601 format.",
+                      "example": null,
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "links": {
+                      "additionalProperties": {
+                        "example": null,
+                        "type": "string"
+                      },
+                      "description": "A map of link names to associated URIs, providing additional resources or documentation related to the batch operation.",
+                      "example": null,
+                      "type": "object"
+                    },
+                    "requestedAt": {
+                      "description": "The date and time when the batch operation was requested, in ISO 8601 format.",
+                      "example": null,
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "results": {
+                      "description": "An array of report objects representing the successful results of the batch operation.",
+                      "example": null,
+                      "items": {
+                        "example": null,
+                        "properties": {
+                          "archived": {
+                            "description": "Whether the report is archived.",
+                            "example": null,
+                            "type": "boolean"
+                          },
+                          "archivedAt": {
+                            "description": "If the report is archived, the date and time when the report was archived, in ISO 8601 format. Absent if the report is not archived.",
+                            "example": null,
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "businessUnitId": {
+                            "description": "The ID of the business unit that the report is associated with.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "createdAt": {
+                            "description": "The date and time when the report was created, in ISO 8601 format.",
+                            "example": null,
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "createdByUserId": {
+                            "description": "The ID of the user who created the report. May be absent.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "description": {
+                            "description": "A description of the report. May be absent.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "id": {
+                            "description": "The ID of the report.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "lastViewedAt": {
+                            "description": "The date and time when the report was last viewed, in ISO 8601 format. Absent if it has not been viewed yet.",
+                            "example": null,
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "lastViewedByUserId": {
+                            "description": "The ID of the user who last viewed the report. Absent if it has not been viewed yet.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "The name of the report.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "ownerUserId": {
+                            "description": "The ID of the user who owns the report. Absent if the report is currently unowned.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "permissions": {
+                            "example": null,
+                            "properties": {
+                              "permissionType": {
+                                "description": "The type of permission to apply to the report. Valid values are:\n- PRIVATE: The report is only accessible to its owner and administrators.\n- EVERYONE_VIEW: The report is viewable by everyone.\n- EVERYONE_EDIT: The report is viewable and editable by everyone.\n- SPECIFIC: In addition to the owner, specific users and/or teams are granted VIEW or EDIT permissions. The `specificPermissions` field must also be present.",
+                                "enum": [
+                                  "EVERYONE_EDIT",
+                                  "EVERYONE_VIEW",
+                                  "PRIVATE",
+                                  "SPECIFIC"
+                                ],
+                                "example": null,
+                                "type": "string"
+                              },
+                              "specificPermissions": {
+                                "example": null,
+                                "properties": {
+                                  "grants": {
+                                    "description": "An array of grants detailing the users and/or teams to grant the specific permission to. At least one grantee must be specified.",
+                                    "example": null,
+                                    "items": {
+                                      "example": null,
+                                      "properties": {
+                                        "grantType": {
+                                          "description": "The type of entity to grant permissions to, either `USER` or `TEAM`.",
+                                          "enum": [
+                                            "TEAM",
+                                            "USER"
+                                          ],
+                                          "example": null,
+                                          "type": "string"
+                                        },
+                                        "granteeId": {
+                                          "description": "The ID of the user or team to grant permissions to.",
+                                          "example": null,
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "grantType",
+                                        "granteeId"
+                                      ],
+                                      "type": "object"
+                                    },
+                                    "type": "array"
+                                  },
+                                  "permissionType": {
+                                    "description": "The type of permission granted, either `VIEW` or `EDIT`.",
+                                    "enum": [
+                                      "EDIT",
+                                      "VIEW"
+                                    ],
+                                    "example": null,
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "permissionType"
+                                ],
+                                "type": "object"
+                              }
+                            },
+                            "required": [
+                              "permissionType"
+                            ],
+                            "type": "object"
+                          },
+                          "tags": {
+                            "description": "Array of objects representing the tags that the report is tagged with.\n\nOnly returned when requested by including the `tags` field in the `properties` query parameter.",
+                            "example": null,
+                            "items": {
+                              "example": null,
+                              "properties": {
+                                "createdAt": {
+                                  "description": "The date and time when the tag was created, in ISO 8601 format. May be absent.",
+                                  "example": null,
+                                  "format": "date-time",
+                                  "type": "string"
+                                },
+                                "createdByUserId": {
+                                  "description": "The ID of the user who created the tag. May be absent.",
+                                  "example": null,
+                                  "type": "string"
+                                },
+                                "id": {
+                                  "description": "The ID for the tag.",
+                                  "example": null,
+                                  "type": "string"
+                                },
+                                "name": {
+                                  "description": "The name of the tag.",
+                                  "example": null,
+                                  "type": "string"
+                                },
+                                "updatedAt": {
+                                  "description": "The date and time when the tag was last updated, in ISO 8601 format. May be absent.",
+                                  "example": null,
+                                  "format": "date-time",
+                                  "type": "string"
+                                },
+                                "updatedByUserId": {
+                                  "description": "The ID of the user who last updated the tag. May be absent.",
+                                  "example": null,
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "name"
+                              ],
+                              "type": "object"
+                            },
+                            "type": "array"
+                          },
+                          "updatedAt": {
+                            "description": "The date and time when the report was last updated, in ISO 8601 format.",
+                            "example": null,
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "updatedByUserId": {
+                            "description": "The ID of the user who last updated the report. May be absent.",
+                            "example": null,
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "archived",
+                          "businessUnitId",
+                          "createdAt",
+                          "id",
+                          "name",
+                          "updatedAt"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "startedAt": {
+                      "description": "The date and time when the batch operation started, in ISO 8601 format.",
+                      "example": null,
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "status": {
+                      "description": "The current status of the batch operation. Valid values include 'PENDING', 'PROCESSING', 'CANCELED', and 'COMPLETE'.",
+                      "enum": [
+                        "CANCELED",
+                        "COMPLETE",
+                        "PENDING",
+                        "PROCESSING"
+                      ],
+                      "example": null,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "completedAt",
+                    "results",
+                    "startedAt",
+                    "status"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "successful operation"
+          },
+          "207": {
+            "content": {
+              "application/json": {
+                "example": null,
+                "schema": {
+                  "example": null,
+                  "properties": {
+                    "completedAt": {
+                      "description": "The date and time when the batch operation was completed, in ISO 8601 format.",
+                      "example": null,
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "errors": {
+                      "description": "An array of error objects detailing any errors that occurred during the batch operation.",
+                      "example": null,
+                      "items": {
+                        "description": "Ye olde error",
+                        "example": null,
+                        "properties": {
+                          "category": {
+                            "description": "A string categorizing the type of error.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "context": {
+                            "additionalProperties": {
+                              "example": null,
+                              "items": {
+                                "example": null,
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
+                            "description": "An object containing additional context about the error, with keys as context names and values as arrays of strings.",
+                            "example": null,
+                            "type": "object"
+                          },
+                          "errors": {
+                            "description": "An array of ErrorDetail objects providing further information about the error.",
+                            "example": null,
+                            "items": {
+                              "description": "Represents detailed information about an error that occurred in the API. This component is used to provide additional context and specifics about errors, typically as part of an error response.",
+                              "example": null,
+                              "properties": {
+                                "code": {
+                                  "description": "The status code associated with the error detail.",
+                                  "example": null,
+                                  "type": "string"
+                                },
+                                "context": {
+                                  "additionalProperties": {
+                                    "example": null,
+                                    "items": {
+                                      "example": null,
+                                      "type": "string"
+                                    },
+                                    "type": "array"
+                                  },
+                                  "description": "Context about the error condition, represented as an object with additional properties that are arrays of strings.",
+                                  "example": "{missingScopes=[scope1, scope2]}",
+                                  "type": "object"
+                                },
+                                "in": {
+                                  "description": "The name of the field or parameter in which the error was found.",
+                                  "example": null,
+                                  "type": "string"
+                                },
+                                "message": {
+                                  "description": "A human readable message describing the error along with remediation steps where appropriate.",
+                                  "example": null,
+                                  "type": "string"
+                                },
+                                "subCategory": {
+                                  "description": "A specific category that contains more specific detail about the error.",
+                                  "example": null,
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "message"
+                              ],
+                              "type": "object"
+                            },
+                            "type": "array"
+                          },
+                          "id": {
+                            "description": "A string representing a unique identifier for the error.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "links": {
+                            "additionalProperties": {
+                              "example": null,
+                              "type": "string"
+                            },
+                            "description": "An object mapping link names to their associated URIs, which may contain documentation or remediation steps related to the error.",
+                            "example": null,
+                            "type": "object"
+                          },
+                          "message": {
+                            "description": "A string containing a human-readable message describing the error.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "status": {
+                            "description": "A string indicating the status of the error.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "subCategory": {
+                            "description": "An object providing more specific categorization of the error.",
+                            "example": null,
+                            "properties": {},
+                            "type": "object"
+                          }
+                        },
+                        "required": [
+                          "category",
+                          "context",
+                          "errors",
+                          "links",
+                          "message",
+                          "status"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "links": {
+                      "additionalProperties": {
+                        "example": null,
+                        "type": "string"
+                      },
+                      "description": "A map of link names to associated URIs that provide additional information or actions related to the batch operation.",
+                      "example": null,
+                      "type": "object"
+                    },
+                    "numErrors": {
+                      "description": "The number of errors encountered during the batch operation.",
+                      "example": null,
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "requestedAt": {
+                      "description": "The date and time when the batch operation was requested, in ISO 8601 format.",
+                      "example": null,
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "results": {
+                      "description": "An array of report objects representing the successful results of the batch operation.",
+                      "example": null,
+                      "items": {
+                        "example": null,
+                        "properties": {
+                          "$ref": "#/responses/200/content/application~1json/schema/properties/results/items/properties"
+                        },
+                        "required": {
+                          "$ref": "#/responses/200/content/application~1json/schema/properties/results/items/required"
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "startedAt": {
+                      "description": "The date and time when the batch operation started, in ISO 8601 format.",
+                      "example": null,
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "status": {
+                      "description": "The current status of the batch operation. Valid values include 'PENDING', 'PROCESSING', 'CANCELED', and 'COMPLETE'.",
+                      "enum": [
+                        "CANCELED",
+                        "COMPLETE",
+                        "PENDING",
+                        "PROCESSING"
+                      ],
+                      "example": null,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "completedAt",
+                    "results",
+                    "startedAt",
+                    "status"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "multiple statuses"
+          },
+          "default": {
+            "content": {
+              "*/*": {
+                "example": null,
+                "schema": {
+                  "description": "Represents an error response returned by the API when an operation fails. This component is used in various endpoints to provide detailed information about the error encountered.",
+                  "example": {
+                    "category": "VALIDATION_ERROR",
+                    "correlationId": "aeb5f871-7f07-4993-9211-075dc63e7cbf",
+                    "links": {
+                      "knowledge-base": "https://www.hubspot.com/products/service/knowledge-base"
+                    },
+                    "message": "Invalid input (details will vary based on the error)"
+                  },
+                  "properties": {
+                    "category": {
+                      "description": "The error category, represented as a string.",
+                      "example": null,
+                      "type": "string"
+                    },
+                    "context": {
+                      "additionalProperties": {
+                        "example": null,
+                        "items": {
+                          "example": null,
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "description": "An object providing context about the error condition, with additional properties as arrays of strings.",
+                      "example": "{invalidPropertyName=[propertyValue], missingScopes=[scope1, scope2]}",
+                      "type": "object"
+                    },
+                    "correlationId": {
+                      "description": "A unique identifier for the request, used for tracking and support purposes. It is a string formatted as a UUID.",
+                      "example": "aeb5f871-7f07-4993-9211-075dc63e7cbf",
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "errors": {
+                      "description": "An array containing further information about the error, with each item being an ErrorDetail object.",
+                      "example": null,
+                      "items": {
+                        "description": "Represents detailed information about an error that occurred in the API. This component is used to provide additional context and specifics about errors, typically as part of an error response.",
+                        "example": null,
+                        "properties": {
+                          "$ref": "#/responses/207/content/application~1json/schema/properties/errors/items/properties/errors/items/properties"
+                        },
+                        "required": {
+                          "$ref": "#/responses/207/content/application~1json/schema/properties/errors/items/properties/errors/items/required"
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "links": {
+                      "additionalProperties": {
+                        "example": null,
+                        "type": "string"
+                      },
+                      "description": "A map of link names to associated URIs containing documentation about the error or recommended remediation steps. It is an object with string properties.",
+                      "example": null,
+                      "type": "object"
+                    },
+                    "message": {
+                      "description": "A human readable message describing the error along with remediation steps where appropriate. It is a string.",
+                      "example": "An error occurred",
+                      "type": "string"
+                    },
+                    "subCategory": {
+                      "description": "A specific category providing more detailed information about the error. It is a string.",
+                      "example": null,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "category",
+                    "correlationId",
+                    "message"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "reporting.full.write"
+            ]
+          },
+          {
+            "oauth2": [
+              "reporting.full.admin"
+            ]
+          }
+        ],
+        "securitySchemes": {
+          "developer_hapikey": {
+            "in": "query",
+            "name": "hapikey",
+            "type": "apiKey"
+          },
+          "oauth2": {
+            "flows": {
+              "authorizationCode": {
+                "authorizationUrl": "https://app.hubspot.com/oauth/authorize",
+                "scopes": {
+                  "crm.hubsql.execute": "",
+                  "reporting.full.admin": "",
+                  "reporting.full.edit": "",
+                  "reporting.full.read": "",
+                  "reporting.full.write": ""
+                },
+                "tokenUrl": "https://api.hubapi.com/oauth/v1/token"
+              }
+            },
+            "type": "oauth2"
+          },
+          "private_apps": {
+            "in": "header",
+            "name": "private-app",
+            "type": "apiKey"
+          },
+          "private_apps_legacy": {
+            "in": "header",
+            "name": "private-app-legacy",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "operation"
+      }
+    },
+    "POST /analytics/reporting/2027-03-beta/reports/owners/batch/update": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "post-/analytics/reporting/2027-03-beta/reports/owners/batch/update_/analytics/reporting/2027-03-beta/reports/owners/batch/update",
+        "parameters": [],
+        "protocol": "http",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": null,
+              "schema": {
+                "example": null,
+                "properties": {
+                  "inputs": {
+                    "description": "Array of report or dashboard IDs.",
+                    "example": null,
+                    "items": {
+                      "example": null,
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "ownerId": {
+                    "description": "The ID of the user to change the owner to.",
+                    "example": null,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "inputs",
+                  "ownerId"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": null,
+                "schema": {
+                  "example": null,
+                  "properties": {
+                    "completedAt": {
+                      "description": "The date and time when the batch operation was completed, in ISO 8601 format.",
+                      "example": null,
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "links": {
+                      "additionalProperties": {
+                        "example": null,
+                        "type": "string"
+                      },
+                      "description": "A map of link names to associated URIs, providing additional resources or documentation related to the batch operation.",
+                      "example": null,
+                      "type": "object"
+                    },
+                    "requestedAt": {
+                      "description": "The date and time when the batch operation was requested, in ISO 8601 format.",
+                      "example": null,
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "results": {
+                      "description": "An array of report objects representing the successful results of the batch operation.",
+                      "example": null,
+                      "items": {
+                        "example": null,
+                        "properties": {
+                          "archived": {
+                            "description": "Whether the report is archived.",
+                            "example": null,
+                            "type": "boolean"
+                          },
+                          "archivedAt": {
+                            "description": "If the report is archived, the date and time when the report was archived, in ISO 8601 format. Absent if the report is not archived.",
+                            "example": null,
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "businessUnitId": {
+                            "description": "The ID of the business unit that the report is associated with.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "createdAt": {
+                            "description": "The date and time when the report was created, in ISO 8601 format.",
+                            "example": null,
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "createdByUserId": {
+                            "description": "The ID of the user who created the report. May be absent.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "description": {
+                            "description": "A description of the report. May be absent.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "id": {
+                            "description": "The ID of the report.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "lastViewedAt": {
+                            "description": "The date and time when the report was last viewed, in ISO 8601 format. Absent if it has not been viewed yet.",
+                            "example": null,
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "lastViewedByUserId": {
+                            "description": "The ID of the user who last viewed the report. Absent if it has not been viewed yet.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "The name of the report.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "ownerUserId": {
+                            "description": "The ID of the user who owns the report. Absent if the report is currently unowned.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "permissions": {
+                            "example": null,
+                            "properties": {
+                              "permissionType": {
+                                "description": "The type of permission to apply to the report. Valid values are:\n- PRIVATE: The report is only accessible to its owner and administrators.\n- EVERYONE_VIEW: The report is viewable by everyone.\n- EVERYONE_EDIT: The report is viewable and editable by everyone.\n- SPECIFIC: In addition to the owner, specific users and/or teams are granted VIEW or EDIT permissions. The `specificPermissions` field must also be present.",
+                                "enum": [
+                                  "EVERYONE_EDIT",
+                                  "EVERYONE_VIEW",
+                                  "PRIVATE",
+                                  "SPECIFIC"
+                                ],
+                                "example": null,
+                                "type": "string"
+                              },
+                              "specificPermissions": {
+                                "example": null,
+                                "properties": {
+                                  "grants": {
+                                    "description": "An array of grants detailing the users and/or teams to grant the specific permission to. At least one grantee must be specified.",
+                                    "example": null,
+                                    "items": {
+                                      "example": null,
+                                      "properties": {
+                                        "grantType": {
+                                          "description": "The type of entity to grant permissions to, either `USER` or `TEAM`.",
+                                          "enum": [
+                                            "TEAM",
+                                            "USER"
+                                          ],
+                                          "example": null,
+                                          "type": "string"
+                                        },
+                                        "granteeId": {
+                                          "description": "The ID of the user or team to grant permissions to.",
+                                          "example": null,
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "grantType",
+                                        "granteeId"
+                                      ],
+                                      "type": "object"
+                                    },
+                                    "type": "array"
+                                  },
+                                  "permissionType": {
+                                    "description": "The type of permission granted, either `VIEW` or `EDIT`.",
+                                    "enum": [
+                                      "EDIT",
+                                      "VIEW"
+                                    ],
+                                    "example": null,
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "permissionType"
+                                ],
+                                "type": "object"
+                              }
+                            },
+                            "required": [
+                              "permissionType"
+                            ],
+                            "type": "object"
+                          },
+                          "tags": {
+                            "description": "Array of objects representing the tags that the report is tagged with.\n\nOnly returned when requested by including the `tags` field in the `properties` query parameter.",
+                            "example": null,
+                            "items": {
+                              "example": null,
+                              "properties": {
+                                "createdAt": {
+                                  "description": "The date and time when the tag was created, in ISO 8601 format. May be absent.",
+                                  "example": null,
+                                  "format": "date-time",
+                                  "type": "string"
+                                },
+                                "createdByUserId": {
+                                  "description": "The ID of the user who created the tag. May be absent.",
+                                  "example": null,
+                                  "type": "string"
+                                },
+                                "id": {
+                                  "description": "The ID for the tag.",
+                                  "example": null,
+                                  "type": "string"
+                                },
+                                "name": {
+                                  "description": "The name of the tag.",
+                                  "example": null,
+                                  "type": "string"
+                                },
+                                "updatedAt": {
+                                  "description": "The date and time when the tag was last updated, in ISO 8601 format. May be absent.",
+                                  "example": null,
+                                  "format": "date-time",
+                                  "type": "string"
+                                },
+                                "updatedByUserId": {
+                                  "description": "The ID of the user who last updated the tag. May be absent.",
+                                  "example": null,
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "name"
+                              ],
+                              "type": "object"
+                            },
+                            "type": "array"
+                          },
+                          "updatedAt": {
+                            "description": "The date and time when the report was last updated, in ISO 8601 format.",
+                            "example": null,
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "updatedByUserId": {
+                            "description": "The ID of the user who last updated the report. May be absent.",
+                            "example": null,
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "archived",
+                          "businessUnitId",
+                          "createdAt",
+                          "id",
+                          "name",
+                          "updatedAt"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "startedAt": {
+                      "description": "The date and time when the batch operation started, in ISO 8601 format.",
+                      "example": null,
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "status": {
+                      "description": "The current status of the batch operation. Valid values include 'PENDING', 'PROCESSING', 'CANCELED', and 'COMPLETE'.",
+                      "enum": [
+                        "CANCELED",
+                        "COMPLETE",
+                        "PENDING",
+                        "PROCESSING"
+                      ],
+                      "example": null,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "completedAt",
+                    "results",
+                    "startedAt",
+                    "status"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "successful operation"
+          },
+          "207": {
+            "content": {
+              "application/json": {
+                "example": null,
+                "schema": {
+                  "example": null,
+                  "properties": {
+                    "completedAt": {
+                      "description": "The date and time when the batch operation was completed, in ISO 8601 format.",
+                      "example": null,
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "errors": {
+                      "description": "An array of error objects detailing any errors that occurred during the batch operation.",
+                      "example": null,
+                      "items": {
+                        "description": "Ye olde error",
+                        "example": null,
+                        "properties": {
+                          "category": {
+                            "description": "A string categorizing the type of error.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "context": {
+                            "additionalProperties": {
+                              "example": null,
+                              "items": {
+                                "example": null,
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
+                            "description": "An object containing additional context about the error, with keys as context names and values as arrays of strings.",
+                            "example": null,
+                            "type": "object"
+                          },
+                          "errors": {
+                            "description": "An array of ErrorDetail objects providing further information about the error.",
+                            "example": null,
+                            "items": {
+                              "description": "Represents detailed information about an error that occurred in the API. This component is used to provide additional context and specifics about errors, typically as part of an error response.",
+                              "example": null,
+                              "properties": {
+                                "code": {
+                                  "description": "The status code associated with the error detail.",
+                                  "example": null,
+                                  "type": "string"
+                                },
+                                "context": {
+                                  "additionalProperties": {
+                                    "example": null,
+                                    "items": {
+                                      "example": null,
+                                      "type": "string"
+                                    },
+                                    "type": "array"
+                                  },
+                                  "description": "Context about the error condition, represented as an object with additional properties that are arrays of strings.",
+                                  "example": "{missingScopes=[scope1, scope2]}",
+                                  "type": "object"
+                                },
+                                "in": {
+                                  "description": "The name of the field or parameter in which the error was found.",
+                                  "example": null,
+                                  "type": "string"
+                                },
+                                "message": {
+                                  "description": "A human readable message describing the error along with remediation steps where appropriate.",
+                                  "example": null,
+                                  "type": "string"
+                                },
+                                "subCategory": {
+                                  "description": "A specific category that contains more specific detail about the error.",
+                                  "example": null,
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "message"
+                              ],
+                              "type": "object"
+                            },
+                            "type": "array"
+                          },
+                          "id": {
+                            "description": "A string representing a unique identifier for the error.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "links": {
+                            "additionalProperties": {
+                              "example": null,
+                              "type": "string"
+                            },
+                            "description": "An object mapping link names to their associated URIs, which may contain documentation or remediation steps related to the error.",
+                            "example": null,
+                            "type": "object"
+                          },
+                          "message": {
+                            "description": "A string containing a human-readable message describing the error.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "status": {
+                            "description": "A string indicating the status of the error.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "subCategory": {
+                            "description": "An object providing more specific categorization of the error.",
+                            "example": null,
+                            "properties": {},
+                            "type": "object"
+                          }
+                        },
+                        "required": [
+                          "category",
+                          "context",
+                          "errors",
+                          "links",
+                          "message",
+                          "status"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "links": {
+                      "additionalProperties": {
+                        "example": null,
+                        "type": "string"
+                      },
+                      "description": "A map of link names to associated URIs that provide additional information or actions related to the batch operation.",
+                      "example": null,
+                      "type": "object"
+                    },
+                    "numErrors": {
+                      "description": "The number of errors encountered during the batch operation.",
+                      "example": null,
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "requestedAt": {
+                      "description": "The date and time when the batch operation was requested, in ISO 8601 format.",
+                      "example": null,
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "results": {
+                      "description": "An array of report objects representing the successful results of the batch operation.",
+                      "example": null,
+                      "items": {
+                        "example": null,
+                        "properties": {
+                          "$ref": "#/responses/200/content/application~1json/schema/properties/results/items/properties"
+                        },
+                        "required": {
+                          "$ref": "#/responses/200/content/application~1json/schema/properties/results/items/required"
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "startedAt": {
+                      "description": "The date and time when the batch operation started, in ISO 8601 format.",
+                      "example": null,
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "status": {
+                      "description": "The current status of the batch operation. Valid values include 'PENDING', 'PROCESSING', 'CANCELED', and 'COMPLETE'.",
+                      "enum": [
+                        "CANCELED",
+                        "COMPLETE",
+                        "PENDING",
+                        "PROCESSING"
+                      ],
+                      "example": null,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "completedAt",
+                    "results",
+                    "startedAt",
+                    "status"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "multiple statuses"
+          },
+          "default": {
+            "content": {
+              "*/*": {
+                "example": null,
+                "schema": {
+                  "description": "Represents an error response returned by the API when an operation fails. This component is used in various endpoints to provide detailed information about the error encountered.",
+                  "example": {
+                    "category": "VALIDATION_ERROR",
+                    "correlationId": "aeb5f871-7f07-4993-9211-075dc63e7cbf",
+                    "links": {
+                      "knowledge-base": "https://www.hubspot.com/products/service/knowledge-base"
+                    },
+                    "message": "Invalid input (details will vary based on the error)"
+                  },
+                  "properties": {
+                    "category": {
+                      "description": "The error category, represented as a string.",
+                      "example": null,
+                      "type": "string"
+                    },
+                    "context": {
+                      "additionalProperties": {
+                        "example": null,
+                        "items": {
+                          "example": null,
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "description": "An object providing context about the error condition, with additional properties as arrays of strings.",
+                      "example": "{invalidPropertyName=[propertyValue], missingScopes=[scope1, scope2]}",
+                      "type": "object"
+                    },
+                    "correlationId": {
+                      "description": "A unique identifier for the request, used for tracking and support purposes. It is a string formatted as a UUID.",
+                      "example": "aeb5f871-7f07-4993-9211-075dc63e7cbf",
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "errors": {
+                      "description": "An array containing further information about the error, with each item being an ErrorDetail object.",
+                      "example": null,
+                      "items": {
+                        "description": "Represents detailed information about an error that occurred in the API. This component is used to provide additional context and specifics about errors, typically as part of an error response.",
+                        "example": null,
+                        "properties": {
+                          "$ref": "#/responses/207/content/application~1json/schema/properties/errors/items/properties/errors/items/properties"
+                        },
+                        "required": {
+                          "$ref": "#/responses/207/content/application~1json/schema/properties/errors/items/properties/errors/items/required"
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "links": {
+                      "additionalProperties": {
+                        "example": null,
+                        "type": "string"
+                      },
+                      "description": "A map of link names to associated URIs containing documentation about the error or recommended remediation steps. It is an object with string properties.",
+                      "example": null,
+                      "type": "object"
+                    },
+                    "message": {
+                      "description": "A human readable message describing the error along with remediation steps where appropriate. It is a string.",
+                      "example": "An error occurred",
+                      "type": "string"
+                    },
+                    "subCategory": {
+                      "description": "A specific category providing more detailed information about the error. It is a string.",
+                      "example": null,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "category",
+                    "correlationId",
+                    "message"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "reporting.full.write"
+            ]
+          },
+          {
+            "oauth2": [
+              "reporting.full.admin"
+            ]
+          }
+        ],
+        "securitySchemes": {
+          "developer_hapikey": {
+            "in": "query",
+            "name": "hapikey",
+            "type": "apiKey"
+          },
+          "oauth2": {
+            "flows": {
+              "authorizationCode": {
+                "authorizationUrl": "https://app.hubspot.com/oauth/authorize",
+                "scopes": {
+                  "crm.hubsql.execute": "",
+                  "reporting.full.admin": "",
+                  "reporting.full.edit": "",
+                  "reporting.full.read": "",
+                  "reporting.full.write": ""
+                },
+                "tokenUrl": "https://api.hubapi.com/oauth/v1/token"
+              }
+            },
+            "type": "oauth2"
+          },
+          "private_apps": {
+            "in": "header",
+            "name": "private-app",
+            "type": "apiKey"
+          },
+          "private_apps_legacy": {
+            "in": "header",
+            "name": "private-app-legacy",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "operation"
+      }
+    },
+    "POST /analytics/reporting/2027-03-beta/reports/permissions/batch/update": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "post-/analytics/reporting/2027-03-beta/reports/permissions/batch/update_/analytics/reporting/2027-03-beta/reports/permissions/batch/update",
+        "parameters": [],
+        "protocol": "http",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": null,
+              "schema": {
+                "example": null,
+                "properties": {
+                  "inputs": {
+                    "description": "Array of report IDs.",
+                    "example": null,
+                    "items": {
+                      "example": null,
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "permissions": {
+                    "example": null,
+                    "properties": {
+                      "permissionType": {
+                        "description": "The type of permission to apply to the report. Valid values are:\n- PRIVATE: The report is only accessible to its owner and administrators.\n- EVERYONE_VIEW: The report is viewable by everyone.\n- EVERYONE_EDIT: The report is viewable and editable by everyone.\n- SPECIFIC: In addition to the owner, specific users and/or teams are granted VIEW or EDIT permissions. The `specificPermissions` field must also be present.",
+                        "enum": [
+                          "EVERYONE_EDIT",
+                          "EVERYONE_VIEW",
+                          "PRIVATE",
+                          "SPECIFIC"
+                        ],
+                        "example": null,
+                        "type": "string"
+                      },
+                      "specificPermissions": {
+                        "example": null,
+                        "properties": {
+                          "grants": {
+                            "description": "An array of grants detailing the users and/or teams to grant the specific permission to. At least one grantee must be specified.",
+                            "example": null,
+                            "items": {
+                              "example": null,
+                              "properties": {
+                                "grantType": {
+                                  "description": "The type of entity to grant permissions to, either `USER` or `TEAM`.",
+                                  "enum": [
+                                    "TEAM",
+                                    "USER"
+                                  ],
+                                  "example": null,
+                                  "type": "string"
+                                },
+                                "granteeId": {
+                                  "description": "The ID of the user or team to grant permissions to.",
+                                  "example": null,
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "grantType",
+                                "granteeId"
+                              ],
+                              "type": "object"
+                            },
+                            "type": "array"
+                          },
+                          "permissionType": {
+                            "description": "The type of permission granted, either `VIEW` or `EDIT`.",
+                            "enum": [
+                              "EDIT",
+                              "VIEW"
+                            ],
+                            "example": null,
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "permissionType"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    "required": [
+                      "permissionType"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "inputs",
+                  "permissions"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": null,
+                "schema": {
+                  "example": null,
+                  "properties": {
+                    "completedAt": {
+                      "description": "The date and time when the batch operation was completed, in ISO 8601 format.",
+                      "example": null,
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "links": {
+                      "additionalProperties": {
+                        "example": null,
+                        "type": "string"
+                      },
+                      "description": "A map of link names to associated URIs, providing additional resources or documentation related to the batch operation.",
+                      "example": null,
+                      "type": "object"
+                    },
+                    "requestedAt": {
+                      "description": "The date and time when the batch operation was requested, in ISO 8601 format.",
+                      "example": null,
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "results": {
+                      "description": "An array of report objects representing the successful results of the batch operation.",
+                      "example": null,
+                      "items": {
+                        "example": null,
+                        "properties": {
+                          "archived": {
+                            "description": "Whether the report is archived.",
+                            "example": null,
+                            "type": "boolean"
+                          },
+                          "archivedAt": {
+                            "description": "If the report is archived, the date and time when the report was archived, in ISO 8601 format. Absent if the report is not archived.",
+                            "example": null,
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "businessUnitId": {
+                            "description": "The ID of the business unit that the report is associated with.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "createdAt": {
+                            "description": "The date and time when the report was created, in ISO 8601 format.",
+                            "example": null,
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "createdByUserId": {
+                            "description": "The ID of the user who created the report. May be absent.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "description": {
+                            "description": "A description of the report. May be absent.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "id": {
+                            "description": "The ID of the report.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "lastViewedAt": {
+                            "description": "The date and time when the report was last viewed, in ISO 8601 format. Absent if it has not been viewed yet.",
+                            "example": null,
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "lastViewedByUserId": {
+                            "description": "The ID of the user who last viewed the report. Absent if it has not been viewed yet.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "The name of the report.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "ownerUserId": {
+                            "description": "The ID of the user who owns the report. Absent if the report is currently unowned.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "permissions": {
+                            "example": null,
+                            "properties": {
+                              "permissionType": {
+                                "description": "The type of permission to apply to the report. Valid values are:\n- PRIVATE: The report is only accessible to its owner and administrators.\n- EVERYONE_VIEW: The report is viewable by everyone.\n- EVERYONE_EDIT: The report is viewable and editable by everyone.\n- SPECIFIC: In addition to the owner, specific users and/or teams are granted VIEW or EDIT permissions. The `specificPermissions` field must also be present.",
+                                "enum": [
+                                  "EVERYONE_EDIT",
+                                  "EVERYONE_VIEW",
+                                  "PRIVATE",
+                                  "SPECIFIC"
+                                ],
+                                "example": null,
+                                "type": "string"
+                              },
+                              "specificPermissions": {
+                                "example": null,
+                                "properties": {
+                                  "grants": {
+                                    "description": "An array of grants detailing the users and/or teams to grant the specific permission to. At least one grantee must be specified.",
+                                    "example": null,
+                                    "items": {
+                                      "example": null,
+                                      "properties": {
+                                        "grantType": {
+                                          "description": "The type of entity to grant permissions to, either `USER` or `TEAM`.",
+                                          "enum": [
+                                            "TEAM",
+                                            "USER"
+                                          ],
+                                          "example": null,
+                                          "type": "string"
+                                        },
+                                        "granteeId": {
+                                          "description": "The ID of the user or team to grant permissions to.",
+                                          "example": null,
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "grantType",
+                                        "granteeId"
+                                      ],
+                                      "type": "object"
+                                    },
+                                    "type": "array"
+                                  },
+                                  "permissionType": {
+                                    "description": "The type of permission granted, either `VIEW` or `EDIT`.",
+                                    "enum": [
+                                      "EDIT",
+                                      "VIEW"
+                                    ],
+                                    "example": null,
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "permissionType"
+                                ],
+                                "type": "object"
+                              }
+                            },
+                            "required": [
+                              "permissionType"
+                            ],
+                            "type": "object"
+                          },
+                          "tags": {
+                            "description": "Array of objects representing the tags that the report is tagged with.\n\nOnly returned when requested by including the `tags` field in the `properties` query parameter.",
+                            "example": null,
+                            "items": {
+                              "example": null,
+                              "properties": {
+                                "createdAt": {
+                                  "description": "The date and time when the tag was created, in ISO 8601 format. May be absent.",
+                                  "example": null,
+                                  "format": "date-time",
+                                  "type": "string"
+                                },
+                                "createdByUserId": {
+                                  "description": "The ID of the user who created the tag. May be absent.",
+                                  "example": null,
+                                  "type": "string"
+                                },
+                                "id": {
+                                  "description": "The ID for the tag.",
+                                  "example": null,
+                                  "type": "string"
+                                },
+                                "name": {
+                                  "description": "The name of the tag.",
+                                  "example": null,
+                                  "type": "string"
+                                },
+                                "updatedAt": {
+                                  "description": "The date and time when the tag was last updated, in ISO 8601 format. May be absent.",
+                                  "example": null,
+                                  "format": "date-time",
+                                  "type": "string"
+                                },
+                                "updatedByUserId": {
+                                  "description": "The ID of the user who last updated the tag. May be absent.",
+                                  "example": null,
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "name"
+                              ],
+                              "type": "object"
+                            },
+                            "type": "array"
+                          },
+                          "updatedAt": {
+                            "description": "The date and time when the report was last updated, in ISO 8601 format.",
+                            "example": null,
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "updatedByUserId": {
+                            "description": "The ID of the user who last updated the report. May be absent.",
+                            "example": null,
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "archived",
+                          "businessUnitId",
+                          "createdAt",
+                          "id",
+                          "name",
+                          "updatedAt"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "startedAt": {
+                      "description": "The date and time when the batch operation started, in ISO 8601 format.",
+                      "example": null,
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "status": {
+                      "description": "The current status of the batch operation. Valid values include 'PENDING', 'PROCESSING', 'CANCELED', and 'COMPLETE'.",
+                      "enum": [
+                        "CANCELED",
+                        "COMPLETE",
+                        "PENDING",
+                        "PROCESSING"
+                      ],
+                      "example": null,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "completedAt",
+                    "results",
+                    "startedAt",
+                    "status"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "successful operation"
+          },
+          "207": {
+            "content": {
+              "application/json": {
+                "example": null,
+                "schema": {
+                  "example": null,
+                  "properties": {
+                    "completedAt": {
+                      "description": "The date and time when the batch operation was completed, in ISO 8601 format.",
+                      "example": null,
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "errors": {
+                      "description": "An array of error objects detailing any errors that occurred during the batch operation.",
+                      "example": null,
+                      "items": {
+                        "description": "Ye olde error",
+                        "example": null,
+                        "properties": {
+                          "category": {
+                            "description": "A string categorizing the type of error.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "context": {
+                            "additionalProperties": {
+                              "example": null,
+                              "items": {
+                                "example": null,
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
+                            "description": "An object containing additional context about the error, with keys as context names and values as arrays of strings.",
+                            "example": null,
+                            "type": "object"
+                          },
+                          "errors": {
+                            "description": "An array of ErrorDetail objects providing further information about the error.",
+                            "example": null,
+                            "items": {
+                              "description": "Represents detailed information about an error that occurred in the API. This component is used to provide additional context and specifics about errors, typically as part of an error response.",
+                              "example": null,
+                              "properties": {
+                                "code": {
+                                  "description": "The status code associated with the error detail.",
+                                  "example": null,
+                                  "type": "string"
+                                },
+                                "context": {
+                                  "additionalProperties": {
+                                    "example": null,
+                                    "items": {
+                                      "example": null,
+                                      "type": "string"
+                                    },
+                                    "type": "array"
+                                  },
+                                  "description": "Context about the error condition, represented as an object with additional properties that are arrays of strings.",
+                                  "example": "{missingScopes=[scope1, scope2]}",
+                                  "type": "object"
+                                },
+                                "in": {
+                                  "description": "The name of the field or parameter in which the error was found.",
+                                  "example": null,
+                                  "type": "string"
+                                },
+                                "message": {
+                                  "description": "A human readable message describing the error along with remediation steps where appropriate.",
+                                  "example": null,
+                                  "type": "string"
+                                },
+                                "subCategory": {
+                                  "description": "A specific category that contains more specific detail about the error.",
+                                  "example": null,
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "message"
+                              ],
+                              "type": "object"
+                            },
+                            "type": "array"
+                          },
+                          "id": {
+                            "description": "A string representing a unique identifier for the error.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "links": {
+                            "additionalProperties": {
+                              "example": null,
+                              "type": "string"
+                            },
+                            "description": "An object mapping link names to their associated URIs, which may contain documentation or remediation steps related to the error.",
+                            "example": null,
+                            "type": "object"
+                          },
+                          "message": {
+                            "description": "A string containing a human-readable message describing the error.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "status": {
+                            "description": "A string indicating the status of the error.",
+                            "example": null,
+                            "type": "string"
+                          },
+                          "subCategory": {
+                            "description": "An object providing more specific categorization of the error.",
+                            "example": null,
+                            "properties": {},
+                            "type": "object"
+                          }
+                        },
+                        "required": [
+                          "category",
+                          "context",
+                          "errors",
+                          "links",
+                          "message",
+                          "status"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "links": {
+                      "additionalProperties": {
+                        "example": null,
+                        "type": "string"
+                      },
+                      "description": "A map of link names to associated URIs that provide additional information or actions related to the batch operation.",
+                      "example": null,
+                      "type": "object"
+                    },
+                    "numErrors": {
+                      "description": "The number of errors encountered during the batch operation.",
+                      "example": null,
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "requestedAt": {
+                      "description": "The date and time when the batch operation was requested, in ISO 8601 format.",
+                      "example": null,
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "results": {
+                      "description": "An array of report objects representing the successful results of the batch operation.",
+                      "example": null,
+                      "items": {
+                        "example": null,
+                        "properties": {
+                          "$ref": "#/responses/200/content/application~1json/schema/properties/results/items/properties"
+                        },
+                        "required": {
+                          "$ref": "#/responses/200/content/application~1json/schema/properties/results/items/required"
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "startedAt": {
+                      "description": "The date and time when the batch operation started, in ISO 8601 format.",
+                      "example": null,
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "status": {
+                      "description": "The current status of the batch operation. Valid values include 'PENDING', 'PROCESSING', 'CANCELED', and 'COMPLETE'.",
+                      "enum": [
+                        "CANCELED",
+                        "COMPLETE",
+                        "PENDING",
+                        "PROCESSING"
+                      ],
+                      "example": null,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "completedAt",
+                    "results",
+                    "startedAt",
+                    "status"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "multiple statuses"
+          },
+          "default": {
+            "content": {
+              "*/*": {
+                "example": null,
+                "schema": {
+                  "description": "Represents an error response returned by the API when an operation fails. This component is used in various endpoints to provide detailed information about the error encountered.",
+                  "example": {
+                    "category": "VALIDATION_ERROR",
+                    "correlationId": "aeb5f871-7f07-4993-9211-075dc63e7cbf",
+                    "links": {
+                      "knowledge-base": "https://www.hubspot.com/products/service/knowledge-base"
+                    },
+                    "message": "Invalid input (details will vary based on the error)"
+                  },
+                  "properties": {
+                    "category": {
+                      "description": "The error category, represented as a string.",
+                      "example": null,
+                      "type": "string"
+                    },
+                    "context": {
+                      "additionalProperties": {
+                        "example": null,
+                        "items": {
+                          "example": null,
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "description": "An object providing context about the error condition, with additional properties as arrays of strings.",
+                      "example": "{invalidPropertyName=[propertyValue], missingScopes=[scope1, scope2]}",
+                      "type": "object"
+                    },
+                    "correlationId": {
+                      "description": "A unique identifier for the request, used for tracking and support purposes. It is a string formatted as a UUID.",
+                      "example": "aeb5f871-7f07-4993-9211-075dc63e7cbf",
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "errors": {
+                      "description": "An array containing further information about the error, with each item being an ErrorDetail object.",
+                      "example": null,
+                      "items": {
+                        "description": "Represents detailed information about an error that occurred in the API. This component is used to provide additional context and specifics about errors, typically as part of an error response.",
+                        "example": null,
+                        "properties": {
+                          "$ref": "#/responses/207/content/application~1json/schema/properties/errors/items/properties/errors/items/properties"
+                        },
+                        "required": {
+                          "$ref": "#/responses/207/content/application~1json/schema/properties/errors/items/properties/errors/items/required"
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "links": {
+                      "additionalProperties": {
+                        "example": null,
+                        "type": "string"
+                      },
+                      "description": "A map of link names to associated URIs containing documentation about the error or recommended remediation steps. It is an object with string properties.",
+                      "example": null,
+                      "type": "object"
+                    },
+                    "message": {
+                      "description": "A human readable message describing the error along with remediation steps where appropriate. It is a string.",
+                      "example": "An error occurred",
+                      "type": "string"
+                    },
+                    "subCategory": {
+                      "description": "A specific category providing more detailed information about the error. It is a string.",
+                      "example": null,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "category",
+                    "correlationId",
+                    "message"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "reporting.full.write"
+            ]
+          },
+          {
+            "oauth2": [
+              "reporting.full.admin"
+            ]
+          }
+        ],
+        "securitySchemes": {
+          "developer_hapikey": {
+            "in": "query",
+            "name": "hapikey",
+            "type": "apiKey"
+          },
+          "oauth2": {
+            "flows": {
+              "authorizationCode": {
+                "authorizationUrl": "https://app.hubspot.com/oauth/authorize",
+                "scopes": {
+                  "crm.hubsql.execute": "",
+                  "reporting.full.admin": "",
+                  "reporting.full.edit": "",
+                  "reporting.full.read": "",
+                  "reporting.full.write": ""
+                },
+                "tokenUrl": "https://api.hubapi.com/oauth/v1/token"
+              }
+            },
+            "type": "oauth2"
+          },
+          "private_apps": {
+            "in": "header",
+            "name": "private-app",
+            "type": "apiKey"
+          },
+          "private_apps_legacy": {
+            "in": "header",
+            "name": "private-app-legacy",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "operation"
+      }
+    }
+  }
+}

@@ -1,0 +1,335 @@
+-- Typed models for the HubspotAnalytics SDK (LuaLS annotations).
+--
+-- GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
+-- params (op.<name>.points[].args.params[]). Field/param types come from the
+-- canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
+-- @voxgig/apidef VALID_CANON). Annotations only — no runtime effect. Do not
+-- edit by hand.
+
+---@class Clone
+---@field archived boolean
+---@field archivedAt? string
+---@field businessUnitId string
+---@field cloneReports boolean
+---@field createdAt string
+---@field createdByUserId? string
+---@field description? string
+---@field id string
+---@field lastViewedAt? string
+---@field lastViewedByUserId? string
+---@field name string
+---@field ownerUserId? string
+---@field permissions table
+---@field tags? table
+---@field updatedAt string
+---@field updatedByUserId? string
+---@field widgets? table
+
+---@class CloneCreateData
+---@field dashboard_id number
+---@field archived boolean
+---@field archivedAt? string
+---@field businessUnitId string
+---@field cloneReports boolean
+---@field createdAt string
+---@field createdByUserId? string
+---@field description? string
+---@field id string
+---@field lastViewedAt? string
+---@field lastViewedByUserId? string
+---@field name string
+---@field ownerUserId? string
+---@field permissions table
+---@field tags? table
+---@field updatedAt string
+---@field updatedByUserId? string
+---@field widgets? table
+
+---@class Dashboard
+---@field archived boolean
+---@field archivedAt? string
+---@field businessUnitId string
+---@field createdAt string
+---@field createdByUserId? string
+---@field description? string
+---@field id string
+---@field inputs table
+---@field lastViewedAt? string
+---@field lastViewedByUserId? string
+---@field name string
+---@field ownerUserId? string
+---@field permissions table
+---@field reportIdsToAdd? table
+---@field tags? table
+---@field updatedAt string
+---@field updatedByUserId? string
+---@field widgets? table
+
+---@class DashboardLoadMatch
+---@field id number
+---@field archived? boolean
+---@field property? table
+
+---@class DashboardCreateData
+---@field archived boolean
+---@field archivedAt? string
+---@field businessUnitId string
+---@field createdAt string
+---@field createdByUserId? string
+---@field description? string
+---@field id string
+---@field inputs table
+---@field lastViewedAt? string
+---@field lastViewedByUserId? string
+---@field name string
+---@field ownerUserId? string
+---@field permissions table
+---@field reportIdsToAdd? table
+---@field tags? table
+---@field updatedAt string
+---@field updatedByUserId? string
+---@field widgets? table
+
+---@class DashboardUpdateData
+---@field id number
+---@field archived? boolean
+---@field archivedAt? string
+---@field businessUnitId? string
+---@field createdAt? string
+---@field createdByUserId? string
+---@field description? string
+---@field inputs? table
+---@field lastViewedAt? string
+---@field lastViewedByUserId? string
+---@field name? string
+---@field ownerUserId? string
+---@field permissions? table
+---@field reportIdsToAdd? table
+---@field tags? table
+---@field updatedAt? string
+---@field updatedByUserId? string
+---@field widgets? table
+
+---@class Report
+---@field archived boolean
+---@field archivedAt? string
+---@field businessUnitId string
+---@field createdAt string
+---@field createdByUserId? string
+---@field description? string
+---@field id string
+---@field inputs table
+---@field lastViewedAt? string
+---@field lastViewedByUserId? string
+---@field name string
+---@field ownerUserId? string
+---@field permissions table
+---@field tags? table
+---@field updatedAt string
+---@field updatedByUserId? string
+
+---@class ReportLoadMatch
+---@field id number
+---@field archived? boolean
+---@field property? table
+
+---@class ReportListMatch
+---@field after? string
+---@field archived? boolean
+---@field business_unit_id? table
+---@field created_after? string
+---@field created_before? string
+---@field dashboard_id? string
+---@field ids? table
+---@field limit? number
+---@field on_dashboard? boolean
+---@field only_favorite? boolean
+---@field owner_user_id? table
+---@field property? table
+---@field q? string
+---@field sort? table
+---@field tag_id? table
+---@field updated_after? string
+---@field updated_before? string
+
+---@class ReportCreateData
+---@field archived boolean
+---@field archivedAt? string
+---@field businessUnitId string
+---@field createdAt string
+---@field createdByUserId? string
+---@field description? string
+---@field id string
+---@field inputs table
+---@field lastViewedAt? string
+---@field lastViewedByUserId? string
+---@field name string
+---@field ownerUserId? string
+---@field permissions table
+---@field tags? table
+---@field updatedAt string
+---@field updatedByUserId? string
+
+---@class ReportUpdateData
+---@field id number
+---@field archived? boolean
+---@field archivedAt? string
+---@field businessUnitId? string
+---@field createdAt? string
+---@field createdByUserId? string
+---@field description? string
+---@field inputs? table
+---@field lastViewedAt? string
+---@field lastViewedByUserId? string
+---@field name? string
+---@field ownerUserId? string
+---@field permissions? table
+---@field tags? table
+---@field updatedAt? string
+---@field updatedByUserId? string
+
+---@class ReportingBatchResponsePublicDashboard
+---@field completedAt string
+---@field inputs table
+---@field links? table
+---@field ownerId string
+---@field permissions table
+---@field requestedAt? string
+---@field results table
+---@field startedAt string
+---@field status string
+
+---@class ReportingBatchResponsePublicDashboardCreateData
+---@field completedAt string
+---@field inputs table
+---@field links? table
+---@field ownerId string
+---@field permissions table
+---@field requestedAt? string
+---@field results table
+---@field startedAt string
+---@field status string
+
+---@class ReportingBatchResponsePublicReport
+---@field completedAt string
+---@field inputs table
+---@field links? table
+---@field ownerId string
+---@field permissions table
+---@field requestedAt? string
+---@field results table
+---@field startedAt string
+---@field status string
+
+---@class ReportingBatchResponsePublicReportCreateData
+---@field completedAt string
+---@field inputs table
+---@field links? table
+---@field ownerId string
+---@field permissions table
+---@field requestedAt? string
+---@field results table
+---@field startedAt string
+---@field status string
+
+---@class ReportingCollectionResponseWithTotalPublicDashboard
+---@field archived boolean
+---@field archivedAt? string
+---@field businessUnitId string
+---@field createdAt string
+---@field createdByUserId? string
+---@field description? string
+---@field id string
+---@field lastViewedAt? string
+---@field lastViewedByUserId? string
+---@field name string
+---@field ownerUserId? string
+---@field permissions table
+---@field tags? table
+---@field updatedAt string
+---@field updatedByUserId? string
+---@field widgets? table
+
+---@class ReportingCollectionResponseWithTotalPublicDashboardListMatch
+---@field after? string
+---@field archived? boolean
+---@field business_unit_id? table
+---@field created_after? string
+---@field created_before? string
+---@field ids? table
+---@field limit? number
+---@field only_favorite? boolean
+---@field owner_user_id? table
+---@field property? table
+---@field q? string
+---@field sort? table
+---@field tag_id? table
+---@field updated_after? string
+---@field updated_before? string
+
+---@class Widget
+---@field archived boolean
+---@field archivedAt? string
+---@field businessUnitId string
+---@field createdAt string
+---@field createdByUserId? string
+---@field description? string
+---@field id string
+---@field inputs table
+---@field lastViewedAt? string
+---@field lastViewedByUserId? string
+---@field name string
+---@field ownerUserId? string
+---@field permissions table
+---@field tags? table
+---@field updatedAt string
+---@field updatedByUserId? string
+---@field widgets? table
+
+---@class WidgetCreateData
+---@field dashboard_id number
+---@field archived boolean
+---@field archivedAt? string
+---@field businessUnitId string
+---@field createdAt string
+---@field createdByUserId? string
+---@field description? string
+---@field id string
+---@field inputs table
+---@field lastViewedAt? string
+---@field lastViewedByUserId? string
+---@field name string
+---@field ownerUserId? string
+---@field permissions table
+---@field tags? table
+---@field updatedAt string
+---@field updatedByUserId? string
+---@field widgets? table
+
+---@class WidgetUpdateData
+---@field dashboard_id number
+---@field id number
+---@field archived? boolean
+---@field archivedAt? string
+---@field businessUnitId? string
+---@field createdAt? string
+---@field createdByUserId? string
+---@field description? string
+---@field inputs? table
+---@field lastViewedAt? string
+---@field lastViewedByUserId? string
+---@field name? string
+---@field ownerUserId? string
+---@field permissions? table
+---@field tags? table
+---@field updatedAt? string
+---@field updatedByUserId? string
+---@field widgets? table
+
+---@class WidgetRemoveMatch
+---@field dashboard_id number
+---@field id number
+
+local M = {}
+
+return M

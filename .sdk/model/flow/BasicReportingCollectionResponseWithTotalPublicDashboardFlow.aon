@@ -1,0 +1,22 @@
+# BasicReportingCollectionResponseWithTotalPublicDashboardFlow
+
+main: kit: flow: BasicReportingCollectionResponseWithTotalPublicDashboardFlow:
+{
+  entity: "reporting_collection_response_with_total_public_dashboard",
+  kind: "basic",
+  name: "BasicReportingCollectionResponseWithTotalPublicDashboardFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "reporting_collection_response_with_total_public_dashboard_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicReportingCollectionResponseWithTotalPublicDashboardFlow"
+}
