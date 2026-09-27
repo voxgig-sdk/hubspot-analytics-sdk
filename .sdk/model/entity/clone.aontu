@@ -1,0 +1,206 @@
+# Entity: clone
+
+main: kit: entity: clone: {
+
+  alias: field: {}
+
+  fields: {
+    archived: {
+      h: "Archived"
+      n: "archived"
+      r: true
+      sh: "Whether the dashboard is archived."
+      t: "`$BOOLEAN`"
+    }
+    archivedAt: {
+      fo: "date-time"
+      h: "Archived At"
+      n: "archivedAt"
+      r: false
+      sh: "If the dashboard is archived, the date and time when the dashboard was archived, in ISO 8601 format."
+      t: "`$STRING`"
+    }
+    businessUnitId: {
+      h: "Business Unit Id"
+      n: "businessUnitId"
+      r: true
+      sh: "The ID of the business unit that the dashboard is associated with."
+      t: "`$STRING`"
+    }
+    cloneReports: {
+      h: "Clone Reports"
+      n: "cloneReports"
+      r: true
+      sh: "Whether to create clones of the reports from the original dashboard to use on the cloned dashboard (`true`), or reference the same report objects as the original dashboard (`false`)."
+      t: "`$BOOLEAN`"
+    }
+    createdAt: {
+      fo: "date-time"
+      h: "Created At"
+      n: "createdAt"
+      r: true
+      sh: "The date and time when the dashboard was created, in ISO 8601 format."
+      t: "`$STRING`"
+    }
+    createdByUserId: {
+      h: "Created By User Id"
+      n: "createdByUserId"
+      r: false
+      sh: "The ID of the user who created the dashboard."
+      t: "`$STRING`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      sh: "A description of the dashboard."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "The ID of the dashboard."
+      t: "`$STRING`"
+    }
+    lastViewedAt: {
+      fo: "date-time"
+      h: "Last Viewed At"
+      n: "lastViewedAt"
+      r: false
+      sh: "The date and time when the dashboard was last viewed, in ISO 8601 format."
+      t: "`$STRING`"
+    }
+    lastViewedByUserId: {
+      h: "Last Viewed By User Id"
+      n: "lastViewedByUserId"
+      r: false
+      sh: "The ID of the user who last viewed the dashboard."
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      sh: "The name of the dashboard."
+      t: "`$STRING`"
+    }
+    ownerUserId: {
+      h: "Owner User Id"
+      n: "ownerUserId"
+      r: false
+      sh: "The ID of the user who owns the dashboard."
+      t: "`$STRING`"
+    }
+    permissions: {
+      h: "Permissions"
+      n: "permissions"
+      r: true
+      t: "`$OBJECT`"
+    }
+    tags: {
+      h: "Tags"
+      n: "tags"
+      r: false
+      sh: "Array of objects representing the tags that the dashboard is tagged with."
+      t: "`$ARRAY`"
+    }
+    updatedAt: {
+      fo: "date-time"
+      h: "Updated At"
+      n: "updatedAt"
+      r: true
+      sh: "The date and time when the dashboard was last updated, in ISO 8601 format."
+      t: "`$STRING`"
+    }
+    updatedByUserId: {
+      h: "Updated By User Id"
+      n: "updatedByUserId"
+      r: false
+      sh: "The ID of the user who last updated the dashboard."
+      t: "`$STRING`"
+    }
+    widgets: {
+      h: "Widgets"
+      n: "widgets"
+      r: false
+      sh: "An array of objects representing the widgets on the dashboard."
+      t: "`$ARRAY`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "clone"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /analytics/reporting/2027-03-beta/dashboards/{dashboardId}/clone"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: null
+                k: "param"
+                n: "dashboard_id"
+                or: "dashboard_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/analytics/reporting/2027-03-beta/dashboards/{dashboardId}/clone"
+          q: {
+            exist: [
+              "dashboard_id"
+            ]
+          }
+          r: {
+            param: {
+              dashboardId: "dashboard_id"
+            }
+          }
+          s: [
+            {
+              lit: "analytics"
+            }
+            {
+              lit: "reporting"
+            }
+            {
+              lit: "2027-03-beta"
+            }
+            {
+              lit: "dashboards"
+            }
+            {
+              var: "dashboard_id"
+            }
+            {
+              lit: "clone"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.dashboard")]
+  ]
+
+}

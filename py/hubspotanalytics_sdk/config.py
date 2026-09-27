@@ -197,99 +197,116 @@ def make_config():
         "fields": [
           {
             "name": "archived",
+            "title": "Archived",
+            "type": "`$BOOLEAN`",
             "req": True,
             "short": "Whether the dashboard is archived.",
-            "type": "`$BOOLEAN`",
           },
           {
-            "format": "date-time",
             "name": "archivedAt",
-            "short": "If the dashboard is archived, the date and time when the dashboard was archived, in ISO 8601 format.",
+            "title": "Archived At",
             "type": "`$STRING`",
+            "short": "If the dashboard is archived, the date and time when the dashboard was archived, in ISO 8601 format.",
+            "format": "date-time",
           },
           {
             "name": "businessUnitId",
+            "title": "Business Unit Id",
+            "type": "`$STRING`",
             "req": True,
             "short": "The ID of the business unit that the dashboard is associated with.",
-            "type": "`$STRING`",
           },
           {
             "name": "cloneReports",
+            "title": "Clone Reports",
+            "type": "`$BOOLEAN`",
             "req": True,
             "short": "Whether to create clones of the reports from the original dashboard to use on the cloned dashboard (`true`), or reference the same report objects as the original dashboard (`false`).",
-            "type": "`$BOOLEAN`",
           },
           {
-            "format": "date-time",
             "name": "createdAt",
+            "title": "Created At",
+            "type": "`$STRING`",
             "req": True,
             "short": "The date and time when the dashboard was created, in ISO 8601 format.",
-            "type": "`$STRING`",
+            "format": "date-time",
           },
           {
             "name": "createdByUserId",
-            "short": "The ID of the user who created the dashboard.",
+            "title": "Created By User Id",
             "type": "`$STRING`",
+            "short": "The ID of the user who created the dashboard.",
           },
           {
             "name": "description",
-            "short": "A description of the dashboard.",
+            "title": "Description",
             "type": "`$STRING`",
+            "short": "A description of the dashboard.",
           },
           {
             "name": "id",
+            "title": "Id",
+            "type": "`$STRING`",
             "req": True,
             "short": "The ID of the dashboard.",
-            "type": "`$STRING`",
           },
           {
-            "format": "date-time",
             "name": "lastViewedAt",
-            "short": "The date and time when the dashboard was last viewed, in ISO 8601 format.",
+            "title": "Last Viewed At",
             "type": "`$STRING`",
+            "short": "The date and time when the dashboard was last viewed, in ISO 8601 format.",
+            "format": "date-time",
           },
           {
             "name": "lastViewedByUserId",
-            "short": "The ID of the user who last viewed the dashboard.",
+            "title": "Last Viewed By User Id",
             "type": "`$STRING`",
+            "short": "The ID of the user who last viewed the dashboard.",
           },
           {
             "name": "name",
+            "title": "Name",
+            "type": "`$STRING`",
             "req": True,
             "short": "The name of the dashboard.",
-            "type": "`$STRING`",
           },
           {
             "name": "ownerUserId",
-            "short": "The ID of the user who owns the dashboard.",
+            "title": "Owner User Id",
             "type": "`$STRING`",
+            "short": "The ID of the user who owns the dashboard.",
           },
           {
             "name": "permissions",
-            "req": True,
+            "title": "Permissions",
             "type": "`$OBJECT`",
+            "req": True,
           },
           {
             "name": "tags",
-            "short": "Array of objects representing the tags that the dashboard is tagged with.",
+            "title": "Tags",
             "type": "`$ARRAY`",
+            "short": "Array of objects representing the tags that the dashboard is tagged with.",
           },
           {
-            "format": "date-time",
             "name": "updatedAt",
+            "title": "Updated At",
+            "type": "`$STRING`",
             "req": True,
             "short": "The date and time when the dashboard was last updated, in ISO 8601 format.",
-            "type": "`$STRING`",
+            "format": "date-time",
           },
           {
             "name": "updatedByUserId",
-            "short": "The ID of the user who last updated the dashboard.",
+            "title": "Updated By User Id",
             "type": "`$STRING`",
+            "short": "The ID of the user who last updated the dashboard.",
           },
           {
             "name": "widgets",
-            "short": "An array of objects representing the widgets on the dashboard.",
+            "title": "Widgets",
             "type": "`$ARRAY`",
+            "short": "An array of objects representing the widgets on the dashboard.",
           },
         ],
         "id": {
@@ -303,26 +320,9 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "args": {
-                  "params": [
-                    {
-                      "example": None,
-                      "kind": "param",
-                      "name": "dashboard_id",
-                      "orig": "dashboard_id",
-                      "reqd": True,
-                      "type": "`$INTEGER`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "POST",
                 "orig": "/analytics/reporting/2027-03-beta/dashboards/{dashboardId}/clone",
-                "rename": {
-                  "param": {
-                    "dashboardId": "dashboard_id",
-                  },
-                },
                 "segments": [
                   {
                     "lit": "analytics",
@@ -343,15 +343,6 @@ def make_config():
                     "lit": "clone",
                   },
                 ],
-                "select": {
-                  "exist": [
-                    "dashboard_id",
-                  ],
-                },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
                 "parts": [
                   "analytics",
                   "reporting",
@@ -360,6 +351,32 @@ def make_config():
                   "{dashboard_id}",
                   "clone",
                 ],
+                "rename": {
+                  "param": {
+                    "dashboardId": "dashboard_id",
+                  },
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "params": [
+                    {
+                      "name": "dashboard_id",
+                      "orig": "dashboard_id",
+                      "type": "`$INTEGER`",
+                      "kind": "param",
+                      "reqd": True,
+                      "example": None,
+                    },
+                  ],
+                },
+                "select": {
+                  "exist": [
+                    "dashboard_id",
+                  ],
+                },
               },
             ],
           },
@@ -367,7 +384,7 @@ def make_config():
         "relations": {
           "ancestors": [
             [
-              "dashboard",
+              "$.main.kit.entity.dashboard",
             ],
           ],
         },
@@ -376,23 +393,28 @@ def make_config():
         "fields": [
           {
             "name": "archived",
+            "title": "Archived",
+            "type": "`$BOOLEAN`",
+            "req": True,
             "op": {
               "update": {
                 "type": "`$BOOLEAN`",
               },
             },
-            "req": True,
             "short": "Whether the dashboard is archived.",
-            "type": "`$BOOLEAN`",
           },
           {
-            "format": "date-time",
             "name": "archivedAt",
-            "short": "If the dashboard is archived, the date and time when the dashboard was archived, in ISO 8601 format.",
+            "title": "Archived At",
             "type": "`$STRING`",
+            "short": "If the dashboard is archived, the date and time when the dashboard was archived, in ISO 8601 format.",
+            "format": "date-time",
           },
           {
             "name": "businessUnitId",
+            "title": "Business Unit Id",
+            "type": "`$STRING`",
+            "req": True,
             "op": {
               "create": {
                 "type": "`$STRING`",
@@ -401,97 +423,110 @@ def make_config():
                 "type": "`$OBJECT`",
               },
             },
-            "req": True,
             "short": "The ID of the business unit that the dashboard is associated with.",
-            "type": "`$STRING`",
           },
           {
-            "format": "date-time",
             "name": "createdAt",
+            "title": "Created At",
+            "type": "`$STRING`",
             "req": True,
             "short": "The date and time when the dashboard was created, in ISO 8601 format.",
-            "type": "`$STRING`",
+            "format": "date-time",
           },
           {
             "name": "createdByUserId",
-            "short": "The ID of the user who created the dashboard.",
+            "title": "Created By User Id",
             "type": "`$STRING`",
+            "short": "The ID of the user who created the dashboard.",
           },
           {
             "name": "description",
-            "short": "A description of the dashboard.",
+            "title": "Description",
             "type": "`$STRING`",
+            "short": "A description of the dashboard.",
           },
           {
             "name": "id",
+            "title": "Id",
+            "type": "`$STRING`",
             "req": True,
             "short": "The ID of the dashboard.",
-            "type": "`$STRING`",
           },
           {
             "name": "inputs",
+            "title": "Inputs",
+            "type": "`$ARRAY`",
             "req": True,
             "short": "Array of report or dashboard IDs.",
-            "type": "`$ARRAY`",
           },
           {
-            "format": "date-time",
             "name": "lastViewedAt",
-            "short": "The date and time when the dashboard was last viewed, in ISO 8601 format.",
+            "title": "Last Viewed At",
             "type": "`$STRING`",
+            "short": "The date and time when the dashboard was last viewed, in ISO 8601 format.",
+            "format": "date-time",
           },
           {
             "name": "lastViewedByUserId",
-            "short": "The ID of the user who last viewed the dashboard.",
+            "title": "Last Viewed By User Id",
             "type": "`$STRING`",
+            "short": "The ID of the user who last viewed the dashboard.",
           },
           {
             "name": "name",
+            "title": "Name",
+            "type": "`$STRING`",
+            "req": True,
             "op": {
               "update": {
                 "type": "`$STRING`",
               },
             },
-            "req": True,
             "short": "The name of the dashboard.",
-            "type": "`$STRING`",
           },
           {
             "name": "ownerUserId",
-            "short": "The ID of the user who owns the dashboard.",
+            "title": "Owner User Id",
             "type": "`$STRING`",
+            "short": "The ID of the user who owns the dashboard.",
           },
           {
             "name": "permissions",
-            "req": True,
+            "title": "Permissions",
             "type": "`$OBJECT`",
+            "req": True,
           },
           {
             "name": "reportIdsToAdd",
-            "short": "Array of IDs of reports that should be added to the dashboard after creation.",
+            "title": "Report Ids To Add",
             "type": "`$ARRAY`",
+            "short": "Array of IDs of reports that should be added to the dashboard after creation.",
           },
           {
             "name": "tags",
-            "short": "Array of objects representing the tags that the dashboard is tagged with.",
+            "title": "Tags",
             "type": "`$ARRAY`",
+            "short": "Array of objects representing the tags that the dashboard is tagged with.",
           },
           {
-            "format": "date-time",
             "name": "updatedAt",
+            "title": "Updated At",
+            "type": "`$STRING`",
             "req": True,
             "short": "The date and time when the dashboard was last updated, in ISO 8601 format.",
-            "type": "`$STRING`",
+            "format": "date-time",
           },
           {
             "name": "updatedByUserId",
-            "short": "The ID of the user who last updated the dashboard.",
+            "title": "Updated By User Id",
             "type": "`$STRING`",
+            "short": "The ID of the user who last updated the dashboard.",
           },
           {
             "name": "widgets",
-            "short": "An array of objects representing the widgets on the dashboard.",
+            "title": "Widgets",
             "type": "`$ARRAY`",
+            "short": "An array of objects representing the widgets on the dashboard.",
           },
         ],
         "id": {
@@ -505,26 +540,9 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "args": {
-                  "params": [
-                    {
-                      "example": None,
-                      "kind": "param",
-                      "name": "id",
-                      "orig": "dashboard_id",
-                      "reqd": True,
-                      "type": "`$INTEGER`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "POST",
                 "orig": "/analytics/reporting/2027-03-beta/dashboards/{dashboardId}/export",
-                "rename": {
-                  "param": {
-                    "dashboardId": "id",
-                  },
-                },
                 "segments": [
                   {
                     "lit": "analytics",
@@ -545,16 +563,6 @@ def make_config():
                     "lit": "export",
                   },
                 ],
-                "select": {
-                  "$action": "export",
-                  "exist": [
-                    "id",
-                  ],
-                },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
                 "parts": [
                   "analytics",
                   "reporting",
@@ -563,9 +571,35 @@ def make_config():
                   "{id}",
                   "export",
                 ],
+                "rename": {
+                  "param": {
+                    "dashboardId": "id",
+                  },
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "params": [
+                    {
+                      "name": "id",
+                      "orig": "dashboard_id",
+                      "type": "`$INTEGER`",
+                      "kind": "param",
+                      "reqd": True,
+                      "example": None,
+                    },
+                  ],
+                },
+                "select": {
+                  "$action": "export",
+                  "exist": [
+                    "id",
+                  ],
+                },
               },
               {
-                "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/analytics/reporting/2027-03-beta/dashboards",
@@ -583,20 +617,21 @@ def make_config():
                     "lit": "dashboards",
                   },
                 ],
-                "select": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
                 "parts": [
                   "analytics",
                   "reporting",
                   "2027-03-beta",
                   "dashboards",
                 ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {},
+                "select": {},
               },
               {
-                "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/analytics/reporting/2027-03-beta/dashboards/batch/archive",
@@ -620,11 +655,6 @@ def make_config():
                     "lit": "archive",
                   },
                 ],
-                "select": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
                 "parts": [
                   "analytics",
                   "reporting",
@@ -633,6 +663,13 @@ def make_config():
                   "batch",
                   "archive",
                 ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {},
+                "select": {},
               },
             ],
           },
@@ -641,42 +678,9 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {
-                  "params": [
-                    {
-                      "example": None,
-                      "kind": "param",
-                      "name": "id",
-                      "orig": "dashboard_id",
-                      "reqd": True,
-                      "type": "`$INTEGER`",
-                    },
-                  ],
-                  "query": [
-                    {
-                      "example": None,
-                      "kind": "query",
-                      "name": "archived",
-                      "orig": "archived",
-                      "type": "`$BOOLEAN`",
-                    },
-                    {
-                      "example": None,
-                      "kind": "query",
-                      "name": "property",
-                      "orig": "property",
-                      "type": "`$ARRAY`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/analytics/reporting/2027-03-beta/dashboards/{dashboardId}",
-                "rename": {
-                  "param": {
-                    "dashboardId": "id",
-                  },
-                },
                 "segments": [
                   {
                     "lit": "analytics",
@@ -694,17 +698,6 @@ def make_config():
                     "var": "id",
                   },
                 ],
-                "select": {
-                  "exist": [
-                    "archived",
-                    "id",
-                    "property",
-                  ],
-                },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
                 "parts": [
                   "analytics",
                   "reporting",
@@ -712,6 +705,50 @@ def make_config():
                   "dashboards",
                   "{id}",
                 ],
+                "rename": {
+                  "param": {
+                    "dashboardId": "id",
+                  },
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "params": [
+                    {
+                      "name": "id",
+                      "orig": "dashboard_id",
+                      "type": "`$INTEGER`",
+                      "kind": "param",
+                      "reqd": True,
+                      "example": None,
+                    },
+                  ],
+                  "query": [
+                    {
+                      "name": "archived",
+                      "orig": "archived",
+                      "type": "`$BOOLEAN`",
+                      "kind": "query",
+                      "example": None,
+                    },
+                    {
+                      "name": "property",
+                      "orig": "property",
+                      "type": "`$ARRAY`",
+                      "kind": "query",
+                      "example": None,
+                    },
+                  ],
+                },
+                "select": {
+                  "exist": [
+                    "archived",
+                    "id",
+                    "property",
+                  ],
+                },
               },
             ],
           },
@@ -720,26 +757,9 @@ def make_config():
             "name": "update",
             "points": [
               {
-                "args": {
-                  "params": [
-                    {
-                      "example": None,
-                      "kind": "param",
-                      "name": "id",
-                      "orig": "dashboard_id",
-                      "reqd": True,
-                      "type": "`$INTEGER`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "PATCH",
                 "orig": "/analytics/reporting/2027-03-beta/dashboards/{dashboardId}",
-                "rename": {
-                  "param": {
-                    "dashboardId": "id",
-                  },
-                },
                 "segments": [
                   {
                     "lit": "analytics",
@@ -757,15 +777,6 @@ def make_config():
                     "var": "id",
                   },
                 ],
-                "select": {
-                  "exist": [
-                    "id",
-                  ],
-                },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
                 "parts": [
                   "analytics",
                   "reporting",
@@ -773,6 +784,32 @@ def make_config():
                   "dashboards",
                   "{id}",
                 ],
+                "rename": {
+                  "param": {
+                    "dashboardId": "id",
+                  },
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "params": [
+                    {
+                      "name": "id",
+                      "orig": "dashboard_id",
+                      "type": "`$INTEGER`",
+                      "kind": "param",
+                      "reqd": True,
+                      "example": None,
+                    },
+                  ],
+                },
+                "select": {
+                  "exist": [
+                    "id",
+                  ],
+                },
               },
             ],
           },
@@ -785,109 +822,125 @@ def make_config():
         "fields": [
           {
             "name": "archived",
+            "title": "Archived",
+            "type": "`$BOOLEAN`",
+            "req": True,
             "op": {
               "update": {
                 "type": "`$BOOLEAN`",
               },
             },
-            "req": True,
             "short": "Whether the report is archived.",
-            "type": "`$BOOLEAN`",
           },
           {
-            "format": "date-time",
             "name": "archivedAt",
-            "short": "If the report is archived, the date and time when the report was archived, in ISO 8601 format.",
+            "title": "Archived At",
             "type": "`$STRING`",
+            "short": "If the report is archived, the date and time when the report was archived, in ISO 8601 format.",
+            "format": "date-time",
           },
           {
             "name": "businessUnitId",
+            "title": "Business Unit Id",
+            "type": "`$STRING`",
+            "req": True,
             "op": {
               "update": {
                 "type": "`$OBJECT`",
               },
             },
-            "req": True,
             "short": "The ID of the business unit that the report is associated with.",
-            "type": "`$STRING`",
           },
           {
-            "format": "date-time",
             "name": "createdAt",
+            "title": "Created At",
+            "type": "`$STRING`",
             "req": True,
             "short": "The date and time when the report was created, in ISO 8601 format.",
-            "type": "`$STRING`",
+            "format": "date-time",
           },
           {
             "name": "createdByUserId",
-            "short": "The ID of the user who created the report.",
+            "title": "Created By User Id",
             "type": "`$STRING`",
+            "short": "The ID of the user who created the report.",
           },
           {
             "name": "description",
-            "short": "A description of the report.",
+            "title": "Description",
             "type": "`$STRING`",
+            "short": "A description of the report.",
           },
           {
             "name": "id",
+            "title": "Id",
+            "type": "`$STRING`",
             "req": True,
             "short": "The ID of the report.",
-            "type": "`$STRING`",
           },
           {
             "name": "inputs",
+            "title": "Inputs",
+            "type": "`$ARRAY`",
             "req": True,
             "short": "Array of report or dashboard IDs.",
-            "type": "`$ARRAY`",
           },
           {
-            "format": "date-time",
             "name": "lastViewedAt",
-            "short": "The date and time when the report was last viewed, in ISO 8601 format.",
+            "title": "Last Viewed At",
             "type": "`$STRING`",
+            "short": "The date and time when the report was last viewed, in ISO 8601 format.",
+            "format": "date-time",
           },
           {
             "name": "lastViewedByUserId",
-            "short": "The ID of the user who last viewed the report.",
+            "title": "Last Viewed By User Id",
             "type": "`$STRING`",
+            "short": "The ID of the user who last viewed the report.",
           },
           {
             "name": "name",
+            "title": "Name",
+            "type": "`$STRING`",
+            "req": True,
             "op": {
               "update": {
                 "type": "`$STRING`",
               },
             },
-            "req": True,
             "short": "The name of the report.",
-            "type": "`$STRING`",
           },
           {
             "name": "ownerUserId",
-            "short": "The ID of the user who owns the report.",
+            "title": "Owner User Id",
             "type": "`$STRING`",
+            "short": "The ID of the user who owns the report.",
           },
           {
             "name": "permissions",
-            "req": True,
+            "title": "Permissions",
             "type": "`$OBJECT`",
+            "req": True,
           },
           {
             "name": "tags",
-            "short": "Array of objects representing the tags that the report is tagged with.",
+            "title": "Tags",
             "type": "`$ARRAY`",
+            "short": "Array of objects representing the tags that the report is tagged with.",
           },
           {
-            "format": "date-time",
             "name": "updatedAt",
+            "title": "Updated At",
+            "type": "`$STRING`",
             "req": True,
             "short": "The date and time when the report was last updated, in ISO 8601 format.",
-            "type": "`$STRING`",
+            "format": "date-time",
           },
           {
             "name": "updatedByUserId",
-            "short": "The ID of the user who last updated the report.",
+            "title": "Updated By User Id",
             "type": "`$STRING`",
+            "short": "The ID of the user who last updated the report.",
           },
         ],
         "id": {
@@ -901,26 +954,9 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "args": {
-                  "params": [
-                    {
-                      "example": None,
-                      "kind": "param",
-                      "name": "id",
-                      "orig": "report_id",
-                      "reqd": True,
-                      "type": "`$INTEGER`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "POST",
                 "orig": "/analytics/reporting/2027-03-beta/reports/{reportId}/export",
-                "rename": {
-                  "param": {
-                    "reportId": "id",
-                  },
-                },
                 "segments": [
                   {
                     "lit": "analytics",
@@ -941,16 +977,6 @@ def make_config():
                     "lit": "export",
                   },
                 ],
-                "select": {
-                  "$action": "export",
-                  "exist": [
-                    "id",
-                  ],
-                },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
                 "parts": [
                   "analytics",
                   "reporting",
@@ -959,9 +985,35 @@ def make_config():
                   "{id}",
                   "export",
                 ],
+                "rename": {
+                  "param": {
+                    "reportId": "id",
+                  },
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "params": [
+                    {
+                      "name": "id",
+                      "orig": "report_id",
+                      "type": "`$INTEGER`",
+                      "kind": "param",
+                      "reqd": True,
+                      "example": None,
+                    },
+                  ],
+                },
+                "select": {
+                  "$action": "export",
+                  "exist": [
+                    "id",
+                  ],
+                },
               },
               {
-                "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/analytics/reporting/2027-03-beta/reports/batch/archive",
@@ -985,11 +1037,6 @@ def make_config():
                     "lit": "archive",
                   },
                 ],
-                "select": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
                 "parts": [
                   "analytics",
                   "reporting",
@@ -998,6 +1045,13 @@ def make_config():
                   "batch",
                   "archive",
                 ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {},
+                "select": {},
               },
             ],
           },
@@ -1006,129 +1060,6 @@ def make_config():
             "name": "list",
             "points": [
               {
-                "args": {
-                  "query": [
-                    {
-                      "example": None,
-                      "kind": "query",
-                      "name": "after",
-                      "orig": "after",
-                      "type": "`$STRING`",
-                    },
-                    {
-                      "example": None,
-                      "kind": "query",
-                      "name": "archived",
-                      "orig": "archived",
-                      "type": "`$BOOLEAN`",
-                    },
-                    {
-                      "example": None,
-                      "kind": "query",
-                      "name": "business_unit_id",
-                      "orig": "business_unit_id",
-                      "type": "`$ARRAY`",
-                    },
-                    {
-                      "example": None,
-                      "kind": "query",
-                      "name": "created_after",
-                      "orig": "created_after",
-                      "type": "`$STRING`",
-                    },
-                    {
-                      "example": None,
-                      "kind": "query",
-                      "name": "created_before",
-                      "orig": "created_before",
-                      "type": "`$STRING`",
-                    },
-                    {
-                      "example": None,
-                      "kind": "query",
-                      "name": "dashboard_id",
-                      "orig": "dashboard_id",
-                      "type": "`$STRING`",
-                    },
-                    {
-                      "example": None,
-                      "kind": "query",
-                      "name": "ids",
-                      "orig": "ids",
-                      "type": "`$ARRAY`",
-                    },
-                    {
-                      "example": None,
-                      "kind": "query",
-                      "name": "limit",
-                      "orig": "limit",
-                      "type": "`$INTEGER`",
-                    },
-                    {
-                      "example": None,
-                      "kind": "query",
-                      "name": "on_dashboard",
-                      "orig": "on_dashboard",
-                      "type": "`$BOOLEAN`",
-                    },
-                    {
-                      "example": None,
-                      "kind": "query",
-                      "name": "only_favorite",
-                      "orig": "only_favorite",
-                      "type": "`$BOOLEAN`",
-                    },
-                    {
-                      "example": None,
-                      "kind": "query",
-                      "name": "owner_user_id",
-                      "orig": "owner_user_id",
-                      "type": "`$ARRAY`",
-                    },
-                    {
-                      "example": None,
-                      "kind": "query",
-                      "name": "property",
-                      "orig": "property",
-                      "type": "`$ARRAY`",
-                    },
-                    {
-                      "example": None,
-                      "kind": "query",
-                      "name": "q",
-                      "orig": "q",
-                      "type": "`$STRING`",
-                    },
-                    {
-                      "example": None,
-                      "kind": "query",
-                      "name": "sort",
-                      "orig": "sort",
-                      "type": "`$ARRAY`",
-                    },
-                    {
-                      "example": None,
-                      "kind": "query",
-                      "name": "tag_id",
-                      "orig": "tag_id",
-                      "type": "`$ARRAY`",
-                    },
-                    {
-                      "example": None,
-                      "kind": "query",
-                      "name": "updated_after",
-                      "orig": "updated_after",
-                      "type": "`$STRING`",
-                    },
-                    {
-                      "example": None,
-                      "kind": "query",
-                      "name": "updated_before",
-                      "orig": "updated_before",
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/analytics/reporting/2027-03-beta/reports",
@@ -1146,6 +1077,140 @@ def make_config():
                     "lit": "reports",
                   },
                 ],
+                "parts": [
+                  "analytics",
+                  "reporting",
+                  "2027-03-beta",
+                  "reports",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "after",
+                      "orig": "after",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "example": None,
+                    },
+                    {
+                      "name": "archived",
+                      "orig": "archived",
+                      "type": "`$BOOLEAN`",
+                      "kind": "query",
+                      "example": None,
+                    },
+                    {
+                      "name": "business_unit_id",
+                      "orig": "business_unit_id",
+                      "type": "`$ARRAY`",
+                      "kind": "query",
+                      "example": None,
+                    },
+                    {
+                      "name": "created_after",
+                      "orig": "created_after",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "example": None,
+                    },
+                    {
+                      "name": "created_before",
+                      "orig": "created_before",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "example": None,
+                    },
+                    {
+                      "name": "dashboard_id",
+                      "orig": "dashboard_id",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "example": None,
+                    },
+                    {
+                      "name": "ids",
+                      "orig": "ids",
+                      "type": "`$ARRAY`",
+                      "kind": "query",
+                      "example": None,
+                    },
+                    {
+                      "name": "limit",
+                      "orig": "limit",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": None,
+                    },
+                    {
+                      "name": "on_dashboard",
+                      "orig": "on_dashboard",
+                      "type": "`$BOOLEAN`",
+                      "kind": "query",
+                      "example": None,
+                    },
+                    {
+                      "name": "only_favorite",
+                      "orig": "only_favorite",
+                      "type": "`$BOOLEAN`",
+                      "kind": "query",
+                      "example": None,
+                    },
+                    {
+                      "name": "owner_user_id",
+                      "orig": "owner_user_id",
+                      "type": "`$ARRAY`",
+                      "kind": "query",
+                      "example": None,
+                    },
+                    {
+                      "name": "property",
+                      "orig": "property",
+                      "type": "`$ARRAY`",
+                      "kind": "query",
+                      "example": None,
+                    },
+                    {
+                      "name": "q",
+                      "orig": "q",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "example": None,
+                    },
+                    {
+                      "name": "sort",
+                      "orig": "sort",
+                      "type": "`$ARRAY`",
+                      "kind": "query",
+                      "example": None,
+                    },
+                    {
+                      "name": "tag_id",
+                      "orig": "tag_id",
+                      "type": "`$ARRAY`",
+                      "kind": "query",
+                      "example": None,
+                    },
+                    {
+                      "name": "updated_after",
+                      "orig": "updated_after",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "example": None,
+                    },
+                    {
+                      "name": "updated_before",
+                      "orig": "updated_before",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "example": None,
+                    },
+                  ],
+                },
                 "select": {
                   "exist": [
                     "after",
@@ -1167,16 +1232,6 @@ def make_config():
                     "updated_before",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
-                "parts": [
-                  "analytics",
-                  "reporting",
-                  "2027-03-beta",
-                  "reports",
-                ],
               },
             ],
           },
@@ -1185,42 +1240,9 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {
-                  "params": [
-                    {
-                      "example": None,
-                      "kind": "param",
-                      "name": "id",
-                      "orig": "report_id",
-                      "reqd": True,
-                      "type": "`$INTEGER`",
-                    },
-                  ],
-                  "query": [
-                    {
-                      "example": None,
-                      "kind": "query",
-                      "name": "archived",
-                      "orig": "archived",
-                      "type": "`$BOOLEAN`",
-                    },
-                    {
-                      "example": None,
-                      "kind": "query",
-                      "name": "property",
-                      "orig": "property",
-                      "type": "`$ARRAY`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/analytics/reporting/2027-03-beta/reports/{reportId}",
-                "rename": {
-                  "param": {
-                    "reportId": "id",
-                  },
-                },
                 "segments": [
                   {
                     "lit": "analytics",
@@ -1238,17 +1260,6 @@ def make_config():
                     "var": "id",
                   },
                 ],
-                "select": {
-                  "exist": [
-                    "archived",
-                    "id",
-                    "property",
-                  ],
-                },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
                 "parts": [
                   "analytics",
                   "reporting",
@@ -1256,6 +1267,50 @@ def make_config():
                   "reports",
                   "{id}",
                 ],
+                "rename": {
+                  "param": {
+                    "reportId": "id",
+                  },
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "params": [
+                    {
+                      "name": "id",
+                      "orig": "report_id",
+                      "type": "`$INTEGER`",
+                      "kind": "param",
+                      "reqd": True,
+                      "example": None,
+                    },
+                  ],
+                  "query": [
+                    {
+                      "name": "archived",
+                      "orig": "archived",
+                      "type": "`$BOOLEAN`",
+                      "kind": "query",
+                      "example": None,
+                    },
+                    {
+                      "name": "property",
+                      "orig": "property",
+                      "type": "`$ARRAY`",
+                      "kind": "query",
+                      "example": None,
+                    },
+                  ],
+                },
+                "select": {
+                  "exist": [
+                    "archived",
+                    "id",
+                    "property",
+                  ],
+                },
               },
             ],
           },
@@ -1264,26 +1319,9 @@ def make_config():
             "name": "update",
             "points": [
               {
-                "args": {
-                  "params": [
-                    {
-                      "example": None,
-                      "kind": "param",
-                      "name": "id",
-                      "orig": "report_id",
-                      "reqd": True,
-                      "type": "`$INTEGER`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "PATCH",
                 "orig": "/analytics/reporting/2027-03-beta/reports/{reportId}",
-                "rename": {
-                  "param": {
-                    "reportId": "id",
-                  },
-                },
                 "segments": [
                   {
                     "lit": "analytics",
@@ -1301,15 +1339,6 @@ def make_config():
                     "var": "id",
                   },
                 ],
-                "select": {
-                  "exist": [
-                    "id",
-                  ],
-                },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
                 "parts": [
                   "analytics",
                   "reporting",
@@ -1317,6 +1346,32 @@ def make_config():
                   "reports",
                   "{id}",
                 ],
+                "rename": {
+                  "param": {
+                    "reportId": "id",
+                  },
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "params": [
+                    {
+                      "name": "id",
+                      "orig": "report_id",
+                      "type": "`$INTEGER`",
+                      "kind": "param",
+                      "reqd": True,
+                      "example": None,
+                    },
+                  ],
+                },
+                "select": {
+                  "exist": [
+                    "id",
+                  ],
+                },
               },
             ],
           },
@@ -1328,58 +1383,67 @@ def make_config():
       "reporting_batch_response_public_dashboard": {
         "fields": [
           {
-            "format": "date-time",
             "name": "completedAt",
+            "title": "Completed At",
+            "type": "`$STRING`",
             "req": True,
             "short": "The date and time when the batch operation was completed, in ISO 8601 format.",
-            "type": "`$STRING`",
+            "format": "date-time",
           },
           {
             "name": "inputs",
+            "title": "Inputs",
+            "type": "`$ARRAY`",
             "req": True,
             "short": "Array of report or dashboard IDs.",
-            "type": "`$ARRAY`",
           },
           {
             "name": "links",
-            "short": "A map of link names to associated URIs, providing additional information related to the batch operation.",
+            "title": "Links",
             "type": "`$OBJECT`",
+            "short": "A map of link names to associated URIs, providing additional information related to the batch operation.",
           },
           {
             "name": "ownerId",
+            "title": "Owner Id",
+            "type": "`$STRING`",
             "req": True,
             "short": "The ID of the user to change the owner to.",
-            "type": "`$STRING`",
           },
           {
             "name": "permissions",
-            "req": True,
+            "title": "Permissions",
             "type": "`$OBJECT`",
+            "req": True,
           },
           {
-            "format": "date-time",
             "name": "requestedAt",
-            "short": "The date and time when the batch operation was requested, in ISO 8601 format.",
+            "title": "Requested At",
             "type": "`$STRING`",
+            "short": "The date and time when the batch operation was requested, in ISO 8601 format.",
+            "format": "date-time",
           },
           {
             "name": "results",
+            "title": "Results",
+            "type": "`$ARRAY`",
             "req": True,
             "short": "An array of dashboard objects representing the successful results of the batch operation.",
-            "type": "`$ARRAY`",
           },
           {
-            "format": "date-time",
             "name": "startedAt",
+            "title": "Started At",
+            "type": "`$STRING`",
             "req": True,
             "short": "The date and time when the batch operation started, in ISO 8601 format.",
-            "type": "`$STRING`",
+            "format": "date-time",
           },
           {
             "name": "status",
+            "title": "Status",
+            "type": "`$STRING`",
             "req": True,
             "short": "The current status of the batch operation.",
-            "type": "`$STRING`",
           },
         ],
         "name": "reporting_batch_response_public_dashboard",
@@ -1389,7 +1453,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/analytics/reporting/2027-03-beta/dashboards/batch/restore",
@@ -1413,11 +1476,6 @@ def make_config():
                     "lit": "restore",
                   },
                 ],
-                "select": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
                 "parts": [
                   "analytics",
                   "reporting",
@@ -1426,9 +1484,15 @@ def make_config():
                   "batch",
                   "restore",
                 ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {},
+                "select": {},
               },
               {
-                "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/analytics/reporting/2027-03-beta/dashboards/owners/batch/update",
@@ -1455,11 +1519,6 @@ def make_config():
                     "lit": "update",
                   },
                 ],
-                "select": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
                 "parts": [
                   "analytics",
                   "reporting",
@@ -1469,9 +1528,15 @@ def make_config():
                   "batch",
                   "update",
                 ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {},
+                "select": {},
               },
               {
-                "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/analytics/reporting/2027-03-beta/dashboards/permissions/batch/update",
@@ -1498,11 +1563,6 @@ def make_config():
                     "lit": "update",
                   },
                 ],
-                "select": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
                 "parts": [
                   "analytics",
                   "reporting",
@@ -1512,6 +1572,13 @@ def make_config():
                   "batch",
                   "update",
                 ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {},
+                "select": {},
               },
             ],
           },
@@ -1523,58 +1590,67 @@ def make_config():
       "reporting_batch_response_public_report": {
         "fields": [
           {
-            "format": "date-time",
             "name": "completedAt",
+            "title": "Completed At",
+            "type": "`$STRING`",
             "req": True,
             "short": "The date and time when the batch operation was completed, in ISO 8601 format.",
-            "type": "`$STRING`",
+            "format": "date-time",
           },
           {
             "name": "inputs",
+            "title": "Inputs",
+            "type": "`$ARRAY`",
             "req": True,
             "short": "Array of report or dashboard IDs.",
-            "type": "`$ARRAY`",
           },
           {
             "name": "links",
-            "short": "A map of link names to associated URIs, providing additional resources or documentation related to the batch operation.",
+            "title": "Links",
             "type": "`$OBJECT`",
+            "short": "A map of link names to associated URIs, providing additional resources or documentation related to the batch operation.",
           },
           {
             "name": "ownerId",
+            "title": "Owner Id",
+            "type": "`$STRING`",
             "req": True,
             "short": "The ID of the user to change the owner to.",
-            "type": "`$STRING`",
           },
           {
             "name": "permissions",
-            "req": True,
+            "title": "Permissions",
             "type": "`$OBJECT`",
+            "req": True,
           },
           {
-            "format": "date-time",
             "name": "requestedAt",
-            "short": "The date and time when the batch operation was requested, in ISO 8601 format.",
+            "title": "Requested At",
             "type": "`$STRING`",
+            "short": "The date and time when the batch operation was requested, in ISO 8601 format.",
+            "format": "date-time",
           },
           {
             "name": "results",
+            "title": "Results",
+            "type": "`$ARRAY`",
             "req": True,
             "short": "An array of report objects representing the successful results of the batch operation.",
-            "type": "`$ARRAY`",
           },
           {
-            "format": "date-time",
             "name": "startedAt",
+            "title": "Started At",
+            "type": "`$STRING`",
             "req": True,
             "short": "The date and time when the batch operation started, in ISO 8601 format.",
-            "type": "`$STRING`",
+            "format": "date-time",
           },
           {
             "name": "status",
+            "title": "Status",
+            "type": "`$STRING`",
             "req": True,
             "short": "The current status of the batch operation.",
-            "type": "`$STRING`",
           },
         ],
         "name": "reporting_batch_response_public_report",
@@ -1584,7 +1660,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/analytics/reporting/2027-03-beta/reports/batch/restore",
@@ -1608,11 +1683,6 @@ def make_config():
                     "lit": "restore",
                   },
                 ],
-                "select": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
                 "parts": [
                   "analytics",
                   "reporting",
@@ -1621,9 +1691,15 @@ def make_config():
                   "batch",
                   "restore",
                 ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {},
+                "select": {},
               },
               {
-                "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/analytics/reporting/2027-03-beta/reports/owners/batch/update",
@@ -1650,11 +1726,6 @@ def make_config():
                     "lit": "update",
                   },
                 ],
-                "select": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
                 "parts": [
                   "analytics",
                   "reporting",
@@ -1664,9 +1735,15 @@ def make_config():
                   "batch",
                   "update",
                 ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {},
+                "select": {},
               },
               {
-                "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/analytics/reporting/2027-03-beta/reports/permissions/batch/update",
@@ -1693,11 +1770,6 @@ def make_config():
                     "lit": "update",
                   },
                 ],
-                "select": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
                 "parts": [
                   "analytics",
                   "reporting",
@@ -1707,6 +1779,13 @@ def make_config():
                   "batch",
                   "update",
                 ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {},
+                "select": {},
               },
             ],
           },
@@ -1719,93 +1798,109 @@ def make_config():
         "fields": [
           {
             "name": "archived",
+            "title": "Archived",
+            "type": "`$BOOLEAN`",
             "req": True,
             "short": "Whether the dashboard is archived.",
-            "type": "`$BOOLEAN`",
           },
           {
-            "format": "date-time",
             "name": "archivedAt",
-            "short": "If the dashboard is archived, the date and time when the dashboard was archived, in ISO 8601 format.",
+            "title": "Archived At",
             "type": "`$STRING`",
+            "short": "If the dashboard is archived, the date and time when the dashboard was archived, in ISO 8601 format.",
+            "format": "date-time",
           },
           {
             "name": "businessUnitId",
+            "title": "Business Unit Id",
+            "type": "`$STRING`",
             "req": True,
             "short": "The ID of the business unit that the dashboard is associated with.",
-            "type": "`$STRING`",
           },
           {
-            "format": "date-time",
             "name": "createdAt",
+            "title": "Created At",
+            "type": "`$STRING`",
             "req": True,
             "short": "The date and time when the dashboard was created, in ISO 8601 format.",
-            "type": "`$STRING`",
+            "format": "date-time",
           },
           {
             "name": "createdByUserId",
-            "short": "The ID of the user who created the dashboard.",
+            "title": "Created By User Id",
             "type": "`$STRING`",
+            "short": "The ID of the user who created the dashboard.",
           },
           {
             "name": "description",
-            "short": "A description of the dashboard.",
+            "title": "Description",
             "type": "`$STRING`",
+            "short": "A description of the dashboard.",
           },
           {
             "name": "id",
+            "title": "Id",
+            "type": "`$STRING`",
             "req": True,
             "short": "The ID of the dashboard.",
-            "type": "`$STRING`",
           },
           {
-            "format": "date-time",
             "name": "lastViewedAt",
-            "short": "The date and time when the dashboard was last viewed, in ISO 8601 format.",
+            "title": "Last Viewed At",
             "type": "`$STRING`",
+            "short": "The date and time when the dashboard was last viewed, in ISO 8601 format.",
+            "format": "date-time",
           },
           {
             "name": "lastViewedByUserId",
-            "short": "The ID of the user who last viewed the dashboard.",
+            "title": "Last Viewed By User Id",
             "type": "`$STRING`",
+            "short": "The ID of the user who last viewed the dashboard.",
           },
           {
             "name": "name",
+            "title": "Name",
+            "type": "`$STRING`",
             "req": True,
             "short": "The name of the dashboard.",
-            "type": "`$STRING`",
           },
           {
             "name": "ownerUserId",
-            "short": "The ID of the user who owns the dashboard.",
+            "title": "Owner User Id",
             "type": "`$STRING`",
+            "short": "The ID of the user who owns the dashboard.",
           },
           {
             "name": "permissions",
-            "req": True,
+            "title": "Permissions",
             "type": "`$OBJECT`",
+            "req": True,
           },
           {
             "name": "tags",
-            "short": "Array of objects representing the tags that the dashboard is tagged with.",
+            "title": "Tags",
             "type": "`$ARRAY`",
+            "short": "Array of objects representing the tags that the dashboard is tagged with.",
           },
           {
-            "format": "date-time",
             "name": "updatedAt",
+            "title": "Updated At",
+            "type": "`$STRING`",
             "req": True,
             "short": "The date and time when the dashboard was last updated, in ISO 8601 format.",
-            "type": "`$STRING`",
+            "format": "date-time",
           },
           {
             "name": "updatedByUserId",
-            "short": "The ID of the user who last updated the dashboard.",
+            "title": "Updated By User Id",
             "type": "`$STRING`",
+            "short": "The ID of the user who last updated the dashboard.",
           },
           {
             "name": "widgets",
-            "short": "An array of objects representing the widgets on the dashboard.",
+            "title": "Widgets",
             "type": "`$ARRAY`",
+            "short": "An array of objects representing the widgets on the dashboard.",
           },
         ],
         "id": {
@@ -1819,115 +1914,6 @@ def make_config():
             "name": "list",
             "points": [
               {
-                "args": {
-                  "query": [
-                    {
-                      "example": None,
-                      "kind": "query",
-                      "name": "after",
-                      "orig": "after",
-                      "type": "`$STRING`",
-                    },
-                    {
-                      "example": None,
-                      "kind": "query",
-                      "name": "archived",
-                      "orig": "archived",
-                      "type": "`$BOOLEAN`",
-                    },
-                    {
-                      "example": None,
-                      "kind": "query",
-                      "name": "business_unit_id",
-                      "orig": "business_unit_id",
-                      "type": "`$ARRAY`",
-                    },
-                    {
-                      "example": None,
-                      "kind": "query",
-                      "name": "created_after",
-                      "orig": "created_after",
-                      "type": "`$STRING`",
-                    },
-                    {
-                      "example": None,
-                      "kind": "query",
-                      "name": "created_before",
-                      "orig": "created_before",
-                      "type": "`$STRING`",
-                    },
-                    {
-                      "example": None,
-                      "kind": "query",
-                      "name": "ids",
-                      "orig": "ids",
-                      "type": "`$ARRAY`",
-                    },
-                    {
-                      "example": None,
-                      "kind": "query",
-                      "name": "limit",
-                      "orig": "limit",
-                      "type": "`$INTEGER`",
-                    },
-                    {
-                      "example": None,
-                      "kind": "query",
-                      "name": "only_favorite",
-                      "orig": "only_favorite",
-                      "type": "`$BOOLEAN`",
-                    },
-                    {
-                      "example": None,
-                      "kind": "query",
-                      "name": "owner_user_id",
-                      "orig": "owner_user_id",
-                      "type": "`$ARRAY`",
-                    },
-                    {
-                      "example": None,
-                      "kind": "query",
-                      "name": "property",
-                      "orig": "property",
-                      "type": "`$ARRAY`",
-                    },
-                    {
-                      "example": None,
-                      "kind": "query",
-                      "name": "q",
-                      "orig": "q",
-                      "type": "`$STRING`",
-                    },
-                    {
-                      "example": None,
-                      "kind": "query",
-                      "name": "sort",
-                      "orig": "sort",
-                      "type": "`$ARRAY`",
-                    },
-                    {
-                      "example": None,
-                      "kind": "query",
-                      "name": "tag_id",
-                      "orig": "tag_id",
-                      "type": "`$ARRAY`",
-                    },
-                    {
-                      "example": None,
-                      "kind": "query",
-                      "name": "updated_after",
-                      "orig": "updated_after",
-                      "type": "`$STRING`",
-                    },
-                    {
-                      "example": None,
-                      "kind": "query",
-                      "name": "updated_before",
-                      "orig": "updated_before",
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/analytics/reporting/2027-03-beta/dashboards",
@@ -1945,6 +1931,126 @@ def make_config():
                     "lit": "dashboards",
                   },
                 ],
+                "parts": [
+                  "analytics",
+                  "reporting",
+                  "2027-03-beta",
+                  "dashboards",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "after",
+                      "orig": "after",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "example": None,
+                    },
+                    {
+                      "name": "archived",
+                      "orig": "archived",
+                      "type": "`$BOOLEAN`",
+                      "kind": "query",
+                      "example": None,
+                    },
+                    {
+                      "name": "business_unit_id",
+                      "orig": "business_unit_id",
+                      "type": "`$ARRAY`",
+                      "kind": "query",
+                      "example": None,
+                    },
+                    {
+                      "name": "created_after",
+                      "orig": "created_after",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "example": None,
+                    },
+                    {
+                      "name": "created_before",
+                      "orig": "created_before",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "example": None,
+                    },
+                    {
+                      "name": "ids",
+                      "orig": "ids",
+                      "type": "`$ARRAY`",
+                      "kind": "query",
+                      "example": None,
+                    },
+                    {
+                      "name": "limit",
+                      "orig": "limit",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": None,
+                    },
+                    {
+                      "name": "only_favorite",
+                      "orig": "only_favorite",
+                      "type": "`$BOOLEAN`",
+                      "kind": "query",
+                      "example": None,
+                    },
+                    {
+                      "name": "owner_user_id",
+                      "orig": "owner_user_id",
+                      "type": "`$ARRAY`",
+                      "kind": "query",
+                      "example": None,
+                    },
+                    {
+                      "name": "property",
+                      "orig": "property",
+                      "type": "`$ARRAY`",
+                      "kind": "query",
+                      "example": None,
+                    },
+                    {
+                      "name": "q",
+                      "orig": "q",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "example": None,
+                    },
+                    {
+                      "name": "sort",
+                      "orig": "sort",
+                      "type": "`$ARRAY`",
+                      "kind": "query",
+                      "example": None,
+                    },
+                    {
+                      "name": "tag_id",
+                      "orig": "tag_id",
+                      "type": "`$ARRAY`",
+                      "kind": "query",
+                      "example": None,
+                    },
+                    {
+                      "name": "updated_after",
+                      "orig": "updated_after",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "example": None,
+                    },
+                    {
+                      "name": "updated_before",
+                      "orig": "updated_before",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "example": None,
+                    },
+                  ],
+                },
                 "select": {
                   "exist": [
                     "after",
@@ -1964,16 +2070,6 @@ def make_config():
                     "updated_before",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
-                "parts": [
-                  "analytics",
-                  "reporting",
-                  "2027-03-beta",
-                  "dashboards",
-                ],
               },
             ],
           },
@@ -1986,99 +2082,116 @@ def make_config():
         "fields": [
           {
             "name": "archived",
+            "title": "Archived",
+            "type": "`$BOOLEAN`",
             "req": True,
             "short": "Whether the dashboard is archived.",
-            "type": "`$BOOLEAN`",
           },
           {
-            "format": "date-time",
             "name": "archivedAt",
-            "short": "If the dashboard is archived, the date and time when the dashboard was archived, in ISO 8601 format.",
+            "title": "Archived At",
             "type": "`$STRING`",
+            "short": "If the dashboard is archived, the date and time when the dashboard was archived, in ISO 8601 format.",
+            "format": "date-time",
           },
           {
             "name": "businessUnitId",
+            "title": "Business Unit Id",
+            "type": "`$STRING`",
             "req": True,
             "short": "The ID of the business unit that the dashboard is associated with.",
-            "type": "`$STRING`",
           },
           {
-            "format": "date-time",
             "name": "createdAt",
+            "title": "Created At",
+            "type": "`$STRING`",
             "req": True,
             "short": "The date and time when the dashboard was created, in ISO 8601 format.",
-            "type": "`$STRING`",
+            "format": "date-time",
           },
           {
             "name": "createdByUserId",
-            "short": "The ID of the user who created the dashboard.",
+            "title": "Created By User Id",
             "type": "`$STRING`",
+            "short": "The ID of the user who created the dashboard.",
           },
           {
             "name": "description",
-            "short": "A description of the dashboard.",
+            "title": "Description",
             "type": "`$STRING`",
+            "short": "A description of the dashboard.",
           },
           {
             "name": "id",
+            "title": "Id",
+            "type": "`$STRING`",
             "req": True,
             "short": "The ID of the dashboard.",
-            "type": "`$STRING`",
           },
           {
             "name": "inputs",
+            "title": "Inputs",
+            "type": "`$ARRAY`",
             "req": True,
             "short": "Array of report or dashboard IDs.",
-            "type": "`$ARRAY`",
           },
           {
-            "format": "date-time",
             "name": "lastViewedAt",
-            "short": "The date and time when the dashboard was last viewed, in ISO 8601 format.",
+            "title": "Last Viewed At",
             "type": "`$STRING`",
+            "short": "The date and time when the dashboard was last viewed, in ISO 8601 format.",
+            "format": "date-time",
           },
           {
             "name": "lastViewedByUserId",
-            "short": "The ID of the user who last viewed the dashboard.",
+            "title": "Last Viewed By User Id",
             "type": "`$STRING`",
+            "short": "The ID of the user who last viewed the dashboard.",
           },
           {
             "name": "name",
+            "title": "Name",
+            "type": "`$STRING`",
             "req": True,
             "short": "The name of the dashboard.",
-            "type": "`$STRING`",
           },
           {
             "name": "ownerUserId",
-            "short": "The ID of the user who owns the dashboard.",
+            "title": "Owner User Id",
             "type": "`$STRING`",
+            "short": "The ID of the user who owns the dashboard.",
           },
           {
             "name": "permissions",
-            "req": True,
+            "title": "Permissions",
             "type": "`$OBJECT`",
+            "req": True,
           },
           {
             "name": "tags",
-            "short": "Array of objects representing the tags that the dashboard is tagged with.",
+            "title": "Tags",
             "type": "`$ARRAY`",
+            "short": "Array of objects representing the tags that the dashboard is tagged with.",
           },
           {
-            "format": "date-time",
             "name": "updatedAt",
+            "title": "Updated At",
+            "type": "`$STRING`",
             "req": True,
             "short": "The date and time when the dashboard was last updated, in ISO 8601 format.",
-            "type": "`$STRING`",
+            "format": "date-time",
           },
           {
             "name": "updatedByUserId",
-            "short": "The ID of the user who last updated the dashboard.",
+            "title": "Updated By User Id",
             "type": "`$STRING`",
+            "short": "The ID of the user who last updated the dashboard.",
           },
           {
             "name": "widgets",
-            "short": "An array of objects representing the widgets on the dashboard.",
+            "title": "Widgets",
             "type": "`$ARRAY`",
+            "short": "An array of objects representing the widgets on the dashboard.",
           },
         ],
         "id": {
@@ -2092,26 +2205,9 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "args": {
-                  "params": [
-                    {
-                      "example": None,
-                      "kind": "param",
-                      "name": "dashboard_id",
-                      "orig": "dashboard_id",
-                      "reqd": True,
-                      "type": "`$INTEGER`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "POST",
                 "orig": "/analytics/reporting/2027-03-beta/dashboards/{dashboardId}/batch/widgets",
-                "rename": {
-                  "param": {
-                    "dashboardId": "dashboard_id",
-                  },
-                },
                 "segments": [
                   {
                     "lit": "analytics",
@@ -2135,15 +2231,6 @@ def make_config():
                     "lit": "widgets",
                   },
                 ],
-                "select": {
-                  "exist": [
-                    "dashboard_id",
-                  ],
-                },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
                 "parts": [
                   "analytics",
                   "reporting",
@@ -2153,6 +2240,32 @@ def make_config():
                   "batch",
                   "widgets",
                 ],
+                "rename": {
+                  "param": {
+                    "dashboardId": "dashboard_id",
+                  },
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "params": [
+                    {
+                      "name": "dashboard_id",
+                      "orig": "dashboard_id",
+                      "type": "`$INTEGER`",
+                      "kind": "param",
+                      "reqd": True,
+                      "example": None,
+                    },
+                  ],
+                },
+                "select": {
+                  "exist": [
+                    "dashboard_id",
+                  ],
+                },
               },
             ],
           },
@@ -2161,35 +2274,9 @@ def make_config():
             "name": "remove",
             "points": [
               {
-                "args": {
-                  "params": [
-                    {
-                      "example": None,
-                      "kind": "param",
-                      "name": "dashboard_id",
-                      "orig": "dashboard_id",
-                      "reqd": True,
-                      "type": "`$INTEGER`",
-                    },
-                    {
-                      "example": None,
-                      "kind": "param",
-                      "name": "id",
-                      "orig": "report_id",
-                      "reqd": True,
-                      "type": "`$INTEGER`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "DELETE",
                 "orig": "/analytics/reporting/2027-03-beta/dashboards/{dashboardId}/widgets/{reportId}",
-                "rename": {
-                  "param": {
-                    "dashboardId": "dashboard_id",
-                    "reportId": "id",
-                  },
-                },
                 "segments": [
                   {
                     "lit": "analytics",
@@ -2213,16 +2300,6 @@ def make_config():
                     "var": "id",
                   },
                 ],
-                "select": {
-                  "exist": [
-                    "dashboard_id",
-                    "id",
-                  ],
-                },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
                 "parts": [
                   "analytics",
                   "reporting",
@@ -2232,6 +2309,42 @@ def make_config():
                   "widgets",
                   "{id}",
                 ],
+                "rename": {
+                  "param": {
+                    "dashboardId": "dashboard_id",
+                    "reportId": "id",
+                  },
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "params": [
+                    {
+                      "name": "dashboard_id",
+                      "orig": "dashboard_id",
+                      "type": "`$INTEGER`",
+                      "kind": "param",
+                      "reqd": True,
+                      "example": None,
+                    },
+                    {
+                      "name": "id",
+                      "orig": "report_id",
+                      "type": "`$INTEGER`",
+                      "kind": "param",
+                      "reqd": True,
+                      "example": None,
+                    },
+                  ],
+                },
+                "select": {
+                  "exist": [
+                    "dashboard_id",
+                    "id",
+                  ],
+                },
               },
             ],
           },
@@ -2240,35 +2353,9 @@ def make_config():
             "name": "update",
             "points": [
               {
-                "args": {
-                  "params": [
-                    {
-                      "example": None,
-                      "kind": "param",
-                      "name": "dashboard_id",
-                      "orig": "dashboard_id",
-                      "reqd": True,
-                      "type": "`$INTEGER`",
-                    },
-                    {
-                      "example": None,
-                      "kind": "param",
-                      "name": "id",
-                      "orig": "report_id",
-                      "reqd": True,
-                      "type": "`$INTEGER`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "PUT",
                 "orig": "/analytics/reporting/2027-03-beta/dashboards/{dashboardId}/widgets/{reportId}",
-                "rename": {
-                  "param": {
-                    "dashboardId": "dashboard_id",
-                    "reportId": "id",
-                  },
-                },
                 "segments": [
                   {
                     "lit": "analytics",
@@ -2292,16 +2379,6 @@ def make_config():
                     "var": "id",
                   },
                 ],
-                "select": {
-                  "exist": [
-                    "dashboard_id",
-                    "id",
-                  ],
-                },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
                 "parts": [
                   "analytics",
                   "reporting",
@@ -2311,6 +2388,42 @@ def make_config():
                   "widgets",
                   "{id}",
                 ],
+                "rename": {
+                  "param": {
+                    "dashboardId": "dashboard_id",
+                    "reportId": "id",
+                  },
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "params": [
+                    {
+                      "name": "dashboard_id",
+                      "orig": "dashboard_id",
+                      "type": "`$INTEGER`",
+                      "kind": "param",
+                      "reqd": True,
+                      "example": None,
+                    },
+                    {
+                      "name": "id",
+                      "orig": "report_id",
+                      "type": "`$INTEGER`",
+                      "kind": "param",
+                      "reqd": True,
+                      "example": None,
+                    },
+                  ],
+                },
+                "select": {
+                  "exist": [
+                    "dashboard_id",
+                    "id",
+                  ],
+                },
               },
             ],
           },
@@ -2318,7 +2431,7 @@ def make_config():
         "relations": {
           "ancestors": [
             [
-              "dashboard",
+              "$.main.kit.entity.dashboard",
             ],
           ],
         },

@@ -19,7 +19,6 @@ import type {
   ReportingCollectionResponseWithTotalPublicDashboardListMatch,
 } from '../HubspotAnalyticsTypes'
 
-// TODO: needs Entity superclass
 class ReportingCollectionResponseWithTotalPublicDashboardEntity extends HubspotAnalyticsEntityBase<ReportingCollectionResponseWithTotalPublicDashboard> {
 
   constructor(client: HubspotAnalyticsSDK, entopts: any) {

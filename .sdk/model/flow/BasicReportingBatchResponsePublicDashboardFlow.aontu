@@ -1,0 +1,18 @@
+# BasicReportingBatchResponsePublicDashboardFlow
+
+main: kit: flow: BasicReportingBatchResponsePublicDashboardFlow:
+{
+  entity: "reporting_batch_response_public_dashboard",
+  kind: "basic",
+  name: "BasicReportingBatchResponsePublicDashboardFlow",
+  step: [
+    {
+      i: {
+        ref: "reporting_batch_response_public_dashboard_ref01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicReportingBatchResponsePublicDashboardFlow"
+}

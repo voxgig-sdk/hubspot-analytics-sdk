@@ -1,0 +1,9 @@
+# Flows
+
+@"./BasicCloneFlow.aontu"
+@"./BasicDashboardFlow.aontu"
+@"./BasicReportFlow.aontu"
+@"./BasicReportingBatchResponsePublicDashboardFlow.aontu"
+@"./BasicReportingBatchResponsePublicReportFlow.aontu"
+@"./BasicReportingCollectionResponseWithTotalPublicDashboardFlow.aontu"
+@"./BasicWidgetFlow.aontu"

@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ReportingCollectionResponseWithTotalPublicDashboardEntity = void 0;
 const HubspotAnalyticsEntityBase_1 = require("../HubspotAnalyticsEntityBase");
-// TODO: needs Entity superclass
 class ReportingCollectionResponseWithTotalPublicDashboardEntity extends HubspotAnalyticsEntityBase_1.HubspotAnalyticsEntityBase {
     constructor(client, entopts) {
         super(client, entopts);

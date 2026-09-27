@@ -1,0 +1,9 @@
+# Entity Models
+
+@"./clone.aontu"
+@"./dashboard.aontu"
+@"./report.aontu"
+@"./reporting_batch_response_public_dashboard.aontu"
+@"./reporting_batch_response_public_report.aontu"
+@"./reporting_collection_response_with_total_public_dashboard.aontu"
+@"./widget.aontu"

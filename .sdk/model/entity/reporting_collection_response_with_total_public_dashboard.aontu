@@ -1,0 +1,311 @@
+# Entity: reporting_collection_response_with_total_public_dashboard
+
+main: kit: entity: reporting_collection_response_with_total_public_dashboard: {
+
+  alias: field: {}
+
+  fields: {
+    archived: {
+      h: "Archived"
+      n: "archived"
+      r: true
+      sh: "Whether the dashboard is archived."
+      t: "`$BOOLEAN`"
+    }
+    archivedAt: {
+      fo: "date-time"
+      h: "Archived At"
+      n: "archivedAt"
+      r: false
+      sh: "If the dashboard is archived, the date and time when the dashboard was archived, in ISO 8601 format."
+      t: "`$STRING`"
+    }
+    businessUnitId: {
+      h: "Business Unit Id"
+      n: "businessUnitId"
+      r: true
+      sh: "The ID of the business unit that the dashboard is associated with."
+      t: "`$STRING`"
+    }
+    createdAt: {
+      fo: "date-time"
+      h: "Created At"
+      n: "createdAt"
+      r: true
+      sh: "The date and time when the dashboard was created, in ISO 8601 format."
+      t: "`$STRING`"
+    }
+    createdByUserId: {
+      h: "Created By User Id"
+      n: "createdByUserId"
+      r: false
+      sh: "The ID of the user who created the dashboard."
+      t: "`$STRING`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      sh: "A description of the dashboard."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "The ID of the dashboard."
+      t: "`$STRING`"
+    }
+    lastViewedAt: {
+      fo: "date-time"
+      h: "Last Viewed At"
+      n: "lastViewedAt"
+      r: false
+      sh: "The date and time when the dashboard was last viewed, in ISO 8601 format."
+      t: "`$STRING`"
+    }
+    lastViewedByUserId: {
+      h: "Last Viewed By User Id"
+      n: "lastViewedByUserId"
+      r: false
+      sh: "The ID of the user who last viewed the dashboard."
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      sh: "The name of the dashboard."
+      t: "`$STRING`"
+    }
+    ownerUserId: {
+      h: "Owner User Id"
+      n: "ownerUserId"
+      r: false
+      sh: "The ID of the user who owns the dashboard."
+      t: "`$STRING`"
+    }
+    permissions: {
+      h: "Permissions"
+      n: "permissions"
+      r: true
+      t: "`$OBJECT`"
+    }
+    tags: {
+      h: "Tags"
+      n: "tags"
+      r: false
+      sh: "Array of objects representing the tags that the dashboard is tagged with."
+      t: "`$ARRAY`"
+    }
+    updatedAt: {
+      fo: "date-time"
+      h: "Updated At"
+      n: "updatedAt"
+      r: true
+      sh: "The date and time when the dashboard was last updated, in ISO 8601 format."
+      t: "`$STRING`"
+    }
+    updatedByUserId: {
+      h: "Updated By User Id"
+      n: "updatedByUserId"
+      r: false
+      sh: "The ID of the user who last updated the dashboard."
+      t: "`$STRING`"
+    }
+    widgets: {
+      h: "Widgets"
+      n: "widgets"
+      r: false
+      sh: "An array of objects representing the widgets on the dashboard."
+      t: "`$ARRAY`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "reporting_collection_response_with_total_public_dashboard"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /analytics/reporting/2027-03-beta/dashboards"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: null
+                k: "query"
+                n: "after"
+                or: "after"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: null
+                k: "query"
+                n: "archived"
+                or: "archived"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: null
+                k: "query"
+                n: "business_unit_id"
+                or: "business_unit_id"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                ex: null
+                k: "query"
+                n: "created_after"
+                or: "created_after"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: null
+                k: "query"
+                n: "created_before"
+                or: "created_before"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: null
+                k: "query"
+                n: "ids"
+                or: "ids"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                ex: null
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: null
+                k: "query"
+                n: "only_favorite"
+                or: "only_favorite"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: null
+                k: "query"
+                n: "owner_user_id"
+                or: "owner_user_id"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                ex: null
+                k: "query"
+                n: "property"
+                or: "property"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                ex: null
+                k: "query"
+                n: "q"
+                or: "q"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: null
+                k: "query"
+                n: "sort"
+                or: "sort"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                ex: null
+                k: "query"
+                n: "tag_id"
+                or: "tag_id"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                ex: null
+                k: "query"
+                n: "updated_after"
+                or: "updated_after"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: null
+                k: "query"
+                n: "updated_before"
+                or: "updated_before"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/analytics/reporting/2027-03-beta/dashboards"
+          q: {
+            exist: [
+              "after"
+              "archived"
+              "business_unit_id"
+              "created_after"
+              "created_before"
+              "ids"
+              "limit"
+              "only_favorite"
+              "owner_user_id"
+              "property"
+              "q"
+              "sort"
+              "tag_id"
+              "updated_after"
+              "updated_before"
+            ]
+          }
+          s: [
+            {
+              lit: "analytics"
+            }
+            {
+              lit: "reporting"
+            }
+            {
+              lit: "2027-03-beta"
+            }
+            {
+              lit: "dashboards"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

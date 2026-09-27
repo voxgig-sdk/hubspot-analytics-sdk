@@ -1,0 +1,99 @@
+# Generated from the API definition and overwritten on every build: do not
+# edit this file. Put customizations in the guide entry file, which includes
+# this one and overrides its defaults:
+#   guide.aontu
+
+guide: {
+  metrics: count: entity: 7
+  metrics: count: path: 17
+  metrics: count: method: 21
+
+  entity: clone: {
+    path: "/analytics/reporting/2027-03-beta/dashboards/{dashboardId}/clone": {
+      rename: param: "dashboardId": *"dashboard_id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: dashboard: {
+    path: "/analytics/reporting/2027-03-beta/dashboards": {
+      op: create: method: *POST
+    }
+    path: "/analytics/reporting/2027-03-beta/dashboards/batch/archive": {
+      op: create: method: *POST
+    }
+    path: "/analytics/reporting/2027-03-beta/dashboards/{dashboardId}": {
+      rename: param: "dashboardId": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+    path: "/analytics/reporting/2027-03-beta/dashboards/{dashboardId}/export": {
+      action: "export": {}
+      rename: param: "dashboardId": *"id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: report: {
+    path: "/analytics/reporting/2027-03-beta/reports": {
+      op: list: method: *GET
+    }
+    path: "/analytics/reporting/2027-03-beta/reports/batch/archive": {
+      op: create: method: *POST
+    }
+    path: "/analytics/reporting/2027-03-beta/reports/{reportId}": {
+      rename: param: "reportId": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+    path: "/analytics/reporting/2027-03-beta/reports/{reportId}/export": {
+      action: "export": {}
+      rename: param: "reportId": *"id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: reporting_batch_response_public_dashboard: {
+    path: "/analytics/reporting/2027-03-beta/dashboards/batch/restore": {
+      op: create: method: *POST
+    }
+    path: "/analytics/reporting/2027-03-beta/dashboards/owners/batch/update": {
+      op: create: method: *POST
+    }
+    path: "/analytics/reporting/2027-03-beta/dashboards/permissions/batch/update": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: reporting_batch_response_public_report: {
+    path: "/analytics/reporting/2027-03-beta/reports/batch/restore": {
+      op: create: method: *POST
+    }
+    path: "/analytics/reporting/2027-03-beta/reports/owners/batch/update": {
+      op: create: method: *POST
+    }
+    path: "/analytics/reporting/2027-03-beta/reports/permissions/batch/update": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: reporting_collection_response_with_total_public_dashboard: {
+    path: "/analytics/reporting/2027-03-beta/dashboards": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: widget: {
+    path: "/analytics/reporting/2027-03-beta/dashboards/{dashboardId}/batch/widgets": {
+      rename: param: "dashboardId": *"dashboard_id"
+      op: create: method: *POST
+    }
+    path: "/analytics/reporting/2027-03-beta/dashboards/{dashboardId}/widgets/{reportId}": {
+      rename: param: "dashboardId": *"dashboard_id"
+      rename: param: "reportId": *"id"
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+  }
+
+}

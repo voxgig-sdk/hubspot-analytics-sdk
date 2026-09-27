@@ -1,0 +1,59 @@
+# BasicWidgetFlow
+
+main: kit: flow: BasicWidgetFlow:
+{
+  entity: "widget",
+  kind: "basic",
+  name: "BasicWidgetFlow",
+  step: [
+    {
+      i: {
+        ref: "widget_ref01"
+      }
+
+      m: {
+        dashboard_id: "dashboard01"
+      }
+
+      o: "create"
+    }
+
+    {
+      d: {
+        dashboard_id: "dashboard01"
+      }
+
+      i: {
+        ref: "widget_ref01",
+        srcdatavar: "widget_ref01_data",
+        suffix: "_up0",
+        textfield: "archivedAt"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-widget_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "widget_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        dashboard_id: "dashboard01",
+        id: "widget01"
+      }
+
+      o: "remove"
+    }
+  ],
+  "key$": "BasicWidgetFlow"
+}

@@ -27,14 +27,14 @@
 <a href="../sdks/ts.html">TypeScript</a></details>
 <details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
 <a href="../tools/go-mcp.html">Go MCP server</a></details>
-<details><summary>Features</summary><a href="../features/debug.html">Request/response capture ring buffer for debugging</a>
-<a href="../features/idempotency.html">Idempotency keys for safe retries of mutating operations</a>
-<a href="../features/metrics.html">Statistics capture: per-operation counters and latency</a>
-<a href="../features/paging.html">Pagination signals for list operations</a>
-<a href="../features/ratelimit.html">Client-side rate limiting via a token bucket</a>
-<a href="../features/retry.html">Automatic retry of transient failures with exponential backoff</a>
-<a href="../features/test.html">In-memory mock transport for testing without a live server</a>
-<a href="../features/timeout.html">Per-request timeout with transport abort</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="widget">Widget</h1>
+<details><summary>Features</summary><a href="../features/debug.html">Debug capture</a>
+<a href="../features/idempotency.html">Idempotency</a>
+<a href="../features/metrics.html">Metrics</a>
+<a href="../features/paging.html">Paging</a>
+<a href="../features/ratelimit.html">Rate limiting</a>
+<a href="../features/retry.html">Retry</a>
+<a href="../features/test.html">Test transport</a>
+<a href="../features/timeout.html">Timeout</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="widget">Widget</h1>
 <h2 id="operations">Operations</h2>
 <p>Every route this entity exposes. Each route links to its own reference on this page.</p>
 <table>
@@ -67,6 +67,56 @@
 </tr>
 </tbody>
 </table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">created, err := client.Widget(nil).Create(map[string]any{&quot;dashboard_id&quot;: 1, &quot;archived&quot;: true, &quot;businessUnitId&quot;: &quot;example&quot;, &quot;createdAt&quot;: &quot;example&quot;, &quot;id&quot;: &quot;example&quot;, &quot;inputs&quot;: []any{}, &quot;name&quot;: &quot;example&quot;, &quot;permissions&quot;: map[string]any{}, &quot;updatedAt&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(created)
+updated, err := client.Widget(nil).Update(map[string]any{&quot;dashboard_id&quot;: 1, &quot;archived&quot;: true}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(updated)
+removed, err := client.Widget(nil).Remove(map[string]any{&quot;dashboard_id&quot;: 1, &quot;id&quot;: 1}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(removed)
+</code></pre>
+<h3 id="javascript">JavaScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/js.html#set-up-the-client">JavaScript setup</a>, then call the operations:</p>
+<pre><code class="language-js">const created = await client.Widget().create({ dashboard_id: 1, archived: true, businessUnitId: &quot;example&quot;, createdAt: &quot;example&quot;, id: &quot;example&quot;, inputs: [], name: &quot;example&quot;, permissions: {}, updatedAt: &quot;example&quot; })
+const updated = await client.Widget().update({ dashboard_id: 1, archived: true })
+await client.Widget().remove({ dashboard_id: 1, id: 1 })
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local created, err = client:Widget():create({ dashboard_id = 1, archived = true, businessUnitId = &quot;example&quot;, createdAt = &quot;example&quot;, id = &quot;example&quot;, inputs = {}, name = &quot;example&quot;, permissions = {}, updatedAt = &quot;example&quot; })
+local updated, err = client:Widget():update({ dashboard_id = 1, archived = true })
+local removed, err = client:Widget():remove({ dashboard_id = 1, id = 1 })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$created = $client-&gt;Widget()-&gt;create([&quot;dashboard_id&quot; =&gt; 1, &quot;archived&quot; =&gt; true, &quot;businessUnitId&quot; =&gt; &quot;example&quot;, &quot;createdAt&quot; =&gt; &quot;example&quot;, &quot;id&quot; =&gt; &quot;example&quot;, &quot;inputs&quot; =&gt; [], &quot;name&quot; =&gt; &quot;example&quot;, &quot;permissions&quot; =&gt; [], &quot;updatedAt&quot; =&gt; &quot;example&quot;]);
+$updated = $client-&gt;Widget()-&gt;update([&quot;dashboard_id&quot; =&gt; 1, &quot;archived&quot; =&gt; true]);
+$client-&gt;Widget()-&gt;remove([&quot;dashboard_id&quot; =&gt; 1, &quot;id&quot; =&gt; 1]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">created = client.Widget().create({ &quot;dashboard_id&quot;: 1, &quot;archived&quot;: True, &quot;businessUnitId&quot;: &quot;example&quot;, &quot;createdAt&quot;: &quot;example&quot;, &quot;id&quot;: &quot;example&quot;, &quot;inputs&quot;: [], &quot;name&quot;: &quot;example&quot;, &quot;permissions&quot;: {}, &quot;updatedAt&quot;: &quot;example&quot; })
+updated = client.Widget().update({&quot;dashboard_id&quot;: 1, &quot;archived&quot;: True})
+client.Widget().remove({&quot;dashboard_id&quot;: 1, &quot;id&quot;: 1})
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const created = await client.Widget().create({ dashboard_id: 1, archived: true, businessUnitId: &quot;example&quot;, createdAt: &quot;example&quot;, id: &quot;example&quot;, inputs: [], name: &quot;example&quot;, permissions: {}, updatedAt: &quot;example&quot; })
+const updated = await client.Widget().update({ dashboard_id: 1, archived: true })
+await client.Widget().remove({ dashboard_id: 1, id: 1 })
+</code></pre>
 <h2 id="fields">Fields</h2>
 <table>
 <thead>
@@ -154,7 +204,7 @@
 <td><code>permissions</code></td>
 <td><code>object</code></td>
 <td>Yes</td>
-<td></td>
+<td>Permissions</td>
 </tr>
 <tr>
 <td><code>tags</code></td>
@@ -299,7 +349,7 @@
 <td><code>permissions.permissionType</code></td>
 <td><code>enum: EVERYONE_EDIT, EVERYONE_VIEW, PRIVATE, SPECIFIC</code></td>
 <td>Yes</td>
-<td>The type of permission to apply to the report. Valid values are: - PRIVATE: The report is only accessible to its owner and administrators. - EVERYONE_VIEW: The report is viewable by everyone. - EVERYONE_EDIT: The report is viewable and editable by everyone. - SPECIFIC: In addition to the owner, specific users and/or teams are granted VIEW or EDIT permissions. The <code>specificPermissions</code> field must also be present.</td>
+<td>The type of permission to apply to the report. Valid values are: - PRIVATE: The report is only accessible to its owner and administrators. - <code>EVERYONE_VIEW</code>: The report is viewable by everyone. - <code>EVERYONE_EDIT</code>: The report is viewable and editable by everyone. - SPECIFIC: In addition to the owner, specific users and/or teams are granted VIEW or EDIT permissions. The <code>specificPermissions</code> field must also be present.</td>
 </tr>
 <tr>
 <td><code>permissions.specificPermissions</code></td>
@@ -473,7 +523,7 @@
 <td><code>widgets[].report.permissions.permissionType</code></td>
 <td><code>enum: EVERYONE_EDIT, EVERYONE_VIEW, PRIVATE, SPECIFIC</code></td>
 <td>Yes</td>
-<td>The type of permission to apply to the report. Valid values are: - PRIVATE: The report is only accessible to its owner and administrators. - EVERYONE_VIEW: The report is viewable by everyone. - EVERYONE_EDIT: The report is viewable and editable by everyone. - SPECIFIC: In addition to the owner, specific users and/or teams are granted VIEW or EDIT permissions. The <code>specificPermissions</code> field must also be present.</td>
+<td>The type of permission to apply to the report. Valid values are: - PRIVATE: The report is only accessible to its owner and administrators. - <code>EVERYONE_VIEW</code>: The report is viewable by everyone. - <code>EVERYONE_EDIT</code>: The report is viewable and editable by everyone. - SPECIFIC: In addition to the owner, specific users and/or teams are granted VIEW or EDIT permissions. The <code>specificPermissions</code> field must also be present.</td>
 </tr>
 <tr>
 <td><code>widgets[].report.permissions.specificPermissions</code></td>
@@ -769,7 +819,7 @@
 <td><code>permissions.permissionType</code></td>
 <td><code>enum: EVERYONE_EDIT, EVERYONE_VIEW, PRIVATE, SPECIFIC</code></td>
 <td>Yes</td>
-<td>The type of permission to apply to the report. Valid values are: - PRIVATE: The report is only accessible to its owner and administrators. - EVERYONE_VIEW: The report is viewable by everyone. - EVERYONE_EDIT: The report is viewable and editable by everyone. - SPECIFIC: In addition to the owner, specific users and/or teams are granted VIEW or EDIT permissions. The <code>specificPermissions</code> field must also be present.</td>
+<td>The type of permission to apply to the report. Valid values are: - PRIVATE: The report is only accessible to its owner and administrators. - <code>EVERYONE_VIEW</code>: The report is viewable by everyone. - <code>EVERYONE_EDIT</code>: The report is viewable and editable by everyone. - SPECIFIC: In addition to the owner, specific users and/or teams are granted VIEW or EDIT permissions. The <code>specificPermissions</code> field must also be present.</td>
 </tr>
 <tr>
 <td><code>permissions.specificPermissions</code></td>
@@ -943,7 +993,7 @@
 <td><code>widgets[].report.permissions.permissionType</code></td>
 <td><code>enum: EVERYONE_EDIT, EVERYONE_VIEW, PRIVATE, SPECIFIC</code></td>
 <td>Yes</td>
-<td>The type of permission to apply to the report. Valid values are: - PRIVATE: The report is only accessible to its owner and administrators. - EVERYONE_VIEW: The report is viewable by everyone. - EVERYONE_EDIT: The report is viewable and editable by everyone. - SPECIFIC: In addition to the owner, specific users and/or teams are granted VIEW or EDIT permissions. The <code>specificPermissions</code> field must also be present.</td>
+<td>The type of permission to apply to the report. Valid values are: - PRIVATE: The report is only accessible to its owner and administrators. - <code>EVERYONE_VIEW</code>: The report is viewable by everyone. - <code>EVERYONE_EDIT</code>: The report is viewable and editable by everyone. - SPECIFIC: In addition to the owner, specific users and/or teams are granted VIEW or EDIT permissions. The <code>specificPermissions</code> field must also be present.</td>
 </tr>
 <tr>
 <td><code>widgets[].report.permissions.specificPermissions</code></td>
@@ -1239,7 +1289,7 @@
 <td><code>permissions.permissionType</code></td>
 <td><code>enum: EVERYONE_EDIT, EVERYONE_VIEW, PRIVATE, SPECIFIC</code></td>
 <td>Yes</td>
-<td>The type of permission to apply to the report. Valid values are: - PRIVATE: The report is only accessible to its owner and administrators. - EVERYONE_VIEW: The report is viewable by everyone. - EVERYONE_EDIT: The report is viewable and editable by everyone. - SPECIFIC: In addition to the owner, specific users and/or teams are granted VIEW or EDIT permissions. The <code>specificPermissions</code> field must also be present.</td>
+<td>The type of permission to apply to the report. Valid values are: - PRIVATE: The report is only accessible to its owner and administrators. - <code>EVERYONE_VIEW</code>: The report is viewable by everyone. - <code>EVERYONE_EDIT</code>: The report is viewable and editable by everyone. - SPECIFIC: In addition to the owner, specific users and/or teams are granted VIEW or EDIT permissions. The <code>specificPermissions</code> field must also be present.</td>
 </tr>
 <tr>
 <td><code>permissions.specificPermissions</code></td>
@@ -1413,7 +1463,7 @@
 <td><code>widgets[].report.permissions.permissionType</code></td>
 <td><code>enum: EVERYONE_EDIT, EVERYONE_VIEW, PRIVATE, SPECIFIC</code></td>
 <td>Yes</td>
-<td>The type of permission to apply to the report. Valid values are: - PRIVATE: The report is only accessible to its owner and administrators. - EVERYONE_VIEW: The report is viewable by everyone. - EVERYONE_EDIT: The report is viewable and editable by everyone. - SPECIFIC: In addition to the owner, specific users and/or teams are granted VIEW or EDIT permissions. The <code>specificPermissions</code> field must also be present.</td>
+<td>The type of permission to apply to the report. Valid values are: - PRIVATE: The report is only accessible to its owner and administrators. - <code>EVERYONE_VIEW</code>: The report is viewable by everyone. - <code>EVERYONE_EDIT</code>: The report is viewable and editable by everyone. - SPECIFIC: In addition to the owner, specific users and/or teams are granted VIEW or EDIT permissions. The <code>specificPermissions</code> field must also be present.</td>
 </tr>
 <tr>
 <td><code>widgets[].report.permissions.specificPermissions</code></td>

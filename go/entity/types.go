@@ -1,7 +1,7 @@
 // Typed models for the HubspotAnalytics SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,23 +14,6 @@ import (
 
 // Clone is the typed data model for the clone entity.
 type Clone struct {
-	Archived bool `json:"archived"`
-	ArchivedAt *string `json:"archivedAt,omitempty"`
-	BusinessUnitId string `json:"businessUnitId"`
-	CloneReports bool `json:"cloneReports"`
-	CreatedAt string `json:"createdAt"`
-	CreatedByUserId *string `json:"createdByUserId,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Id string `json:"id"`
-	LastViewedAt *string `json:"lastViewedAt,omitempty"`
-	LastViewedByUserId *string `json:"lastViewedByUserId,omitempty"`
-	Name string `json:"name"`
-	OwnerUserId *string `json:"ownerUserId,omitempty"`
-	Permissions map[string]any `json:"permissions"`
-	Tags *[]any `json:"tags,omitempty"`
-	UpdatedAt string `json:"updatedAt"`
-	UpdatedByUserId *string `json:"updatedByUserId,omitempty"`
-	Widgets *[]any `json:"widgets,omitempty"`
 }
 
 // CloneCreateData is the typed request payload for Clone.CreateTyped.
@@ -57,24 +40,6 @@ type CloneCreateData struct {
 
 // Dashboard is the typed data model for the dashboard entity.
 type Dashboard struct {
-	Archived bool `json:"archived"`
-	ArchivedAt *string `json:"archivedAt,omitempty"`
-	BusinessUnitId string `json:"businessUnitId"`
-	CreatedAt string `json:"createdAt"`
-	CreatedByUserId *string `json:"createdByUserId,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Id string `json:"id"`
-	Inputs []any `json:"inputs"`
-	LastViewedAt *string `json:"lastViewedAt,omitempty"`
-	LastViewedByUserId *string `json:"lastViewedByUserId,omitempty"`
-	Name string `json:"name"`
-	OwnerUserId *string `json:"ownerUserId,omitempty"`
-	Permissions map[string]any `json:"permissions"`
-	ReportIdsToAdd *[]any `json:"reportIdsToAdd,omitempty"`
-	Tags *[]any `json:"tags,omitempty"`
-	UpdatedAt string `json:"updatedAt"`
-	UpdatedByUserId *string `json:"updatedByUserId,omitempty"`
-	Widgets *[]any `json:"widgets,omitempty"`
 }
 
 // DashboardLoadMatch is the typed request payload for Dashboard.LoadTyped.
@@ -130,22 +95,6 @@ type DashboardUpdateData struct {
 
 // Report is the typed data model for the report entity.
 type Report struct {
-	Archived bool `json:"archived"`
-	ArchivedAt *string `json:"archivedAt,omitempty"`
-	BusinessUnitId string `json:"businessUnitId"`
-	CreatedAt string `json:"createdAt"`
-	CreatedByUserId *string `json:"createdByUserId,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Id string `json:"id"`
-	Inputs []any `json:"inputs"`
-	LastViewedAt *string `json:"lastViewedAt,omitempty"`
-	LastViewedByUserId *string `json:"lastViewedByUserId,omitempty"`
-	Name string `json:"name"`
-	OwnerUserId *string `json:"ownerUserId,omitempty"`
-	Permissions map[string]any `json:"permissions"`
-	Tags *[]any `json:"tags,omitempty"`
-	UpdatedAt string `json:"updatedAt"`
-	UpdatedByUserId *string `json:"updatedByUserId,omitempty"`
 }
 
 // ReportLoadMatch is the typed request payload for Report.LoadTyped.
@@ -218,15 +167,6 @@ type ReportUpdateData struct {
 
 // ReportingBatchResponsePublicDashboard is the typed data model for the reporting_batch_response_public_dashboard entity.
 type ReportingBatchResponsePublicDashboard struct {
-	CompletedAt string `json:"completedAt"`
-	Inputs []any `json:"inputs"`
-	Links *map[string]any `json:"links,omitempty"`
-	OwnerId string `json:"ownerId"`
-	Permissions map[string]any `json:"permissions"`
-	RequestedAt *string `json:"requestedAt,omitempty"`
-	Results []any `json:"results"`
-	StartedAt string `json:"startedAt"`
-	Status string `json:"status"`
 }
 
 // ReportingBatchResponsePublicDashboardCreateData is the typed request payload for ReportingBatchResponsePublicDashboard.CreateTyped.
@@ -244,15 +184,6 @@ type ReportingBatchResponsePublicDashboardCreateData struct {
 
 // ReportingBatchResponsePublicReport is the typed data model for the reporting_batch_response_public_report entity.
 type ReportingBatchResponsePublicReport struct {
-	CompletedAt string `json:"completedAt"`
-	Inputs []any `json:"inputs"`
-	Links *map[string]any `json:"links,omitempty"`
-	OwnerId string `json:"ownerId"`
-	Permissions map[string]any `json:"permissions"`
-	RequestedAt *string `json:"requestedAt,omitempty"`
-	Results []any `json:"results"`
-	StartedAt string `json:"startedAt"`
-	Status string `json:"status"`
 }
 
 // ReportingBatchResponsePublicReportCreateData is the typed request payload for ReportingBatchResponsePublicReport.CreateTyped.
@@ -270,22 +201,6 @@ type ReportingBatchResponsePublicReportCreateData struct {
 
 // ReportingCollectionResponseWithTotalPublicDashboard is the typed data model for the reporting_collection_response_with_total_public_dashboard entity.
 type ReportingCollectionResponseWithTotalPublicDashboard struct {
-	Archived bool `json:"archived"`
-	ArchivedAt *string `json:"archivedAt,omitempty"`
-	BusinessUnitId string `json:"businessUnitId"`
-	CreatedAt string `json:"createdAt"`
-	CreatedByUserId *string `json:"createdByUserId,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Id string `json:"id"`
-	LastViewedAt *string `json:"lastViewedAt,omitempty"`
-	LastViewedByUserId *string `json:"lastViewedByUserId,omitempty"`
-	Name string `json:"name"`
-	OwnerUserId *string `json:"ownerUserId,omitempty"`
-	Permissions map[string]any `json:"permissions"`
-	Tags *[]any `json:"tags,omitempty"`
-	UpdatedAt string `json:"updatedAt"`
-	UpdatedByUserId *string `json:"updatedByUserId,omitempty"`
-	Widgets *[]any `json:"widgets,omitempty"`
 }
 
 // ReportingCollectionResponseWithTotalPublicDashboardListMatch is the typed request payload for ReportingCollectionResponseWithTotalPublicDashboard.ListTyped.
@@ -309,23 +224,6 @@ type ReportingCollectionResponseWithTotalPublicDashboardListMatch struct {
 
 // Widget is the typed data model for the widget entity.
 type Widget struct {
-	Archived bool `json:"archived"`
-	ArchivedAt *string `json:"archivedAt,omitempty"`
-	BusinessUnitId string `json:"businessUnitId"`
-	CreatedAt string `json:"createdAt"`
-	CreatedByUserId *string `json:"createdByUserId,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Id string `json:"id"`
-	Inputs []any `json:"inputs"`
-	LastViewedAt *string `json:"lastViewedAt,omitempty"`
-	LastViewedByUserId *string `json:"lastViewedByUserId,omitempty"`
-	Name string `json:"name"`
-	OwnerUserId *string `json:"ownerUserId,omitempty"`
-	Permissions map[string]any `json:"permissions"`
-	Tags *[]any `json:"tags,omitempty"`
-	UpdatedAt string `json:"updatedAt"`
-	UpdatedByUserId *string `json:"updatedByUserId,omitempty"`
-	Widgets *[]any `json:"widgets,omitempty"`
 }
 
 // WidgetCreateData is the typed request payload for Widget.CreateTyped.

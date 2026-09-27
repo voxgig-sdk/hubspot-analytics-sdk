@@ -1,5 +1,5 @@
 {
-  "name": "voxgig-sdk/hubspot-analytics",
+  "name": "voxgig-sdk/hubspot-analytics-sdk",
   "description": "Unofficial generated PHP SDK for the HubSpot Analytics public API. Not affiliated with or endorsed by the upstream API provider.",
   "type": "library",
   "keywords": ["voxgig", "sdk", "generated-sdk", "openapi", "api-client", "hubspot-analytics"],

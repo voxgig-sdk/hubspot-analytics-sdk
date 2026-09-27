@@ -1,0 +1,191 @@
+# Entity: reporting_batch_response_public_report
+
+main: kit: entity: reporting_batch_response_public_report: {
+
+  alias: field: {}
+
+  fields: {
+    completedAt: {
+      fo: "date-time"
+      h: "Completed At"
+      n: "completedAt"
+      r: true
+      sh: "The date and time when the batch operation was completed, in ISO 8601 format."
+      t: "`$STRING`"
+    }
+    inputs: {
+      h: "Inputs"
+      n: "inputs"
+      r: true
+      sh: "Array of report or dashboard IDs."
+      t: "`$ARRAY`"
+    }
+    links: {
+      h: "Links"
+      n: "links"
+      r: false
+      sh: "A map of link names to associated URIs, providing additional resources or documentation related to the batch operation."
+      t: "`$OBJECT`"
+    }
+    ownerId: {
+      h: "Owner Id"
+      n: "ownerId"
+      r: true
+      sh: "The ID of the user to change the owner to."
+      t: "`$STRING`"
+    }
+    permissions: {
+      h: "Permissions"
+      n: "permissions"
+      r: true
+      t: "`$OBJECT`"
+    }
+    requestedAt: {
+      fo: "date-time"
+      h: "Requested At"
+      n: "requestedAt"
+      r: false
+      sh: "The date and time when the batch operation was requested, in ISO 8601 format."
+      t: "`$STRING`"
+    }
+    results: {
+      h: "Results"
+      n: "results"
+      r: true
+      sh: "An array of report objects representing the successful results of the batch operation."
+      t: "`$ARRAY`"
+    }
+    startedAt: {
+      fo: "date-time"
+      h: "Started At"
+      n: "startedAt"
+      r: true
+      sh: "The date and time when the batch operation started, in ISO 8601 format."
+      t: "`$STRING`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: true
+      sh: "The current status of the batch operation."
+      t: "`$STRING`"
+    }
+  }
+
+  name: "reporting_batch_response_public_report"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /analytics/reporting/2027-03-beta/reports/batch/restore"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/analytics/reporting/2027-03-beta/reports/batch/restore"
+          s: [
+            {
+              lit: "analytics"
+            }
+            {
+              lit: "reporting"
+            }
+            {
+              lit: "2027-03-beta"
+            }
+            {
+              lit: "reports"
+            }
+            {
+              lit: "batch"
+            }
+            {
+              lit: "restore"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /analytics/reporting/2027-03-beta/reports/owners/batch/update"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/analytics/reporting/2027-03-beta/reports/owners/batch/update"
+          s: [
+            {
+              lit: "analytics"
+            }
+            {
+              lit: "reporting"
+            }
+            {
+              lit: "2027-03-beta"
+            }
+            {
+              lit: "reports"
+            }
+            {
+              lit: "owners"
+            }
+            {
+              lit: "batch"
+            }
+            {
+              lit: "update"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /analytics/reporting/2027-03-beta/reports/permissions/batch/update"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/analytics/reporting/2027-03-beta/reports/permissions/batch/update"
+          s: [
+            {
+              lit: "analytics"
+            }
+            {
+              lit: "reporting"
+            }
+            {
+              lit: "2027-03-beta"
+            }
+            {
+              lit: "reports"
+            }
+            {
+              lit: "permissions"
+            }
+            {
+              lit: "batch"
+            }
+            {
+              lit: "update"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

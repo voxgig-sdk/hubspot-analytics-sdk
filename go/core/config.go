@@ -172,99 +172,116 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "archived",
+						"title": "Archived",
+						"type": "`$BOOLEAN`",
 						"req": true,
 						"short": "Whether the dashboard is archived.",
-						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "archivedAt",
-						"short": "If the dashboard is archived, the date and time when the dashboard was archived, in ISO 8601 format.",
+						"title": "Archived At",
 						"type": "`$STRING`",
+						"short": "If the dashboard is archived, the date and time when the dashboard was archived, in ISO 8601 format.",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "businessUnitId",
+						"title": "Business Unit Id",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The ID of the business unit that the dashboard is associated with.",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "cloneReports",
+						"title": "Clone Reports",
+						"type": "`$BOOLEAN`",
 						"req": true,
 						"short": "Whether to create clones of the reports from the original dashboard to use on the cloned dashboard (`true`), or reference the same report objects as the original dashboard (`false`).",
-						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "createdAt",
+						"title": "Created At",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The date and time when the dashboard was created, in ISO 8601 format.",
-						"type": "`$STRING`",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "createdByUserId",
-						"short": "The ID of the user who created the dashboard.",
+						"title": "Created By User Id",
 						"type": "`$STRING`",
+						"short": "The ID of the user who created the dashboard.",
 					},
 					map[string]any{
 						"name": "description",
-						"short": "A description of the dashboard.",
+						"title": "Description",
 						"type": "`$STRING`",
+						"short": "A description of the dashboard.",
 					},
 					map[string]any{
 						"name": "id",
+						"title": "Id",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The ID of the dashboard.",
-						"type": "`$STRING`",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "lastViewedAt",
-						"short": "The date and time when the dashboard was last viewed, in ISO 8601 format.",
+						"title": "Last Viewed At",
 						"type": "`$STRING`",
+						"short": "The date and time when the dashboard was last viewed, in ISO 8601 format.",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "lastViewedByUserId",
-						"short": "The ID of the user who last viewed the dashboard.",
+						"title": "Last Viewed By User Id",
 						"type": "`$STRING`",
+						"short": "The ID of the user who last viewed the dashboard.",
 					},
 					map[string]any{
 						"name": "name",
+						"title": "Name",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The name of the dashboard.",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "ownerUserId",
-						"short": "The ID of the user who owns the dashboard.",
+						"title": "Owner User Id",
 						"type": "`$STRING`",
+						"short": "The ID of the user who owns the dashboard.",
 					},
 					map[string]any{
 						"name": "permissions",
-						"req": true,
+						"title": "Permissions",
 						"type": "`$OBJECT`",
+						"req": true,
 					},
 					map[string]any{
 						"name": "tags",
-						"short": "Array of objects representing the tags that the dashboard is tagged with.",
+						"title": "Tags",
 						"type": "`$ARRAY`",
+						"short": "Array of objects representing the tags that the dashboard is tagged with.",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "updatedAt",
+						"title": "Updated At",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The date and time when the dashboard was last updated, in ISO 8601 format.",
-						"type": "`$STRING`",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "updatedByUserId",
-						"short": "The ID of the user who last updated the dashboard.",
+						"title": "Updated By User Id",
 						"type": "`$STRING`",
+						"short": "The ID of the user who last updated the dashboard.",
 					},
 					map[string]any{
 						"name": "widgets",
-						"short": "An array of objects representing the widgets on the dashboard.",
+						"title": "Widgets",
 						"type": "`$ARRAY`",
+						"short": "An array of objects representing the widgets on the dashboard.",
 					},
 				},
 				"id": map[string]any{
@@ -278,26 +295,9 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": nil,
-											"kind": "param",
-											"name": "dashboard_id",
-											"orig": "dashboard_id",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/analytics/reporting/2027-03-beta/dashboards/{dashboardId}/clone",
-								"rename": map[string]any{
-									"param": map[string]any{
-										"dashboardId": "dashboard_id",
-									},
-								},
 								"segments": []any{
 									map[string]any{
 										"lit": "analytics",
@@ -318,15 +318,6 @@ func MakeConfig() map[string]any {
 										"lit": "clone",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"dashboard_id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"analytics",
 									"reporting",
@@ -335,6 +326,32 @@ func MakeConfig() map[string]any {
 									"{dashboard_id}",
 									"clone",
 								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"dashboardId": "dashboard_id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "dashboard_id",
+											"orig": "dashboard_id",
+											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+											"example": nil,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"dashboard_id",
+									},
+								},
 							},
 						},
 					},
@@ -342,7 +359,7 @@ func MakeConfig() map[string]any {
 				"relations": map[string]any{
 					"ancestors": []any{
 						[]any{
-							"dashboard",
+							"$.main.kit.entity.dashboard",
 						},
 					},
 				},
@@ -351,23 +368,28 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "archived",
+						"title": "Archived",
+						"type": "`$BOOLEAN`",
+						"req": true,
 						"op": map[string]any{
 							"update": map[string]any{
 								"type": "`$BOOLEAN`",
 							},
 						},
-						"req": true,
 						"short": "Whether the dashboard is archived.",
-						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "archivedAt",
-						"short": "If the dashboard is archived, the date and time when the dashboard was archived, in ISO 8601 format.",
+						"title": "Archived At",
 						"type": "`$STRING`",
+						"short": "If the dashboard is archived, the date and time when the dashboard was archived, in ISO 8601 format.",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "businessUnitId",
+						"title": "Business Unit Id",
+						"type": "`$STRING`",
+						"req": true,
 						"op": map[string]any{
 							"create": map[string]any{
 								"type": "`$STRING`",
@@ -376,97 +398,110 @@ func MakeConfig() map[string]any {
 								"type": "`$OBJECT`",
 							},
 						},
-						"req": true,
 						"short": "The ID of the business unit that the dashboard is associated with.",
-						"type": "`$STRING`",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "createdAt",
+						"title": "Created At",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The date and time when the dashboard was created, in ISO 8601 format.",
-						"type": "`$STRING`",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "createdByUserId",
-						"short": "The ID of the user who created the dashboard.",
+						"title": "Created By User Id",
 						"type": "`$STRING`",
+						"short": "The ID of the user who created the dashboard.",
 					},
 					map[string]any{
 						"name": "description",
-						"short": "A description of the dashboard.",
+						"title": "Description",
 						"type": "`$STRING`",
+						"short": "A description of the dashboard.",
 					},
 					map[string]any{
 						"name": "id",
+						"title": "Id",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The ID of the dashboard.",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "inputs",
+						"title": "Inputs",
+						"type": "`$ARRAY`",
 						"req": true,
 						"short": "Array of report or dashboard IDs.",
-						"type": "`$ARRAY`",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "lastViewedAt",
-						"short": "The date and time when the dashboard was last viewed, in ISO 8601 format.",
+						"title": "Last Viewed At",
 						"type": "`$STRING`",
+						"short": "The date and time when the dashboard was last viewed, in ISO 8601 format.",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "lastViewedByUserId",
-						"short": "The ID of the user who last viewed the dashboard.",
+						"title": "Last Viewed By User Id",
 						"type": "`$STRING`",
+						"short": "The ID of the user who last viewed the dashboard.",
 					},
 					map[string]any{
 						"name": "name",
+						"title": "Name",
+						"type": "`$STRING`",
+						"req": true,
 						"op": map[string]any{
 							"update": map[string]any{
 								"type": "`$STRING`",
 							},
 						},
-						"req": true,
 						"short": "The name of the dashboard.",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "ownerUserId",
-						"short": "The ID of the user who owns the dashboard.",
+						"title": "Owner User Id",
 						"type": "`$STRING`",
+						"short": "The ID of the user who owns the dashboard.",
 					},
 					map[string]any{
 						"name": "permissions",
-						"req": true,
+						"title": "Permissions",
 						"type": "`$OBJECT`",
+						"req": true,
 					},
 					map[string]any{
 						"name": "reportIdsToAdd",
-						"short": "Array of IDs of reports that should be added to the dashboard after creation.",
+						"title": "Report Ids To Add",
 						"type": "`$ARRAY`",
+						"short": "Array of IDs of reports that should be added to the dashboard after creation.",
 					},
 					map[string]any{
 						"name": "tags",
-						"short": "Array of objects representing the tags that the dashboard is tagged with.",
+						"title": "Tags",
 						"type": "`$ARRAY`",
+						"short": "Array of objects representing the tags that the dashboard is tagged with.",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "updatedAt",
+						"title": "Updated At",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The date and time when the dashboard was last updated, in ISO 8601 format.",
-						"type": "`$STRING`",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "updatedByUserId",
-						"short": "The ID of the user who last updated the dashboard.",
+						"title": "Updated By User Id",
 						"type": "`$STRING`",
+						"short": "The ID of the user who last updated the dashboard.",
 					},
 					map[string]any{
 						"name": "widgets",
-						"short": "An array of objects representing the widgets on the dashboard.",
+						"title": "Widgets",
 						"type": "`$ARRAY`",
+						"short": "An array of objects representing the widgets on the dashboard.",
 					},
 				},
 				"id": map[string]any{
@@ -480,26 +515,9 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": nil,
-											"kind": "param",
-											"name": "id",
-											"orig": "dashboard_id",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/analytics/reporting/2027-03-beta/dashboards/{dashboardId}/export",
-								"rename": map[string]any{
-									"param": map[string]any{
-										"dashboardId": "id",
-									},
-								},
 								"segments": []any{
 									map[string]any{
 										"lit": "analytics",
@@ -520,16 +538,6 @@ func MakeConfig() map[string]any {
 										"lit": "export",
 									},
 								},
-								"select": map[string]any{
-									"$action": "export",
-									"exist": []any{
-										"id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"analytics",
 									"reporting",
@@ -538,9 +546,35 @@ func MakeConfig() map[string]any {
 									"{id}",
 									"export",
 								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"dashboardId": "id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "id",
+											"orig": "dashboard_id",
+											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+											"example": nil,
+										},
+									},
+								},
+								"select": map[string]any{
+									"$action": "export",
+									"exist": []any{
+										"id",
+									},
+								},
 							},
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/analytics/reporting/2027-03-beta/dashboards",
@@ -558,20 +592,21 @@ func MakeConfig() map[string]any {
 										"lit": "dashboards",
 									},
 								},
-								"select": map[string]any{},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"analytics",
 									"reporting",
 									"2027-03-beta",
 									"dashboards",
 								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/analytics/reporting/2027-03-beta/dashboards/batch/archive",
@@ -595,11 +630,6 @@ func MakeConfig() map[string]any {
 										"lit": "archive",
 									},
 								},
-								"select": map[string]any{},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"analytics",
 									"reporting",
@@ -608,6 +638,13 @@ func MakeConfig() map[string]any {
 									"batch",
 									"archive",
 								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
@@ -616,42 +653,9 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": nil,
-											"kind": "param",
-											"name": "id",
-											"orig": "dashboard_id",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-									},
-									"query": []any{
-										map[string]any{
-											"example": nil,
-											"kind": "query",
-											"name": "archived",
-											"orig": "archived",
-											"type": "`$BOOLEAN`",
-										},
-										map[string]any{
-											"example": nil,
-											"kind": "query",
-											"name": "property",
-											"orig": "property",
-											"type": "`$ARRAY`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/analytics/reporting/2027-03-beta/dashboards/{dashboardId}",
-								"rename": map[string]any{
-									"param": map[string]any{
-										"dashboardId": "id",
-									},
-								},
 								"segments": []any{
 									map[string]any{
 										"lit": "analytics",
@@ -667,6 +671,50 @@ func MakeConfig() map[string]any {
 									},
 									map[string]any{
 										"var": "id",
+									},
+								},
+								"parts": []any{
+									"analytics",
+									"reporting",
+									"2027-03-beta",
+									"dashboards",
+									"{id}",
+								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"dashboardId": "id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "id",
+											"orig": "dashboard_id",
+											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+											"example": nil,
+										},
+									},
+									"query": []any{
+										map[string]any{
+											"name": "archived",
+											"orig": "archived",
+											"type": "`$BOOLEAN`",
+											"kind": "query",
+											"example": nil,
+										},
+										map[string]any{
+											"name": "property",
+											"orig": "property",
+											"type": "`$ARRAY`",
+											"kind": "query",
+											"example": nil,
+										},
 									},
 								},
 								"select": map[string]any{
@@ -676,17 +724,6 @@ func MakeConfig() map[string]any {
 										"property",
 									},
 								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"analytics",
-									"reporting",
-									"2027-03-beta",
-									"dashboards",
-									"{id}",
-								},
 							},
 						},
 					},
@@ -695,26 +732,9 @@ func MakeConfig() map[string]any {
 						"name": "update",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": nil,
-											"kind": "param",
-											"name": "id",
-											"orig": "dashboard_id",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "PATCH",
 								"orig": "/analytics/reporting/2027-03-beta/dashboards/{dashboardId}",
-								"rename": map[string]any{
-									"param": map[string]any{
-										"dashboardId": "id",
-									},
-								},
 								"segments": []any{
 									map[string]any{
 										"lit": "analytics",
@@ -732,21 +752,38 @@ func MakeConfig() map[string]any {
 										"var": "id",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"analytics",
 									"reporting",
 									"2027-03-beta",
 									"dashboards",
 									"{id}",
+								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"dashboardId": "id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "id",
+											"orig": "dashboard_id",
+											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+											"example": nil,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"id",
+									},
 								},
 							},
 						},
@@ -760,109 +797,125 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "archived",
+						"title": "Archived",
+						"type": "`$BOOLEAN`",
+						"req": true,
 						"op": map[string]any{
 							"update": map[string]any{
 								"type": "`$BOOLEAN`",
 							},
 						},
-						"req": true,
 						"short": "Whether the report is archived.",
-						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "archivedAt",
-						"short": "If the report is archived, the date and time when the report was archived, in ISO 8601 format.",
+						"title": "Archived At",
 						"type": "`$STRING`",
+						"short": "If the report is archived, the date and time when the report was archived, in ISO 8601 format.",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "businessUnitId",
+						"title": "Business Unit Id",
+						"type": "`$STRING`",
+						"req": true,
 						"op": map[string]any{
 							"update": map[string]any{
 								"type": "`$OBJECT`",
 							},
 						},
-						"req": true,
 						"short": "The ID of the business unit that the report is associated with.",
-						"type": "`$STRING`",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "createdAt",
+						"title": "Created At",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The date and time when the report was created, in ISO 8601 format.",
-						"type": "`$STRING`",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "createdByUserId",
-						"short": "The ID of the user who created the report.",
+						"title": "Created By User Id",
 						"type": "`$STRING`",
+						"short": "The ID of the user who created the report.",
 					},
 					map[string]any{
 						"name": "description",
-						"short": "A description of the report.",
+						"title": "Description",
 						"type": "`$STRING`",
+						"short": "A description of the report.",
 					},
 					map[string]any{
 						"name": "id",
+						"title": "Id",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The ID of the report.",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "inputs",
+						"title": "Inputs",
+						"type": "`$ARRAY`",
 						"req": true,
 						"short": "Array of report or dashboard IDs.",
-						"type": "`$ARRAY`",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "lastViewedAt",
-						"short": "The date and time when the report was last viewed, in ISO 8601 format.",
+						"title": "Last Viewed At",
 						"type": "`$STRING`",
+						"short": "The date and time when the report was last viewed, in ISO 8601 format.",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "lastViewedByUserId",
-						"short": "The ID of the user who last viewed the report.",
+						"title": "Last Viewed By User Id",
 						"type": "`$STRING`",
+						"short": "The ID of the user who last viewed the report.",
 					},
 					map[string]any{
 						"name": "name",
+						"title": "Name",
+						"type": "`$STRING`",
+						"req": true,
 						"op": map[string]any{
 							"update": map[string]any{
 								"type": "`$STRING`",
 							},
 						},
-						"req": true,
 						"short": "The name of the report.",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "ownerUserId",
-						"short": "The ID of the user who owns the report.",
+						"title": "Owner User Id",
 						"type": "`$STRING`",
+						"short": "The ID of the user who owns the report.",
 					},
 					map[string]any{
 						"name": "permissions",
-						"req": true,
+						"title": "Permissions",
 						"type": "`$OBJECT`",
+						"req": true,
 					},
 					map[string]any{
 						"name": "tags",
-						"short": "Array of objects representing the tags that the report is tagged with.",
+						"title": "Tags",
 						"type": "`$ARRAY`",
+						"short": "Array of objects representing the tags that the report is tagged with.",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "updatedAt",
+						"title": "Updated At",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The date and time when the report was last updated, in ISO 8601 format.",
-						"type": "`$STRING`",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "updatedByUserId",
-						"short": "The ID of the user who last updated the report.",
+						"title": "Updated By User Id",
 						"type": "`$STRING`",
+						"short": "The ID of the user who last updated the report.",
 					},
 				},
 				"id": map[string]any{
@@ -876,26 +929,9 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": nil,
-											"kind": "param",
-											"name": "id",
-											"orig": "report_id",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/analytics/reporting/2027-03-beta/reports/{reportId}/export",
-								"rename": map[string]any{
-									"param": map[string]any{
-										"reportId": "id",
-									},
-								},
 								"segments": []any{
 									map[string]any{
 										"lit": "analytics",
@@ -916,16 +952,6 @@ func MakeConfig() map[string]any {
 										"lit": "export",
 									},
 								},
-								"select": map[string]any{
-									"$action": "export",
-									"exist": []any{
-										"id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"analytics",
 									"reporting",
@@ -934,9 +960,35 @@ func MakeConfig() map[string]any {
 									"{id}",
 									"export",
 								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"reportId": "id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "id",
+											"orig": "report_id",
+											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+											"example": nil,
+										},
+									},
+								},
+								"select": map[string]any{
+									"$action": "export",
+									"exist": []any{
+										"id",
+									},
+								},
 							},
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/analytics/reporting/2027-03-beta/reports/batch/archive",
@@ -960,11 +1012,6 @@ func MakeConfig() map[string]any {
 										"lit": "archive",
 									},
 								},
-								"select": map[string]any{},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"analytics",
 									"reporting",
@@ -973,6 +1020,13 @@ func MakeConfig() map[string]any {
 									"batch",
 									"archive",
 								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
@@ -981,129 +1035,6 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"example": nil,
-											"kind": "query",
-											"name": "after",
-											"orig": "after",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": nil,
-											"kind": "query",
-											"name": "archived",
-											"orig": "archived",
-											"type": "`$BOOLEAN`",
-										},
-										map[string]any{
-											"example": nil,
-											"kind": "query",
-											"name": "business_unit_id",
-											"orig": "business_unit_id",
-											"type": "`$ARRAY`",
-										},
-										map[string]any{
-											"example": nil,
-											"kind": "query",
-											"name": "created_after",
-											"orig": "created_after",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": nil,
-											"kind": "query",
-											"name": "created_before",
-											"orig": "created_before",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": nil,
-											"kind": "query",
-											"name": "dashboard_id",
-											"orig": "dashboard_id",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": nil,
-											"kind": "query",
-											"name": "ids",
-											"orig": "ids",
-											"type": "`$ARRAY`",
-										},
-										map[string]any{
-											"example": nil,
-											"kind": "query",
-											"name": "limit",
-											"orig": "limit",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"example": nil,
-											"kind": "query",
-											"name": "on_dashboard",
-											"orig": "on_dashboard",
-											"type": "`$BOOLEAN`",
-										},
-										map[string]any{
-											"example": nil,
-											"kind": "query",
-											"name": "only_favorite",
-											"orig": "only_favorite",
-											"type": "`$BOOLEAN`",
-										},
-										map[string]any{
-											"example": nil,
-											"kind": "query",
-											"name": "owner_user_id",
-											"orig": "owner_user_id",
-											"type": "`$ARRAY`",
-										},
-										map[string]any{
-											"example": nil,
-											"kind": "query",
-											"name": "property",
-											"orig": "property",
-											"type": "`$ARRAY`",
-										},
-										map[string]any{
-											"example": nil,
-											"kind": "query",
-											"name": "q",
-											"orig": "q",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": nil,
-											"kind": "query",
-											"name": "sort",
-											"orig": "sort",
-											"type": "`$ARRAY`",
-										},
-										map[string]any{
-											"example": nil,
-											"kind": "query",
-											"name": "tag_id",
-											"orig": "tag_id",
-											"type": "`$ARRAY`",
-										},
-										map[string]any{
-											"example": nil,
-											"kind": "query",
-											"name": "updated_after",
-											"orig": "updated_after",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": nil,
-											"kind": "query",
-											"name": "updated_before",
-											"orig": "updated_before",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/analytics/reporting/2027-03-beta/reports",
@@ -1119,6 +1050,140 @@ func MakeConfig() map[string]any {
 									},
 									map[string]any{
 										"lit": "reports",
+									},
+								},
+								"parts": []any{
+									"analytics",
+									"reporting",
+									"2027-03-beta",
+									"reports",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "after",
+											"orig": "after",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": nil,
+										},
+										map[string]any{
+											"name": "archived",
+											"orig": "archived",
+											"type": "`$BOOLEAN`",
+											"kind": "query",
+											"example": nil,
+										},
+										map[string]any{
+											"name": "business_unit_id",
+											"orig": "business_unit_id",
+											"type": "`$ARRAY`",
+											"kind": "query",
+											"example": nil,
+										},
+										map[string]any{
+											"name": "created_after",
+											"orig": "created_after",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": nil,
+										},
+										map[string]any{
+											"name": "created_before",
+											"orig": "created_before",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": nil,
+										},
+										map[string]any{
+											"name": "dashboard_id",
+											"orig": "dashboard_id",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": nil,
+										},
+										map[string]any{
+											"name": "ids",
+											"orig": "ids",
+											"type": "`$ARRAY`",
+											"kind": "query",
+											"example": nil,
+										},
+										map[string]any{
+											"name": "limit",
+											"orig": "limit",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": nil,
+										},
+										map[string]any{
+											"name": "on_dashboard",
+											"orig": "on_dashboard",
+											"type": "`$BOOLEAN`",
+											"kind": "query",
+											"example": nil,
+										},
+										map[string]any{
+											"name": "only_favorite",
+											"orig": "only_favorite",
+											"type": "`$BOOLEAN`",
+											"kind": "query",
+											"example": nil,
+										},
+										map[string]any{
+											"name": "owner_user_id",
+											"orig": "owner_user_id",
+											"type": "`$ARRAY`",
+											"kind": "query",
+											"example": nil,
+										},
+										map[string]any{
+											"name": "property",
+											"orig": "property",
+											"type": "`$ARRAY`",
+											"kind": "query",
+											"example": nil,
+										},
+										map[string]any{
+											"name": "q",
+											"orig": "q",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": nil,
+										},
+										map[string]any{
+											"name": "sort",
+											"orig": "sort",
+											"type": "`$ARRAY`",
+											"kind": "query",
+											"example": nil,
+										},
+										map[string]any{
+											"name": "tag_id",
+											"orig": "tag_id",
+											"type": "`$ARRAY`",
+											"kind": "query",
+											"example": nil,
+										},
+										map[string]any{
+											"name": "updated_after",
+											"orig": "updated_after",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": nil,
+										},
+										map[string]any{
+											"name": "updated_before",
+											"orig": "updated_before",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": nil,
+										},
 									},
 								},
 								"select": map[string]any{
@@ -1142,16 +1207,6 @@ func MakeConfig() map[string]any {
 										"updated_before",
 									},
 								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"analytics",
-									"reporting",
-									"2027-03-beta",
-									"reports",
-								},
 							},
 						},
 					},
@@ -1160,42 +1215,9 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": nil,
-											"kind": "param",
-											"name": "id",
-											"orig": "report_id",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-									},
-									"query": []any{
-										map[string]any{
-											"example": nil,
-											"kind": "query",
-											"name": "archived",
-											"orig": "archived",
-											"type": "`$BOOLEAN`",
-										},
-										map[string]any{
-											"example": nil,
-											"kind": "query",
-											"name": "property",
-											"orig": "property",
-											"type": "`$ARRAY`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/analytics/reporting/2027-03-beta/reports/{reportId}",
-								"rename": map[string]any{
-									"param": map[string]any{
-										"reportId": "id",
-									},
-								},
 								"segments": []any{
 									map[string]any{
 										"lit": "analytics",
@@ -1211,6 +1233,50 @@ func MakeConfig() map[string]any {
 									},
 									map[string]any{
 										"var": "id",
+									},
+								},
+								"parts": []any{
+									"analytics",
+									"reporting",
+									"2027-03-beta",
+									"reports",
+									"{id}",
+								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"reportId": "id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "id",
+											"orig": "report_id",
+											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+											"example": nil,
+										},
+									},
+									"query": []any{
+										map[string]any{
+											"name": "archived",
+											"orig": "archived",
+											"type": "`$BOOLEAN`",
+											"kind": "query",
+											"example": nil,
+										},
+										map[string]any{
+											"name": "property",
+											"orig": "property",
+											"type": "`$ARRAY`",
+											"kind": "query",
+											"example": nil,
+										},
 									},
 								},
 								"select": map[string]any{
@@ -1220,17 +1286,6 @@ func MakeConfig() map[string]any {
 										"property",
 									},
 								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"analytics",
-									"reporting",
-									"2027-03-beta",
-									"reports",
-									"{id}",
-								},
 							},
 						},
 					},
@@ -1239,26 +1294,9 @@ func MakeConfig() map[string]any {
 						"name": "update",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": nil,
-											"kind": "param",
-											"name": "id",
-											"orig": "report_id",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "PATCH",
 								"orig": "/analytics/reporting/2027-03-beta/reports/{reportId}",
-								"rename": map[string]any{
-									"param": map[string]any{
-										"reportId": "id",
-									},
-								},
 								"segments": []any{
 									map[string]any{
 										"lit": "analytics",
@@ -1276,21 +1314,38 @@ func MakeConfig() map[string]any {
 										"var": "id",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"analytics",
 									"reporting",
 									"2027-03-beta",
 									"reports",
 									"{id}",
+								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"reportId": "id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "id",
+											"orig": "report_id",
+											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+											"example": nil,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"id",
+									},
 								},
 							},
 						},
@@ -1303,58 +1358,67 @@ func MakeConfig() map[string]any {
 			"reporting_batch_response_public_dashboard": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"format": "date-time",
 						"name": "completedAt",
+						"title": "Completed At",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The date and time when the batch operation was completed, in ISO 8601 format.",
-						"type": "`$STRING`",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "inputs",
+						"title": "Inputs",
+						"type": "`$ARRAY`",
 						"req": true,
 						"short": "Array of report or dashboard IDs.",
-						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "links",
-						"short": "A map of link names to associated URIs, providing additional information related to the batch operation.",
+						"title": "Links",
 						"type": "`$OBJECT`",
+						"short": "A map of link names to associated URIs, providing additional information related to the batch operation.",
 					},
 					map[string]any{
 						"name": "ownerId",
+						"title": "Owner Id",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The ID of the user to change the owner to.",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "permissions",
-						"req": true,
+						"title": "Permissions",
 						"type": "`$OBJECT`",
+						"req": true,
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "requestedAt",
-						"short": "The date and time when the batch operation was requested, in ISO 8601 format.",
+						"title": "Requested At",
 						"type": "`$STRING`",
+						"short": "The date and time when the batch operation was requested, in ISO 8601 format.",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "results",
+						"title": "Results",
+						"type": "`$ARRAY`",
 						"req": true,
 						"short": "An array of dashboard objects representing the successful results of the batch operation.",
-						"type": "`$ARRAY`",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "startedAt",
+						"title": "Started At",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The date and time when the batch operation started, in ISO 8601 format.",
-						"type": "`$STRING`",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "status",
+						"title": "Status",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The current status of the batch operation.",
-						"type": "`$STRING`",
 					},
 				},
 				"name": "reporting_batch_response_public_dashboard",
@@ -1364,7 +1428,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/analytics/reporting/2027-03-beta/dashboards/batch/restore",
@@ -1388,11 +1451,6 @@ func MakeConfig() map[string]any {
 										"lit": "restore",
 									},
 								},
-								"select": map[string]any{},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"analytics",
 									"reporting",
@@ -1401,9 +1459,15 @@ func MakeConfig() map[string]any {
 									"batch",
 									"restore",
 								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/analytics/reporting/2027-03-beta/dashboards/owners/batch/update",
@@ -1430,11 +1494,6 @@ func MakeConfig() map[string]any {
 										"lit": "update",
 									},
 								},
-								"select": map[string]any{},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"analytics",
 									"reporting",
@@ -1444,9 +1503,15 @@ func MakeConfig() map[string]any {
 									"batch",
 									"update",
 								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/analytics/reporting/2027-03-beta/dashboards/permissions/batch/update",
@@ -1473,11 +1538,6 @@ func MakeConfig() map[string]any {
 										"lit": "update",
 									},
 								},
-								"select": map[string]any{},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"analytics",
 									"reporting",
@@ -1487,6 +1547,13 @@ func MakeConfig() map[string]any {
 									"batch",
 									"update",
 								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
@@ -1498,58 +1565,67 @@ func MakeConfig() map[string]any {
 			"reporting_batch_response_public_report": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"format": "date-time",
 						"name": "completedAt",
+						"title": "Completed At",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The date and time when the batch operation was completed, in ISO 8601 format.",
-						"type": "`$STRING`",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "inputs",
+						"title": "Inputs",
+						"type": "`$ARRAY`",
 						"req": true,
 						"short": "Array of report or dashboard IDs.",
-						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "links",
-						"short": "A map of link names to associated URIs, providing additional resources or documentation related to the batch operation.",
+						"title": "Links",
 						"type": "`$OBJECT`",
+						"short": "A map of link names to associated URIs, providing additional resources or documentation related to the batch operation.",
 					},
 					map[string]any{
 						"name": "ownerId",
+						"title": "Owner Id",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The ID of the user to change the owner to.",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "permissions",
-						"req": true,
+						"title": "Permissions",
 						"type": "`$OBJECT`",
+						"req": true,
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "requestedAt",
-						"short": "The date and time when the batch operation was requested, in ISO 8601 format.",
+						"title": "Requested At",
 						"type": "`$STRING`",
+						"short": "The date and time when the batch operation was requested, in ISO 8601 format.",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "results",
+						"title": "Results",
+						"type": "`$ARRAY`",
 						"req": true,
 						"short": "An array of report objects representing the successful results of the batch operation.",
-						"type": "`$ARRAY`",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "startedAt",
+						"title": "Started At",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The date and time when the batch operation started, in ISO 8601 format.",
-						"type": "`$STRING`",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "status",
+						"title": "Status",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The current status of the batch operation.",
-						"type": "`$STRING`",
 					},
 				},
 				"name": "reporting_batch_response_public_report",
@@ -1559,7 +1635,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/analytics/reporting/2027-03-beta/reports/batch/restore",
@@ -1583,11 +1658,6 @@ func MakeConfig() map[string]any {
 										"lit": "restore",
 									},
 								},
-								"select": map[string]any{},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"analytics",
 									"reporting",
@@ -1596,9 +1666,15 @@ func MakeConfig() map[string]any {
 									"batch",
 									"restore",
 								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/analytics/reporting/2027-03-beta/reports/owners/batch/update",
@@ -1625,11 +1701,6 @@ func MakeConfig() map[string]any {
 										"lit": "update",
 									},
 								},
-								"select": map[string]any{},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"analytics",
 									"reporting",
@@ -1639,9 +1710,15 @@ func MakeConfig() map[string]any {
 									"batch",
 									"update",
 								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/analytics/reporting/2027-03-beta/reports/permissions/batch/update",
@@ -1668,11 +1745,6 @@ func MakeConfig() map[string]any {
 										"lit": "update",
 									},
 								},
-								"select": map[string]any{},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"analytics",
 									"reporting",
@@ -1682,6 +1754,13 @@ func MakeConfig() map[string]any {
 									"batch",
 									"update",
 								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
@@ -1694,93 +1773,109 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "archived",
+						"title": "Archived",
+						"type": "`$BOOLEAN`",
 						"req": true,
 						"short": "Whether the dashboard is archived.",
-						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "archivedAt",
-						"short": "If the dashboard is archived, the date and time when the dashboard was archived, in ISO 8601 format.",
+						"title": "Archived At",
 						"type": "`$STRING`",
+						"short": "If the dashboard is archived, the date and time when the dashboard was archived, in ISO 8601 format.",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "businessUnitId",
+						"title": "Business Unit Id",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The ID of the business unit that the dashboard is associated with.",
-						"type": "`$STRING`",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "createdAt",
+						"title": "Created At",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The date and time when the dashboard was created, in ISO 8601 format.",
-						"type": "`$STRING`",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "createdByUserId",
-						"short": "The ID of the user who created the dashboard.",
+						"title": "Created By User Id",
 						"type": "`$STRING`",
+						"short": "The ID of the user who created the dashboard.",
 					},
 					map[string]any{
 						"name": "description",
-						"short": "A description of the dashboard.",
+						"title": "Description",
 						"type": "`$STRING`",
+						"short": "A description of the dashboard.",
 					},
 					map[string]any{
 						"name": "id",
+						"title": "Id",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The ID of the dashboard.",
-						"type": "`$STRING`",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "lastViewedAt",
-						"short": "The date and time when the dashboard was last viewed, in ISO 8601 format.",
+						"title": "Last Viewed At",
 						"type": "`$STRING`",
+						"short": "The date and time when the dashboard was last viewed, in ISO 8601 format.",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "lastViewedByUserId",
-						"short": "The ID of the user who last viewed the dashboard.",
+						"title": "Last Viewed By User Id",
 						"type": "`$STRING`",
+						"short": "The ID of the user who last viewed the dashboard.",
 					},
 					map[string]any{
 						"name": "name",
+						"title": "Name",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The name of the dashboard.",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "ownerUserId",
-						"short": "The ID of the user who owns the dashboard.",
+						"title": "Owner User Id",
 						"type": "`$STRING`",
+						"short": "The ID of the user who owns the dashboard.",
 					},
 					map[string]any{
 						"name": "permissions",
-						"req": true,
+						"title": "Permissions",
 						"type": "`$OBJECT`",
+						"req": true,
 					},
 					map[string]any{
 						"name": "tags",
-						"short": "Array of objects representing the tags that the dashboard is tagged with.",
+						"title": "Tags",
 						"type": "`$ARRAY`",
+						"short": "Array of objects representing the tags that the dashboard is tagged with.",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "updatedAt",
+						"title": "Updated At",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The date and time when the dashboard was last updated, in ISO 8601 format.",
-						"type": "`$STRING`",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "updatedByUserId",
-						"short": "The ID of the user who last updated the dashboard.",
+						"title": "Updated By User Id",
 						"type": "`$STRING`",
+						"short": "The ID of the user who last updated the dashboard.",
 					},
 					map[string]any{
 						"name": "widgets",
-						"short": "An array of objects representing the widgets on the dashboard.",
+						"title": "Widgets",
 						"type": "`$ARRAY`",
+						"short": "An array of objects representing the widgets on the dashboard.",
 					},
 				},
 				"id": map[string]any{
@@ -1794,115 +1889,6 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"example": nil,
-											"kind": "query",
-											"name": "after",
-											"orig": "after",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": nil,
-											"kind": "query",
-											"name": "archived",
-											"orig": "archived",
-											"type": "`$BOOLEAN`",
-										},
-										map[string]any{
-											"example": nil,
-											"kind": "query",
-											"name": "business_unit_id",
-											"orig": "business_unit_id",
-											"type": "`$ARRAY`",
-										},
-										map[string]any{
-											"example": nil,
-											"kind": "query",
-											"name": "created_after",
-											"orig": "created_after",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": nil,
-											"kind": "query",
-											"name": "created_before",
-											"orig": "created_before",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": nil,
-											"kind": "query",
-											"name": "ids",
-											"orig": "ids",
-											"type": "`$ARRAY`",
-										},
-										map[string]any{
-											"example": nil,
-											"kind": "query",
-											"name": "limit",
-											"orig": "limit",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"example": nil,
-											"kind": "query",
-											"name": "only_favorite",
-											"orig": "only_favorite",
-											"type": "`$BOOLEAN`",
-										},
-										map[string]any{
-											"example": nil,
-											"kind": "query",
-											"name": "owner_user_id",
-											"orig": "owner_user_id",
-											"type": "`$ARRAY`",
-										},
-										map[string]any{
-											"example": nil,
-											"kind": "query",
-											"name": "property",
-											"orig": "property",
-											"type": "`$ARRAY`",
-										},
-										map[string]any{
-											"example": nil,
-											"kind": "query",
-											"name": "q",
-											"orig": "q",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": nil,
-											"kind": "query",
-											"name": "sort",
-											"orig": "sort",
-											"type": "`$ARRAY`",
-										},
-										map[string]any{
-											"example": nil,
-											"kind": "query",
-											"name": "tag_id",
-											"orig": "tag_id",
-											"type": "`$ARRAY`",
-										},
-										map[string]any{
-											"example": nil,
-											"kind": "query",
-											"name": "updated_after",
-											"orig": "updated_after",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": nil,
-											"kind": "query",
-											"name": "updated_before",
-											"orig": "updated_before",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/analytics/reporting/2027-03-beta/dashboards",
@@ -1918,6 +1904,126 @@ func MakeConfig() map[string]any {
 									},
 									map[string]any{
 										"lit": "dashboards",
+									},
+								},
+								"parts": []any{
+									"analytics",
+									"reporting",
+									"2027-03-beta",
+									"dashboards",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "after",
+											"orig": "after",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": nil,
+										},
+										map[string]any{
+											"name": "archived",
+											"orig": "archived",
+											"type": "`$BOOLEAN`",
+											"kind": "query",
+											"example": nil,
+										},
+										map[string]any{
+											"name": "business_unit_id",
+											"orig": "business_unit_id",
+											"type": "`$ARRAY`",
+											"kind": "query",
+											"example": nil,
+										},
+										map[string]any{
+											"name": "created_after",
+											"orig": "created_after",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": nil,
+										},
+										map[string]any{
+											"name": "created_before",
+											"orig": "created_before",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": nil,
+										},
+										map[string]any{
+											"name": "ids",
+											"orig": "ids",
+											"type": "`$ARRAY`",
+											"kind": "query",
+											"example": nil,
+										},
+										map[string]any{
+											"name": "limit",
+											"orig": "limit",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": nil,
+										},
+										map[string]any{
+											"name": "only_favorite",
+											"orig": "only_favorite",
+											"type": "`$BOOLEAN`",
+											"kind": "query",
+											"example": nil,
+										},
+										map[string]any{
+											"name": "owner_user_id",
+											"orig": "owner_user_id",
+											"type": "`$ARRAY`",
+											"kind": "query",
+											"example": nil,
+										},
+										map[string]any{
+											"name": "property",
+											"orig": "property",
+											"type": "`$ARRAY`",
+											"kind": "query",
+											"example": nil,
+										},
+										map[string]any{
+											"name": "q",
+											"orig": "q",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": nil,
+										},
+										map[string]any{
+											"name": "sort",
+											"orig": "sort",
+											"type": "`$ARRAY`",
+											"kind": "query",
+											"example": nil,
+										},
+										map[string]any{
+											"name": "tag_id",
+											"orig": "tag_id",
+											"type": "`$ARRAY`",
+											"kind": "query",
+											"example": nil,
+										},
+										map[string]any{
+											"name": "updated_after",
+											"orig": "updated_after",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": nil,
+										},
+										map[string]any{
+											"name": "updated_before",
+											"orig": "updated_before",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": nil,
+										},
 									},
 								},
 								"select": map[string]any{
@@ -1939,16 +2045,6 @@ func MakeConfig() map[string]any {
 										"updated_before",
 									},
 								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"analytics",
-									"reporting",
-									"2027-03-beta",
-									"dashboards",
-								},
 							},
 						},
 					},
@@ -1961,99 +2057,116 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "archived",
+						"title": "Archived",
+						"type": "`$BOOLEAN`",
 						"req": true,
 						"short": "Whether the dashboard is archived.",
-						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "archivedAt",
-						"short": "If the dashboard is archived, the date and time when the dashboard was archived, in ISO 8601 format.",
+						"title": "Archived At",
 						"type": "`$STRING`",
+						"short": "If the dashboard is archived, the date and time when the dashboard was archived, in ISO 8601 format.",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "businessUnitId",
+						"title": "Business Unit Id",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The ID of the business unit that the dashboard is associated with.",
-						"type": "`$STRING`",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "createdAt",
+						"title": "Created At",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The date and time when the dashboard was created, in ISO 8601 format.",
-						"type": "`$STRING`",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "createdByUserId",
-						"short": "The ID of the user who created the dashboard.",
+						"title": "Created By User Id",
 						"type": "`$STRING`",
+						"short": "The ID of the user who created the dashboard.",
 					},
 					map[string]any{
 						"name": "description",
-						"short": "A description of the dashboard.",
+						"title": "Description",
 						"type": "`$STRING`",
+						"short": "A description of the dashboard.",
 					},
 					map[string]any{
 						"name": "id",
+						"title": "Id",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The ID of the dashboard.",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "inputs",
+						"title": "Inputs",
+						"type": "`$ARRAY`",
 						"req": true,
 						"short": "Array of report or dashboard IDs.",
-						"type": "`$ARRAY`",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "lastViewedAt",
-						"short": "The date and time when the dashboard was last viewed, in ISO 8601 format.",
+						"title": "Last Viewed At",
 						"type": "`$STRING`",
+						"short": "The date and time when the dashboard was last viewed, in ISO 8601 format.",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "lastViewedByUserId",
-						"short": "The ID of the user who last viewed the dashboard.",
+						"title": "Last Viewed By User Id",
 						"type": "`$STRING`",
+						"short": "The ID of the user who last viewed the dashboard.",
 					},
 					map[string]any{
 						"name": "name",
+						"title": "Name",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The name of the dashboard.",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "ownerUserId",
-						"short": "The ID of the user who owns the dashboard.",
+						"title": "Owner User Id",
 						"type": "`$STRING`",
+						"short": "The ID of the user who owns the dashboard.",
 					},
 					map[string]any{
 						"name": "permissions",
-						"req": true,
+						"title": "Permissions",
 						"type": "`$OBJECT`",
+						"req": true,
 					},
 					map[string]any{
 						"name": "tags",
-						"short": "Array of objects representing the tags that the dashboard is tagged with.",
+						"title": "Tags",
 						"type": "`$ARRAY`",
+						"short": "Array of objects representing the tags that the dashboard is tagged with.",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "updatedAt",
+						"title": "Updated At",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The date and time when the dashboard was last updated, in ISO 8601 format.",
-						"type": "`$STRING`",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "updatedByUserId",
-						"short": "The ID of the user who last updated the dashboard.",
+						"title": "Updated By User Id",
 						"type": "`$STRING`",
+						"short": "The ID of the user who last updated the dashboard.",
 					},
 					map[string]any{
 						"name": "widgets",
-						"short": "An array of objects representing the widgets on the dashboard.",
+						"title": "Widgets",
 						"type": "`$ARRAY`",
+						"short": "An array of objects representing the widgets on the dashboard.",
 					},
 				},
 				"id": map[string]any{
@@ -2067,26 +2180,9 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": nil,
-											"kind": "param",
-											"name": "dashboard_id",
-											"orig": "dashboard_id",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/analytics/reporting/2027-03-beta/dashboards/{dashboardId}/batch/widgets",
-								"rename": map[string]any{
-									"param": map[string]any{
-										"dashboardId": "dashboard_id",
-									},
-								},
 								"segments": []any{
 									map[string]any{
 										"lit": "analytics",
@@ -2110,15 +2206,6 @@ func MakeConfig() map[string]any {
 										"lit": "widgets",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"dashboard_id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"analytics",
 									"reporting",
@@ -2128,6 +2215,32 @@ func MakeConfig() map[string]any {
 									"batch",
 									"widgets",
 								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"dashboardId": "dashboard_id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "dashboard_id",
+											"orig": "dashboard_id",
+											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+											"example": nil,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"dashboard_id",
+									},
+								},
 							},
 						},
 					},
@@ -2136,35 +2249,9 @@ func MakeConfig() map[string]any {
 						"name": "remove",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": nil,
-											"kind": "param",
-											"name": "dashboard_id",
-											"orig": "dashboard_id",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"example": nil,
-											"kind": "param",
-											"name": "id",
-											"orig": "report_id",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "DELETE",
 								"orig": "/analytics/reporting/2027-03-beta/dashboards/{dashboardId}/widgets/{reportId}",
-								"rename": map[string]any{
-									"param": map[string]any{
-										"dashboardId": "dashboard_id",
-										"reportId": "id",
-									},
-								},
 								"segments": []any{
 									map[string]any{
 										"lit": "analytics",
@@ -2188,16 +2275,6 @@ func MakeConfig() map[string]any {
 										"var": "id",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"dashboard_id",
-										"id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"analytics",
 									"reporting",
@@ -2206,6 +2283,42 @@ func MakeConfig() map[string]any {
 									"{dashboard_id}",
 									"widgets",
 									"{id}",
+								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"dashboardId": "dashboard_id",
+										"reportId": "id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "dashboard_id",
+											"orig": "dashboard_id",
+											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+											"example": nil,
+										},
+										map[string]any{
+											"name": "id",
+											"orig": "report_id",
+											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+											"example": nil,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"dashboard_id",
+										"id",
+									},
 								},
 							},
 						},
@@ -2215,35 +2328,9 @@ func MakeConfig() map[string]any {
 						"name": "update",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": nil,
-											"kind": "param",
-											"name": "dashboard_id",
-											"orig": "dashboard_id",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"example": nil,
-											"kind": "param",
-											"name": "id",
-											"orig": "report_id",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "PUT",
 								"orig": "/analytics/reporting/2027-03-beta/dashboards/{dashboardId}/widgets/{reportId}",
-								"rename": map[string]any{
-									"param": map[string]any{
-										"dashboardId": "dashboard_id",
-										"reportId": "id",
-									},
-								},
 								"segments": []any{
 									map[string]any{
 										"lit": "analytics",
@@ -2267,16 +2354,6 @@ func MakeConfig() map[string]any {
 										"var": "id",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"dashboard_id",
-										"id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"analytics",
 									"reporting",
@@ -2286,6 +2363,42 @@ func MakeConfig() map[string]any {
 									"widgets",
 									"{id}",
 								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"dashboardId": "dashboard_id",
+										"reportId": "id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "dashboard_id",
+											"orig": "dashboard_id",
+											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+											"example": nil,
+										},
+										map[string]any{
+											"name": "id",
+											"orig": "report_id",
+											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+											"example": nil,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"dashboard_id",
+										"id",
+									},
+								},
 							},
 						},
 					},
@@ -2293,7 +2406,7 @@ func MakeConfig() map[string]any {
 				"relations": map[string]any{
 					"ancestors": []any{
 						[]any{
-							"dashboard",
+							"$.main.kit.entity.dashboard",
 						},
 					},
 				},
